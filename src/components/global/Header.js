@@ -20,7 +20,7 @@ function MenuContainer({ children }) {
     return <div className='relative top-1/4 w-full mt-8 overflow-y-auto'>{children}</div>;
 }
 
-export const Header = ({ homePage, title, desc, currentPage }) => {
+export const Header = ({ currentPage }) => {
     //  const currentUserRoute = useNavigate();
 
     const [top, setTop] = useState(true);
@@ -44,8 +44,8 @@ export const Header = ({ homePage, title, desc, currentPage }) => {
         <>
             <header
                 className={classNames("fixed top-0 font-black z-40 w-full transition-colors ",
-                    { 'bg-white/70 backdrop-blur border-b-2 border-white dark:border-bg text-bg dark:text-white dark:bg-bg/70 dark:backdrop-blur': !top }, {
-                    "bg-bg/70  backdrop-blur text-black/80 dark:bg-bg-100 dark:text-bg dark:backdrop-blur": top
+                    { 'bg-white/70 backdrop-blur border-b-2 border-white': !top }, {
+                    "bg-tdf-bg text-gray-800  ": top
                 })}
 
             >

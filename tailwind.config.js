@@ -30,6 +30,7 @@ module.exports = {
           400: "#173F73",
           500: "#0477BF"
         },
+        "tdf-bg": "#f5f2eb",
         primary: "#06103c",
 
 

@@ -5,7 +5,7 @@ import HeroIntro from '../components/section/HeroIntro'
 
 const Home = () => {
   return (
-    <div className="mt-20">
+    <div className="">
       <HeroIntro />
       <Hero />
       <h1 className="text-2xl">Home</h1>
