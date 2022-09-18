@@ -38,6 +38,7 @@ module.exports = {
       backgroundImage: {
         "woman-bg": "url('./assets/images/charity-for-woman-2.jpg')",
         "hero-bg": "url('./assets/hero/hero-bg.svg')",
+        "about-shape1": "url('./assets/about/about-shape-1.png')",
       },
       rotate: {
         '360': '360deg'
