@@ -1,0 +1,126 @@
+@font-face {
+  font-family: "Fredoka";
+  src: url("../public/font/FredokaFonts/FredokaOne-Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* DM Sans Regular */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../public/font/DM_Sans/DMSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* DM Sans Italic */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../public/font/DM_Sans/DMSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+/* DM Sans Medium */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../public/font/DM_Sans/DMSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* DM Sans Bold */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../public/font/DM_Sans/DMSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* DM Sans Bold Italic */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../public/font/DM_Sans/DMSans-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ul,
+  li,
+  a,
+  button,
+  span {
+    font-family: "DM Sans", "sans-serif";
+  }
+  p {
+    @apply text-[1.125rem] lg:text-[1.25rem] leading-[2rem];
+    font-family: "DM Sans", "sans-serif";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Fredoka", "sans-serif";
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  @apply bg-white;
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+}
+
+.slick-dots li button:before {
+  font-size: 8px !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+
+@media (min-width: 1024px) {
+  .slick-dots li button:before {
+    font-size: 12px !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 30px;
+  }
+}
+
+/*-----------------------------------*\
+  #HERO
+\*-----------------------------------*/
+.img-holder.one {
+  border-top-right-radius: 70px;
+  border-bottom-left-radius: 110px;
+}
+.img-holder.two {
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 90px;
+}
+.img-holder.three {
+  /* border-top-left-radius: 70px;*/
+  border-radius: 70px;
+  border-bottom-right-radius: 10px;
+}
+.hero-shape-1 {
+  display: block;
+  position: absolute;
+  bottom: -40px;
+  left: -10px;
+}
