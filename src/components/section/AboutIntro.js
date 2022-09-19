@@ -5,22 +5,26 @@ import ShowLove from "../../assets/about/love-shapes.svg"
 import Button from '../form/Button';
 import aboutShape from '../../assets/about/about-shape-3.png';
 import Fade from 'react-reveal/Fade';
+import SectionTitle from './SectionTitle';
+import SectionSubTitle from './SectionSubTitle';
 
 
 
 function AboutIntro() {
     return (
         <>
-            <section className="relative py-24 lg:py-32 text-gray-800">
+            <section className="relative pt-24 pb-10 lg:pt-32 lg:pb-2 text-gray-800">
 
                 <div className="lg:p-12">
                     <div className="lg:flex lg:gap-10 lg:justify-between">
                         <div className="lg:w-[55%] px-2">
                             <div className="relative">
                                 <div className=" flex justify-center gap-6">
-                                    <div className="z-20" style={{ width: 520, height: 370 }}>
-                                        <img src={AboutBanner} width={520} height={370} loading="lazy" alt="about banner" className="rounded-xl" />
-                                    </div>
+                                    <Fade left>
+                                        <div className="z-20" style={{ width: 520, height: 370 }}>
+                                            <img src={AboutBanner} width={520} height={370} loading="lazy" alt="about banner" className="rounded-xl" />
+                                        </div>
+                                    </Fade>
 
 
                                 </div>
@@ -29,7 +33,7 @@ function AboutIntro() {
                                         <span className="rounded-full p-4 bg-tdf-blue-50/20" >
                                             <img src={ShowLove} width={30} height={30} alt="" className="" />
                                         </span>
-                                        <p className="text-xs font-black mr-8 text-gray-900 w-36">We help more than 1K children every year</p>
+                                        <p className="text-xs font-black mr-8 text-gray-900 w-[155px]">We help more than 1.2k+ children every year</p>
                                     </div>
                                 </div>
 
@@ -39,12 +43,10 @@ function AboutIntro() {
                         <div className="mt-[-30px] md:mt-0 lg:pb-20 lg:mt-[-100px] xl:mt-[-50px] lg:w-[45%] px-3 ">
                             <div className="md:px-8 md:mt-12 lg:mt-0 lg:px-0">
                                 <Fade top>
-                                    <p className="text-lg font-black my-2 uppercase text-gray-400">About Us</p>
+                                    <SectionTitle title="About Us" />
                                 </Fade>
                                 <Fade left>
-                                    <h1 className="text-gray-800 mb-6 text-3xl lg:text-4xl ">
-                                        We Can Save More Lifes With Your Helping Hand.
-                                    </h1>
+                                    <SectionSubTitle subTitle="  We Can Save More Lifes With Your Helping Hand." />
                                 </Fade>
                                 <Fade bottom>
                                     <p className=" mb-10 text-gray-600">

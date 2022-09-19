@@ -1,8 +1,10 @@
 import React from 'react'
 import Footer from '../components/global/Footer'
 import AboutIntro from '../components/section/AboutIntro'
-// import Hero from '../components/section/Hero'
+import WhatWeDo from '../components/section/WhatWeDo'
 import HeroIntro from '../components/section/HeroIntro'
+// import Stats from '../components/section/Stats'
+
 
 
 const Home = () => {
@@ -10,6 +12,8 @@ const Home = () => {
     <div className="">
       <HeroIntro />
       <AboutIntro />
+      {/* <Stats /> */}
+      <WhatWeDo />
       {/* <Hero /> */}
       <Footer />
     </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 export const SelectArrowIcon = (props) => (
   <svg width={12} height={8} fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="m1 1.5 5 5 5-5" stroke="#98A9BC" strokeWidth={1.667} strokeLinecap="round" strokeLinejoin="round" />
@@ -33,10 +34,28 @@ export const Facebook = (props) => (
   </svg>
 )
 
+export const NetShape = ({ props }) => (
+  <svg viewBox="0 0 52 24" fill="currentColor" {...props} classname="w-32text-tdf-blue-500 ">
+    <defs>
+      <pattern id="d06ca312-d4ed-465f-ad18-fb0c0f92b6f1" x="0" y="0" width=".135" height=".30">
+        <circle cx="1" cy="1" r=".7" />
+      </pattern>
+    </defs>
+    <rect fill="url(#d06ca312-d4ed-465f-ad18-fb0c0f92b6f1)" width="52" height="24" />
+  </svg>
+)
 
+export function Mail(props) {
+  return (
+    <svg width="36" {...props} height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M28.5 7.5H7.5C5.84315 7.5 4.5 8.84315 4.5 10.5V25.5C4.5 27.1569 5.84315 28.5 7.5 28.5H28.5C30.1569 28.5 31.5 27.1569 31.5 25.5V10.5C31.5 8.84315 30.1569 7.5 28.5 7.5Z" stroke="#1F2937" strokewidth="2.75" strokelinecap="round" strokelinejoin="round" />
+      <path d="M4.5 10.5L18 19.5L31.5 10.5" stroke="#1F2937" strokewidth="2.75" strokelinecap="round" strokelinejoin="round" />
+    </svg>
+  );
+}
 export function LoveIcon({ props }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" {...props} width={24} height={24} fill="none" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" {...props} width={20} height={20} fill="none" viewBox="0 0 24 24">
       <path fill="#f43f5e" fillrule="evenodd" d="M6.474 1.965c1.806-.027 3.791.66 5.526 2.083 1.735-1.424 3.72-2.11 5.526-2.083 1.988.03 3.807.936 4.688 2.72.874 1.77.719 4.191-.75 7.051-1.47 2.864-4.3 6.266-8.977 10.12a.745.745 0 01-.817.104.745.745 0 01-.157-.103c-4.677-3.855-7.507-7.257-8.977-10.12-1.469-2.86-1.624-5.282-.75-7.052.88-1.784 2.7-2.69 4.688-2.72z" cliprule="evenodd" />
     </svg>
 

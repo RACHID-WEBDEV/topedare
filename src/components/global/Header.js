@@ -58,7 +58,7 @@ export const Header = ({ currentPage }) => {
 
 
                     {/* Menu / Actions */}
-                    <div className="dark:bg-jacarta-800 invisible fixed inset-0 z-10 ml-auto items-center opacity-0 lg:visible lg:relative lg:inset-auto lg:flex lg:bg-transparent lg:opacity-100 dark:lg:bg-transparent">
+                    <div className="invisible fixed inset-0 z-10 ml-auto items-center opacity-0 lg:visible lg:relative lg:inset-auto lg:flex lg:bg-transparent lg:opacity-100 dark:lg:bg-transparent">
                         <nav className="navbar w-full">
                             <ul className="flex flex-col lg:flex-row">
 
@@ -78,9 +78,9 @@ export const Header = ({ currentPage }) => {
                                 <li>
 
                                     <button type="button" className="text-white bg-tdf-blue-50 hover:bg-tdf-blue-100 font-medium rounded-lg text-lg px-5 py-2.5 text-center inline-flex items-center">
-                                        Donate now
+                                        Donate
                                         <span className="ml-2 -mr-1">
-                                            <LoveIcon className=" w-5 h-5" />
+                                            <LoveIcon className=" w-4 h-4" />
                                         </span>
                                     </button>
 
