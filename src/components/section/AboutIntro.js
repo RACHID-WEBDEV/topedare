@@ -21,8 +21,8 @@ function AboutIntro() {
                             <div className="relative">
                                 <div className=" flex justify-center gap-6">
                                     <Fade left>
-                                        <div className="z-20" style={{ width: 520, height: 370 }}>
-                                            <img src={AboutBanner} width={520} height={370} loading="lazy" alt="about banner" className="rounded-xl" />
+                                        <div className="z-20 overflow-hidden group rounded-xl" style={{ width: 520, height: 370 }}>
+                                            <img src={AboutBanner} width={520} height={370} loading="lazy" alt="about banner" className="rounded-xl group-hover:scale-105 transition-transform duration-700" />
                                         </div>
                                     </Fade>
 
@@ -33,7 +33,7 @@ function AboutIntro() {
                                         <span className="rounded-full p-4 bg-tdf-blue-50/20" >
                                             <img src={ShowLove} width={30} height={30} alt="" className="" />
                                         </span>
-                                        <p className="text-xs font-black mr-8 text-gray-900 w-[155px]">We help more than 1.2k+ children every year</p>
+                                        <p className="text-xs font-black mr-8 text-gray-900 w-[155px]">We help more than 320+ children every year</p>
                                     </div>
                                 </div>
 

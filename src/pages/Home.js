@@ -4,6 +4,7 @@ import AboutIntro from '../components/section/AboutIntro'
 import WhatWeDo from '../components/section/WhatWeDo'
 import HeroIntro from '../components/section/HeroIntro'
 // import Stats from '../components/section/Stats'
+// import { PagesHeader } from './../components/section/PagesHeader';
 
 
 
@@ -14,7 +15,16 @@ const Home = () => {
       <AboutIntro />
       {/* <Stats /> */}
       <WhatWeDo />
+
+
+
+      {/* <PagesHeader /> */}
       {/* <Hero /> */}
+
+
+
+
+
       <Footer />
     </div>
   )
