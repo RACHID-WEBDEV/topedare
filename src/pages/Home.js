@@ -13,12 +13,12 @@ const Home = () => {
     <div className="">
       <HeroIntro />
       <AboutIntro />
-      {/* <Stats /> */}
       <WhatWeDo />
 
 
 
-      {/* <PagesHeader /> */}
+      {/* <PagesHeader />
+      <Stats /> */}
       {/* <Hero /> */}
 
 

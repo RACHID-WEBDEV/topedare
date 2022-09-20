@@ -14,8 +14,8 @@ const WhatWeDo = () => {
     return (
         <>
             <section className="relative overflow-hidden ">
-                <div className="py-16">
-                    <div className="px-5 lg:px-12">
+                <div className="py-16 lg:pl-8 xl:pl-20 xl:pr-8">
+                    <div className="px-5 lg:px-6">
                         <div className="relative">
                             <Fade top>
                                 <SectionTitle title="What We do" />
@@ -43,7 +43,7 @@ const WhatWeDo = () => {
                                     <div className>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 lg:gap-12 gap-10">
                                             <Fade left>
-                                                <div className="flex p-4 shadow-md">
+                                                <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
                                                     <div className="mr-6">
                                                         <img src={Health} width={80} height={80} alt="health icon" className="min-w-[40px] min-h-[40px]" />
 
@@ -56,7 +56,7 @@ const WhatWeDo = () => {
 
                                             </Fade>
                                             <Fade bottom>
-                                                <div className="flex p-4 shadow-md">
+                                                <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
                                                     <div className="mr-6">
                                                         <img src={Education} width={65} height={65} alt="health icon" className="min-w-[40px] min-h-[40px]" />
                                                     </div>
@@ -69,7 +69,7 @@ const WhatWeDo = () => {
                                             </Fade>
 
                                             <Fade top>
-                                                <div className="flex p-4 shadow-md">
+                                                <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
                                                     <div className="mr-6">
                                                         <img src={Employment} width={65} height={65} alt="health icon" className="min-w-[40px] min-h-[40px]" />
 
@@ -84,7 +84,7 @@ const WhatWeDo = () => {
 
 
                                             <Fade bottom>
-                                                <div className="flex p-4 shadow-md">
+                                                <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
                                                     <div className="mr-6">
                                                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M10.5 10.5C12.1569 10.5 13.5 9.15685 13.5 7.5C13.5 5.84315 12.1569 4.5 10.5 4.5C8.84315 4.5 7.5 5.84315 7.5 7.5C7.5 9.15685 8.84315 10.5 10.5 10.5Z" stroke="#1F2937" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
@@ -110,7 +110,11 @@ const WhatWeDo = () => {
                                 </div>
                                 <Fade right>
                                     <div className="order-first lg:order-last">
-                                        <img src={SectionImg} width={80} height={80} alt="SectionImg icon" className="object-cover w-full  h-full rounded-lg shadow-lg min-w-[0px] min-h-[0px]" />
+
+                                        <div className="z-20 overflow-hidden group rounded-xl w-full h-full" >
+                                            <img src={SectionImg} loading="lazy" alt="What we do banner" className="w-full  h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700" />
+                                        </div>
+
                                     </div>
                                 </Fade>
                             </div>

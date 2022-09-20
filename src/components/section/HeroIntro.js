@@ -44,7 +44,7 @@ export const HeroSlide = ({ banner1, banner2, banner3, btnLink, btnTitle, title,
                                 {banner2}
                             </div>
                         </div>
-                        <img src={HeroShape2} width={622} height={551} alt="" className="absolute right-[-25px] top-[-20px] md:right-5 lg:right-0 lg:top-[-90px]" />
+                        <img src={HeroShape2} width={638} height={551} alt="" className="absolute right-[-25px] top-[-20px] md:right-5 lg:right-0 lg:top-[-80px]" />
                     </div>
                 </div>
 
