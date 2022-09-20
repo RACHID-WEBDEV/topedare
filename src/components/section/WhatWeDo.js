@@ -40,7 +40,7 @@ const WhatWeDo = () => {
                         <div className="relative">
                             <div className="grid gap-12 row-gap-8 lg:grid-cols-2">
                                 <div className="grid gap-10 row-gap-5">
-                                    <div className>
+                                    <div className="">
                                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 lg:gap-12 gap-10">
                                             <Fade left>
                                                 <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
