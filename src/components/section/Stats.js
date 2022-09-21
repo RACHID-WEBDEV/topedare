@@ -1,30 +1,47 @@
 import React from "react";
+import SectionTitle from "./SectionTitle";
+import SectionSubTitle from './SectionSubTitle';
+import { Fade } from "react-reveal";
+// overflow-hidden object-cover object-[83%]  bg-cover bg-center bg-hero-bg 
 
 export default function Stats() {
     return (
-        <>
-            <div className="xl:px-20 px-6 py-20 xl:mx-auto xl:container">
-                <h1 className="xl:text-5xl md:text-4xl text-2xl font-semibold leading-tight text-center text-gray-800 sm:mb-0 mb-12">
-                    More Than 10 Years We Provide Service <br className="md:block hidden" />
-                    in Real State Industry
-                </h1>
+        <div className="bg-white">
+            <div className="xl:px-16 px-4 py-10 xl:mx-auto xl:container">
+                <Fade top>
+                    <SectionTitle title="Working on Charity" />
+
+                </Fade>
+                <div className="max-w-[45rem]">
+                    <Fade left>
+                        <SectionSubTitle subTitle="Happy People. Better World " />
+
+                    </Fade>
+                    <Fade bottom>
+                        <p className=" mb-10 text-gray-600">Join hands with us for a better life and future for the poor across the country, Small Donations Make Bigger Impact
+                            On Someone’s Life, Act Today!</p>
+                    </Fade>
+
+                </div>
+
+
                 <div className="md:mt-14 mt-4 relative sm:flex items-center justify-center">
                     <img src="https://i.ibb.co/KjrPCyW/map.png" alt="world map drawing " className="w-full xl:h-full h-96 object-cover object-fill sm:block hidden" />
                     <img src="https://i.ibb.co/SXKj9Mf/map-bg.png" alt="mobile world map drawing" className="sm:hidden -mt-10 block w-full h-96 object-cover object-fill absolute z-0" />
-                    <div className="shadow-lg xl:p-6 p-4 sm:w-auto w-full bg-white sm:absolute relative z-20 sm:mt-0 mt-4 left-0 xl:ml-56 sm:ml-12 xl:-mt-40 sm:-mt-12">
-                        <p className="text-3xl font-semibold text-gray-800">20K+</p>
-                        <p className="text-base leading-4 xl:mt-4 mt-2 text-gray-600">Recently Property Listed</p>
+                    <div className="shadow-lg xl:p-6 p-4 sm:w-auto w-full bg-white sm:absolute relative z-20  mt-4 left-0 xl:ml-56 sm:ml-12 xl:-mt-40 sm:-mt-12">
+                        <p className="text-4xl font-bold text-gray-800">42+</p>
+                        <p className="text-base leading-4 xl:mt-4 mt-2 text-gray-600">FINANCIAL EMPOWERMENT</p>
                     </div>
-                    <div className="shadow-lg xl:p-6 p-4 w-48 sm:w-auto w-full bg-white sm:absolute relative z-20 sm:mt-0 mt-4 xl:mt-80 sm:mt-56 xl:-ml-0 sm:-ml-12">
-                        <p className="text-3xl font-semibold text-gray-800">8K+</p>
-                        <p className="text-base leading-4 xl:mt-4 mt-2 text-gray-600">Active Listening</p>
+                    <div className="shadow-lg xl:p-6 p-4 w-52 sm:w-auto  bg-white sm:absolute relative z-20 mt-4 xl:mt-80 sm:mt-56 xl:-ml-0 sm:-ml-12">
+                        <p className="text-4xl font-bold text-gray-800">18+</p>
+                        <p className="text-base leading-4 xl:mt-4 mt-2 text-gray-600">SCHOOLS SUPPORTED</p>
                     </div>
                     <div className="shadow-lg xl:p-6 p-4 sm:w-auto w-full bg-white sm:absolute relative z-20 md:mt-0 sm:-mt-5 mt-4 right-0 xl:mr-56 sm:mr-24">
-                        <p className="text-3xl font-semibold text-gray-800">15K+</p>
-                        <p className="text-base leading-4 xl:mt-4 mt-2 text-gray-600">Recently Sold Lands</p>
+                        <p className="text-4xl font-bold text-gray-800">320+</p>
+                        <p className="text-base leading-4 xl:mt-4 mt-2 text-gray-600">HAPPY CHILDREN</p>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

@@ -12,7 +12,7 @@ export const HeroSlide = ({ banner1, banner2, banner3, btnLink, btnTitle, title,
     <>
         <div className="px-4 lg:px-12 mt-[74px]">
             <div className="flex flex-col lg:flex-row lg:gap-10 lg:justify-between">
-                <div className="py-5 order-last mt-[-120px] mb-5 md:ml-20 lg:ml-0  lg:mb-0 md:mt-10 lg:mt-0 lg:order-first lg:py-20 lg:w-[45%] xl:pl-14">
+                <div className="py-5 order-last mt-[-130px] mb-5 md:ml-20 lg:ml-0  lg:mb-0 md:mt-10 lg:mt-0 lg:order-first lg:py-20 lg:w-[45%] xl:pl-14">
                     <div className="lg:mt-3">
                         <Fade top delay={1000} >
                             <h1 className="text-gray-800 mb-6 text-[44px] leading-none lg:text-7xl ">
@@ -44,7 +44,6 @@ export const HeroSlide = ({ banner1, banner2, banner3, btnLink, btnTitle, title,
                                 {banner2}
                             </div>
                         </div>
-                        {/* <img src={HeroShape2} width={622} height={551} alt="" className="absolute right-[-25px] top-[-20px] md:right-5 lg:right-0 lg:top-[-90px]" /> */}
                         <img src={HeroShape2} width={638} height={551} alt="" className="absolute right-[-25px] top-[-20px] md:right-5 lg:right-0 lg:top-[-80px]" />
                     </div>
                 </div>

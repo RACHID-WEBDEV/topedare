@@ -3,7 +3,7 @@ import Footer from '../components/global/Footer'
 import AboutIntro from '../components/section/AboutIntro'
 import WhatWeDo from '../components/section/WhatWeDo'
 import HeroIntro from '../components/section/HeroIntro'
-// import Stats from '../components/section/Stats'
+import Stats from '../components/section/Stats'
 // import { PagesHeader } from './../components/section/PagesHeader';
 import CTA from '../components/section/CTA'
 
@@ -16,10 +16,11 @@ const Home = () => {
       <AboutIntro />
       <WhatWeDo />
       <CTA />
+      <Stats />
+
 
 
       {/* <PagesHeader /> */}
-      {/*  <Stats /> */}
       {/* <Hero /> */}
 
 
