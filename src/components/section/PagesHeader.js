@@ -2,12 +2,8 @@
 export const PagesHeader = () => {
     return (
         <>
-            <div className="relative">
-                <img
-                    src="https://images.pexels.com/photos/3228766/pexels-photo-3228766.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                    className="absolute inset-0 object-cover w-full h-full"
-                    alt=""
-                />
+            <div className="relative  object-cover object-[83%] w-full h-full  bg-cover bg-center bg-woman-bg bg-overlay">
+
                 <div className="relative bg-opacity-75 bg-deep-purple-accent-700">
                     <svg
                         className="absolute inset-x-0 bottom-0 text-white"
@@ -346,7 +342,7 @@ export const PagesHeader = () => {
             <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
                 <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
                     <img src="https://source.unsplash.com/random/480x360" alt="" className="w-full h-60 sm:h-96 dark:bg-gray-500" />
-                    <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-900">
+                    <div className="p-6 pb-12 m-4 mx-auto bg-tdf-bg -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-900">
                         <div className="space-y-2">
                             <a rel="noopener noreferrer" href="#" className="inline-block text-2xl font-semibold sm:text-3xl">The Best Activewear from the Nordstrom Anniversary Sale</a>
                             <p className="text-xs dark:text-gray-400">By

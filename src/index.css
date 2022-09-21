@@ -108,6 +108,25 @@ input:-webkit-autofill:active {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
+
+.bg-overlay {
+  position: relative;
+  transition: background-color 1s;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* .bg-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+} */
+.bg-overlay:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: inherit;
+  content: " ";
+}
+
 /*-----------------------------------*\
   #HERO
 \*-----------------------------------*/
@@ -154,5 +173,54 @@ input:-webkit-autofill:active {
 
   60% {
     transform: translateY(-15px);
+  }
+}
+
+/*** 
+=============================================
+    CTA Area style
+=============================================
+***/
+.cta-area {
+  z-index: 1;
+}
+
+.cta-area_bg {
+  top: 190px;
+  background-position: center top;
+  z-index: -1;
+}
+
+.cta-content_top {
+  /* padding: 72px 100px 77px; */
+  background-position: center top;
+  z-index: 2;
+  border-radius: 10px;
+}
+.cta-content_top:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.cta-content_top .name:before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .cta-content_top .name:before {
+    top: 14px;
   }
 }

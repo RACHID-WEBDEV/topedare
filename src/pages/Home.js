@@ -5,6 +5,7 @@ import WhatWeDo from '../components/section/WhatWeDo'
 import HeroIntro from '../components/section/HeroIntro'
 // import Stats from '../components/section/Stats'
 // import { PagesHeader } from './../components/section/PagesHeader';
+import CTA from '../components/section/CTA'
 
 
 
@@ -14,11 +15,11 @@ const Home = () => {
       <HeroIntro />
       <AboutIntro />
       <WhatWeDo />
+      <CTA />
 
 
-
-      {/* <PagesHeader />
-      <Stats /> */}
+      {/* <PagesHeader /> */}
+      {/*  <Stats /> */}
       {/* <Hero /> */}
 
 
