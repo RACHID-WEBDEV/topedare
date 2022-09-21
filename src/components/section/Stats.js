@@ -3,7 +3,7 @@ import SectionTitle from "./SectionTitle";
 import SectionSubTitle from './SectionSubTitle';
 import { Fade } from "react-reveal";
 import mapbg from '../../assets/cta/map-bg.png'
-import map from '../../assets/cta/map.png'
+import map from '../../assets/cta/serving-map2.png'
 
 export default function Stats() {
     return (

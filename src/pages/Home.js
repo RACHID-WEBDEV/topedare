@@ -6,6 +6,7 @@ import HeroIntro from '../components/section/HeroIntro'
 import Stats from '../components/section/Stats'
 // import { PagesHeader } from './../components/section/PagesHeader';
 import CTA from '../components/section/CTA'
+import Subcribe from '../components/section/Subcribe';
 
 
 
@@ -17,7 +18,7 @@ const Home = () => {
       <WhatWeDo />
       <CTA />
       <Stats />
-
+      <Subcribe />
 
 
       {/* <PagesHeader /> */}
