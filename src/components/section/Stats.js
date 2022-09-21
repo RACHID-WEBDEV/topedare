@@ -22,7 +22,7 @@ export default function Stats() {
 
                     </Fade>
                     <Fade bottom>
-                        <p className=" mb-10 text-gray-600">Join hands with us for a better life and future for the poor across the country, Small Donations Make Bigger Impact
+                        <p className=" mb-10 pb-10 lg:pb-5 text-gray-600">Join hands with us for a better life and future for the poor across the country, Small Donations Make Bigger Impact
                             On Someone’s Life, Act Today!</p>
                     </Fade>
 
@@ -30,7 +30,7 @@ export default function Stats() {
 
 
                 <div className="md:mt-14 mt-4 relative sm:flex items-center justify-center">
-                    <img src={map} alt="world map drawing " className="w-full xl:h-full h-96  object-fill sm:block hidden" />
+                    <img src={map} alt="world map drawing " className="w-full xl:h-full h-96 object-fill sm:block hidden" />
                     <img src={mapbg} alt="mobile world map drawing" className="sm:hidden -mt-10 block w-full h-96  object-fill absolute z-0" />
                     <div className="shadow-lg xl:p-6 p-4 sm:w-auto w-full bg-white sm:absolute relative z-20  mt-4 left-0 xl:ml-56 sm:ml-12 xl:-mt-40 sm:-mt-12">
                         <p className="text-4xl font-bold text-gray-800">42+</p>
