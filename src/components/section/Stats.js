@@ -5,9 +5,6 @@ import { Fade } from "react-reveal";
 import mapbg from '../../assets/cta/map-bg.png'
 import map from '../../assets/cta/map.png'
 
-// overflow-hidden object-cover object-[83%]  bg-cover bg-center bg-hero-bg 
-//https://i.ibb.co/KjrPCyW/map.png
-
 export default function Stats() {
     return (
         <div className="bg-white">
