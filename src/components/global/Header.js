@@ -3,8 +3,8 @@ import { routes } from "../../data/global";
 import classNames from 'classnames';
 import { Link, NavLink } from "react-router-dom";
 import { Logo } from "./Logo"
-import { Discord, Facebook, Instagram, LoveIcon, Tiktok, Twitter, } from '../../assets/svgsIcons.js';
-// import { useNavigate } from 'react-router-dom';
+import { Discord, Facebook, Instagram, Tiktok, Twitter, } from '../../assets/svgsIcons.js';
+import SupportBtn from './../form/SupportBtn';
 
 function Menu({ children, open }) {
     return (
@@ -27,19 +27,9 @@ export const Header = ({ currentPage, id }) => {
     const [top, setTop] = useState(true);
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [open, setOpen] = useState(false);
-    // const [click, setClick] = useState(false);
 
-    // const scrollTo = (id) => {
-    //     let element = document.getElementById(id);
 
-    //     element.scrollIntoView({
-    //         behavior: "smooth",
-    //         block: "start",
-    //         inline: "nearest",
-    //     });
 
-    //     setClick(!click);
-    // };
 
 
     const toggle = () => {
@@ -96,12 +86,7 @@ export const Header = ({ currentPage, id }) => {
 
                                 <li>
 
-                                    <button type="button" className="text-white bg-tdf-blue-50 hover:bg-tdf-blue-100 font-medium rounded-lg text-lg px-5 py-2.5 text-center inline-flex items-center">
-                                        Donate
-                                        <span className="ml-2 -mr-1">
-                                            <LoveIcon className=" w-4 h-4" />
-                                        </span>
-                                    </button>
+                                    <SupportBtn title="Donate" />
 
 
 

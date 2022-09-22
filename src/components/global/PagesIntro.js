@@ -24,4 +24,8 @@ const PagesIntro = ({ className, title }) => {
     )
 }
 
+PagesIntro.defaultProps = {
+    className: "text-white"
+};
+
 export default PagesIntro

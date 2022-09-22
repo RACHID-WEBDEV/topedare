@@ -4,6 +4,10 @@ import Header from "./components/global/Header";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Footer from './components/global/Footer';
+import Projects from './pages/Projects';
+import Gallery from './pages/Gallery';
+import Contact from './pages/Contact';
+
 
 export const NotFound = () => (
   <section className="mt-20 bg-white dark:bg-gray-900">
@@ -27,7 +31,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        {/* <Route index element={<Home />} /> */}
+        <Route path="projects" element={<Projects />} />
+        <Route path="gallery" element={<Gallery />} />
+        <Route path="contact" element={<Contact />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

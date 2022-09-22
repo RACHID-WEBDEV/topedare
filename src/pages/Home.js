@@ -8,7 +8,7 @@ import Stats from '../components/section/Stats'
 import CTA from '../components/section/CTA'
 import Subcribe from '../components/section/Subcribe';
 import BlogIntro from '../components/section/BlogIntro'
-// import Projects from '../components/section/Projects';
+
 
 
 
@@ -23,8 +23,8 @@ const Home = () => {
       <Stats />
       <BlogIntro />
       <Subcribe />
-      {/* 
-      <Projects /> */}
+
+
 
       {/* <PagesHeader /> */}
       {/* <Hero /> */}
