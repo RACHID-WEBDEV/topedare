@@ -153,7 +153,7 @@ export const Header = ({ currentPage, id }) => {
                     </div>
 
                 </div>
-                <div className="relative mt-10 overflow-y-auto mx-7 ">
+                <div className="relative mt-10 overflow-y-auto mx-7 " onClick={toggle}>
                     <MenuContainer>
 
                         <nav className="navbar w-full">
