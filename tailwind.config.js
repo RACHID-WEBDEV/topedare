@@ -41,7 +41,8 @@ module.exports = {
         "about-shape1": "url('./assets/about/about-shape-1.png')",
         "section-bg": "url('./assets/section/section-shape-bg.svg')",
         "cta-bg": "url('./assets/cta/cta-content_top-bg.jpg')",
-        "cta-bg2": "url('./assets/cta/cta-pattern.jpg ') "
+        "cta-bg2": "url('./assets/cta/cta-pattern.jpg ') ",
+        "section-bg-lg": "url('./assets/section/section-bg.jpg')"
       },
       rotate: {
         '360': '360deg'

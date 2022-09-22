@@ -20,12 +20,27 @@ function MenuContainer({ children }) {
     return <div className='relative top-1/4 w-full mt-8 overflow-y-auto'>{children}</div>;
 }
 
-export const Header = ({ currentPage }) => {
+
+export const Header = ({ currentPage, id }) => {
     //  const currentUserRoute = useNavigate();
 
     const [top, setTop] = useState(true);
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [open, setOpen] = useState(false);
+    // const [click, setClick] = useState(false);
+
+    // const scrollTo = (id) => {
+    //     let element = document.getElementById(id);
+
+    //     element.scrollIntoView({
+    //         behavior: "smooth",
+    //         block: "start",
+    //         inline: "nearest",
+    //     });
+
+    //     setClick(!click);
+    // };
+
 
     const toggle = () => {
         setOpen((prevState) => !prevState);
@@ -40,9 +55,13 @@ export const Header = ({ currentPage }) => {
         return () => window.removeEventListener('scroll', scrollHandler);
     }, [top]);
 
+
+
+
     return (
         <>
             <header
+                id={id}
                 className={classNames("fixed top-0 font-black z-40 w-full transition-colors ",
                     { 'bg-white/70 backdrop-blur border-b-2 border-white': !top }, {
                     "bg-tdf-bg text-gray-800  ": top
