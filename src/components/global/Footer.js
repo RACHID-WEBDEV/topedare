@@ -1,12 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo"
-// import ScrollToTop from './ScrollToTop';
 
 const Footer = () => {
+
+    const [isVisible, setIsVisible] = useState(false);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
+    useEffect(() => {
+        const toggleVisibility = () => {
+            if (window.pageYOffset > 500) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        window.addEventListener("scroll", toggleVisibility);
+
+        return () => window.removeEventListener("scroll", toggleVisibility);
+    }, []);
+
     return (
         <>
-            <footer className="p-4 lg:p-10 bg-tdf-bg sm:p-6 ">
+            <footer id="footer" className="p-4 lg:p-10 bg-tdf-bg sm:p-6 ">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
                         <Logo />
@@ -74,6 +98,7 @@ const Footer = () => {
                                 </li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
@@ -119,7 +144,13 @@ const Footer = () => {
                             </span>
                         </Link>
                     </div>
-                    {/* <ScrollToTop /> */}
+
+                    {
+                        isVisible &&
+                        <Link onClick={scrollToTop} to='#' id="scroll-top">
+                            <svg xmlns="http://www.w3.org/2000/svg" cl width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="text-white"><line x1="12" y1="19" x2="12" y2="5" id="id_101" /><polyline points="5 12 12 5 19 12" id="id_102" /></svg>
+                        </Link>
+                    }
                 </div>
             </footer>
         </>

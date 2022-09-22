@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { routes } from "../../data/global";
 import classNames from 'classnames';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Logo } from "./Logo"
 import { Discord, Facebook, Instagram, LoveIcon, Tiktok, Twitter, } from '../../assets/svgsIcons.js';
 // import { useNavigate } from 'react-router-dom';
@@ -61,7 +61,7 @@ export const Header = ({ currentPage, id }) => {
     return (
         <>
             <header
-                id={id}
+                id="header_main"
                 className={classNames("fixed top-0 font-black z-40 w-full transition-colors ",
                     { 'bg-white/70 backdrop-blur border-b-2 border-white': !top }, {
                     "bg-tdf-bg text-gray-800  ": top
@@ -70,9 +70,9 @@ export const Header = ({ currentPage, id }) => {
             >
                 <div className="flex items-center px-3  py-3 lg:py-2 lg:px-16">
                     <span className="shrink-0">
-                        <Link to="/">
+                        <NavLink to="/">
                             <Logo />
-                        </Link>
+                        </NavLink>
                     </span>
 
 

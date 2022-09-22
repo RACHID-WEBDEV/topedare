@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Header from "./components/global/Header";
 
 import About from "./pages/About";
@@ -22,19 +22,18 @@ export const NotFound = () => (
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
-          {/* <Route index element={<Home />} /> */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </Router>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        {/* <Route index element={<Home />} /> */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
 
-    </div>
+
+    </>
   );
 }
 
