@@ -40,6 +40,10 @@ const contact = () => {
                                                 <input name="email" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" id="email" type="email" required />
                                             </div>
                                         </div>
+                                        <div className="mb-6 w-full">
+                                            <label htmlFor="phone" className="font-display text-gray-700 mb-1 block text-lg">Phone Number<span className="text-red-500">*</span></label>
+                                            <input name="phone" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" id="phone" type="number" required />
+                                        </div>
                                         <div className="mb-4">
                                             <label htmlFor="message" className="font-display text-gray-700 mb-1 block text-lg">Message<span className="text-red-500">*</span></label>
                                             <textarea id="message" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" required name="message" rows={5} defaultValue={""} />
