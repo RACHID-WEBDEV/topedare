@@ -293,3 +293,45 @@ input:-webkit-autofill:active {
     scroll-top  style end
 =============================================
 ***/
+
+/* Scrollbar CSS */
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+body::-webkit-scrollbar-track {
+  background: blue;
+  display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #a1a2b3;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
+
+.three-row-paragraph {
+  opacity: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.two-row-paragraph {
+  opacity: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
