@@ -7,6 +7,7 @@ import Footer from './components/global/Footer';
 import Projects from './pages/Projects';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
 
 
 export const NotFound = () => (
@@ -34,6 +35,7 @@ function App() {
         <Route path="projects" element={<Projects />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="blog" element={<Blog />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

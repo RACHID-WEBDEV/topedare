@@ -1,5 +1,4 @@
 import React from 'react'
-// import Footer from '../components/global/Footer'
 import AboutIntro from '../components/section/AboutIntro'
 import WhatWeDo from '../components/section/WhatWeDo'
 import HeroIntro from '../components/section/HeroIntro'
@@ -27,7 +26,6 @@ const Home = () => {
 
 
       {/* <PagesHeader /> */}
-      {/* <Hero /> */}
 
 
 
