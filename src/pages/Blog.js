@@ -1,6 +1,5 @@
 import React from 'react'
 import PagesIntro from './../components/global/PagesIntro';
-import BlogPhoto from "../assets/project/empower-woman.jpg"
 import blogdata from '../data/blog';
 import BlogCard from '../components/section/BlogCard';
 
