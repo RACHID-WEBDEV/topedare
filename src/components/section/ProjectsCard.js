@@ -13,7 +13,7 @@ function ProjectsCard() {
             <div className="md:mx-auto md:container px-4">
                 {/* Education Card */}
                 <Fade left>
-                    <div className="pt-10 ">
+                    <div className=" ">
                         <div className="container mx-auto">
                             <div className="flex flex-wrap items-center pb-12">
                                 <div className="md:w-1/2 lg:w-2/3 w-full xl:pr-20 md:pr-6">

@@ -19,12 +19,12 @@ const Projects = () => {
             <div className="px-5 pt-5 lg:px-14">
                 <div className="relative">
                     <Fade top>
-                        <SectionTitle title="OUR 2022 INITIATIVES" />
+                        <SectionTitle title="OUR INITIATIVES" />
                     </Fade>
                     <Fade left>
                         <div className="max-w-2xl">
                             <SectionSubTitle subTitle=" We Can Save More Lifes With Your Helping Hand." />
-                            <p className=" mb-10 text-gray-600">
+                            <p className=" mb-5 text-gray-600">
                                 The Tope Dare Foundation's Mission is to Inspire, Educate, Empower, and Connect People to Change the World.
 
                             </p>

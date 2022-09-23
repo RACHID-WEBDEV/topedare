@@ -3,13 +3,13 @@ import { routes } from "../../data/global";
 import classNames from 'classnames';
 import { Link, NavLink } from "react-router-dom";
 import { Logo } from "./Logo"
-import { Discord, Facebook, Instagram, Tiktok, Twitter, } from '../../assets/svgsIcons.js';
+import { WhatsApp, Facebook, Instagram, Twitter2, } from '../../assets/svgsIcons.js';
 import SupportBtn from './../form/SupportBtn';
 
 function Menu({ children, open }) {
     return (
         <div
-            className={classNames('fixed top-0 z-50 backdrop-blur h-full max-h-screen overflow-y-auto text-bg dark:text-white dark:bg-bg bg-white transition-all duration-700 ', { 'w-full': open }, { 'w-0': !open })}
+            className={classNames('fixed top-0 z-50 backdrop-blur h-full max-h-screen overflow-y-auto text-gray-600 bg-white transition-all duration-700 ', { 'w-full': open }, { 'w-0': !open })}
         >
             {children}
         </div>
@@ -167,8 +167,8 @@ export const Header = ({ currentPage, id }) => {
                     <div className="my-10 w-full lg:hidden">
 
                         <div className="text-center flex items-center justify-center">
-                            <div className="cursor-pointer w-60 font-bold whitespace-nowrap px-8 py-3 text-bg dark:text-white border-2 text-xl rounded-full dark:border-white border-bg hover:bg-pink hover:text-white hover:border-pink transition-colors">
-                                Tell me more
+                            <div className="cursor-pointer w-60 font-bold whitespace-nowrap px-8 py-3 text-gray-700  border-2 text-lg rounded-full dark:border-white border-bg  transition-colors">
+                               Donate now
                             </div>
 
 
@@ -180,17 +180,15 @@ export const Header = ({ currentPage, id }) => {
                                 <Facebook width={20} height={20} />
                             </Link>
                             <Link to="" className="group">
-                                <Twitter width={20} height={20} />
+                                <Twitter2 width={20} height={20} />
                             </Link>
                             <Link to="" className="group">
-                                <Discord width={20} height={20} />
+                                <WhatsApp width={20} height={20} />
                             </Link>
                             <Link to="" className="group">
                                 <Instagram width={20} height={20} />
                             </Link>
-                            <Link to="" className="group">
-                                <Tiktok width={20} height={20} />
-                            </Link>
+                           
 
 
 
