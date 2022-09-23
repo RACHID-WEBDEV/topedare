@@ -9,7 +9,7 @@ const BlogDetails = () => {
     return (
         <div>
             <PagesIntro title="Blog Details" />
-            <div className="py-24 px-2 lg:px-16">
+            <div className=" py-5 lg:py-20 px-4 lg:px-16">
                 <div className="container">
                     <div className="flex flex-wrap flex-col lg:flex-row -mx-4">
                         <div className="lg:w-[30%] px-4 order-last mt-8 lg:mt-0">
@@ -110,7 +110,7 @@ const BlogDetails = () => {
                         <div className="flex-1 px-4">
                             <div className="blog-details-wrapper">
                                 <div className="mb-8">
-                                    <img src={blogImg} loading="lazy"  alt="blog details" className="mb-8 w-full h-[500px] rounded-xl" />
+                                    <img src={blogImg} loading="lazy"  alt="blog details" className="mb-8 w-full h-80 lg:h-[500px] rounded-xl" />
                                     <h3 className="mb-4 font-medium text-3xl lg:text-4xl text-gray-800 ">Meet Crystal, an Indigenous Pipeline Fighter in Africa</h3>
                                     <ul className="flex flex-wrap text-gray-500 text-base">
                                         <li>21 September, 2022</li>
