@@ -8,9 +8,9 @@ const Blog = () => {
         <>
             <PagesIntro title="Our Blog" />
             <div>
-                <div className="py-16 px-2 lg:px-16 ">
+                <div className="py-10 px-2 lg:px-16 ">
                     <div className="container">
-                        <div className="flex flex-wrap -my-4 -px-4">
+                        <div className="flex flex-wrap ">
                             {
                                 blogdata.map(({ blogImg, comments, description, date, title, url }, idx) => (
                                     <BlogCard key={idx} blogImg={blogImg} comments={comments} description={description} date={date} title={title} url={url} />
