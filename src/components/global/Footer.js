@@ -43,20 +43,26 @@ const Footer = () => {
                             <h2 className="mb-6 font-DmSans font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
                             <ul className="text-gray-600 space-y-4 dark:text-gray-400">
                                 <li >
-                                    <Link to="">
+                                    <Link to="/">
                                         <span className="hover:underline">Home</span>
 
                                     </Link>
                                 </li>
                                 <li >
-                                    <Link to="">
+                                    <Link to="/about">
                                         <span className="hover:underline">About Us</span>
 
                                     </Link>
                                 </li>
                                 <li >
-                                    <Link to="">
+                                    <Link to="/project">
                                         <span className="hover:underline">Projects</span>
+
+                                    </Link>
+                                </li>
+                                <li >
+                                    <Link to="/project-listing">
+                                        <span className="hover:underline">Projects Lists</span>
 
                                     </Link>
                                 </li>
