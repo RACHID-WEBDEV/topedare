@@ -110,10 +110,20 @@ export const Twitter2 = (props) => (
     <svg {...props} className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
     <span className="sr-only">Twitter page</span>
   </span>
-
-
-
 )
+
+export const LeftArrow = (props) => (
+  < svg xmlns="http://www.w3.org/2000/svg" {...props} width={16} height={16} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="icon ">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+  </svg>
+)
+
+export const RightArrow = ({ props }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" {...props} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="icon">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+  </svg>
+)
+
 export const Search = (props) => (
   <svg {...props} className="fill-gray-500 hover:fill-tdf-blue-100 h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clipPath="url(#clip0_1407_252)"><path fillRule="evenodd" clipRule="evenodd" d="M14.958 7.40978C17.2466 9.80627 17.1591 13.6042 14.7626 15.8928C12.3661 18.1814 8.56816 18.0939 6.2796 15.6974C3.99103 13.3009 4.07852 9.50295 6.475 7.21438C8.87148 4.92582 12.6695 5.0133 14.958 7.40978ZM16.8244 16.6038C19.3385 13.5225 19.222 8.9789 16.4044 6.02851C13.353 2.8332 8.28904 2.71655 5.09373 5.76797C1.89842 8.8194 1.78177 13.8834 4.83319 17.0787C7.65072 20.0291 12.1841 20.3547 15.378 17.9851L17.4926 20.1995C17.874 20.5989 18.507 20.6135 18.9064 20.232C19.3059 19.8506 19.3204 19.2176 18.939 18.8182L16.8244 16.6038Z" fill="#858C99" /></g><defs><clipPath id="clip0_1407_252"><rect width="24" height="24" fill="white" /></clipPath></defs></svg>
 )
