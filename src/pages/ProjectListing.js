@@ -26,7 +26,7 @@ export const ProjectCard = () => (
                 </div>
 
                 <p className="font-normal text-gray-600 mb-[25px]">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...</p>
-                <a className="bg-white transition-all hover:bg-gray-600 hover:border-gray-600 hover:text-white text-gray-600 capitalize font-medium text-sm inline-block border border-solid border-gray-300 px-8 py-4 leading-none mb-[10px]" href="blog details.html">project-details</a>
+                <a className="bg-white transition-all hover:bg-gray-600 hover:border-gray-600 hover:text-white text-gray-600 capitalize font-medium text-sm inline-block border border-solid border-gray-300 px-8 py-4 leading-none mb-[10px]" href="blog details.html">project details</a>
             </div>
 
         </div>
