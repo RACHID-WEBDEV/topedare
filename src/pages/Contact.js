@@ -1,11 +1,99 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import emailjs from '@emailjs/browser';
 import Button from '../components/form/Button'
 import Fade from 'react-reveal/Fade';
 import PagesIntro from '../components/global/PagesIntro';
 import SectionSubTitle from './../components/section/SectionSubTitle';
+// import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 
-const contact = () => {
+
+const Contact = () => {
+
+    const initialValues = { fname: "", email: "", phone: "", message: "" };
+    const [formValues, setFormValues] = useState(initialValues);
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+
+    const form = useRef();
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormErrors(validate(formValues));
+        // e.target.reset()
+        // setIsSubmit(true);
+
+        if ((Object.keys(formErrors).length === 0 && isSubmit)) {
+            emailjs.sendForm('service_u22p9ae', 'template_s4aq2b9', form.current,
+                'poAOkPy9QvxJp9LWU')
+                .then((result) => {
+                    console.log(result.text);
+                    toast.success('🦄 Message sent Successfully!', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                    setFormValues(initialValues)
+                    e.target.reset()
+                    console.log('Message Sent Successfully')
+                }, (error) => {
+                    console.log(error.text);
+                });
+        } else {
+            setIsSubmit(true);
+        }
+
+    };
+
+
+    useEffect(() => {
+        console.log(formErrors);
+        if ((Object.keys(formErrors).length === 0 && isSubmit)) {
+            console.log(formValues);
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [formErrors]);
+
+    const validate = (values) => {
+        const errors = {};
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+        if (!values.fname) {
+            errors.fname = "Fullname is required!";
+        }
+        if (!values.email) {
+            errors.email = "Email is required!";
+        } else if (!regex.test(values.email)) {
+            errors.email = "This is not a valid email format!";
+        }
+        if (!values.phone) {
+            errors.phone = "phone is required";
+        } else if (values.phone.length < 11) {
+            errors.phone = "phone must be more than 11 characters";
+        } else if (values.phone.length > 14) {
+            errors.phone = "phone cannot exceed more than 14 characters";
+        }
+        if (!values.message) {
+            errors.message = "Message is required!";
+        }
+
+        return errors;
+    };
+
     return (
         <>
             <PagesIntro title="Get in touch" />
@@ -29,35 +117,67 @@ const contact = () => {
                                     <p className="text-gray-600 mb-6 lg:mb-12">
                                         Have a question? Need help? Don&apos;t hesitate, drop us a line
                                     </p>
-                                    <form id="contact-form" method="post">
+
+                                    {Object.keys(formErrors).length === 0 && isSubmit ? (
+                                        <div className="text-green-500 text-2xl">Message Sent Successfully</div>
+                                    ) : (
+                                        <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
+                                    )}
+                                    <form ref={form} id="contact-form" onSubmit={handleSubmit}>
                                         <div className="flex space-x-7">
                                             <div className="mb-6 w-1/2">
                                                 <label htmlFor="name" className="font-display text-gray-700 mb-1 block text-lg">Name<span className="text-red-500">*</span></label>
-                                                <input name="name" className="contact-form-input   border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" id="name" type="text" required />
+                                                <input
+                                                    name="fname"
+                                                    value={formValues.fname}
+                                                    onChange={handleChange}
+                                                    className="contact-form-input border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2"
+                                                    id="name" type="text" />
+                                                <p className="text-red-500 mt-1">{formErrors.fname}</p>
                                             </div>
                                             <div className="mb-6 w-1/2">
                                                 <label htmlFor="email" className="font-display text-gray-700 mb-1 block text-lg">Email<span className="text-red-500">*</span></label>
-                                                <input name="email" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" id="email" type="email" required />
+                                                <input name="email" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" id="email" type="email"
+                                                    value={formValues.email}
+                                                    onChange={handleChange}
+                                                />
+                                                <p className="text-red-500 mt-1">{formErrors.email}</p>
                                             </div>
                                         </div>
                                         <div className="mb-6 w-full">
                                             <label htmlFor="phone" className="font-display text-gray-700 mb-1 block text-lg">Phone Number<span className="text-red-500">*</span></label>
-                                            <input name="phone" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" id="phone" type="number" required />
+                                            <input name="phone"
+                                                value={formValues.phone}
+                                                onChange={handleChange}
+                                                className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" id="phone" type="number" />
+                                            <p className="text-red-500 mt-1">{formErrors.phone}</p>
                                         </div>
                                         <div className="mb-4">
                                             <label htmlFor="message" className="font-display text-gray-700 mb-1 block text-lg">Message<span className="text-red-500">*</span></label>
-                                            <textarea id="message" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" required name="message" rows={5} defaultValue={""} />
+                                            <textarea id="message" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" name="message"
+                                                value={formValues.message}
+                                                onChange={handleChange}
+                                                rows={5} defaultValue={""} />
+                                            <p className="text-red-500 mt-1">{formErrors.message}</p>
                                         </div>
-                                        <div className="mb-6 flex items-center space-x-2">
-                                            <input type="checkbox" id="contact-form-consent-input" name="agree-to-terms" className="checked:bg-accent dark:bg-gray-600 text-accent border-gray-200 focus:ring-accent/20 dark:border-gray-500 h-5 w-5 self-start rounded focus:ring-offset-0" />
-                                            <label htmlFor="contact-form-consent-input" className="dark:text-gray-200 text-sm">I agree to the <a href="tos.html" className="text-accent">Terms of Service</a></label>
-                                        </div>
+                                        {/* <div className="mb-6 flex items-center space-x-2">
+                                            <input type="checkbox"
+                                                value={formValues.agreeToTerms}
+                                              
+                                                id="checked"
+                                                // checked={isChecked}
+                                                // onChange={e => setIsChecked(e.target.checked)}
+
+                                                name="agreeToTerms" className="checked:bg-tdf-blue-50 dark:bg-gray-600 text-accent border-gray-200 focus:ring-accent/20 dark:border-gray-500 h-5 w-5 self-start rounded focus:ring-offset-0" />
+                                            <label htmlFor="checked" className="dark:text-gray-200 text-sm">I agree to the Terms of Service</label>
+                                        </div> */}
+                                        <p className="text-red-500 mt-1">{formErrors.agreeToTerms}</p>
                                         <Button
                                             className=" capitalize"
-
                                         >
                                             Submit
                                         </Button>
+
 
                                         <div id="contact-form-notice" className="relative mt-4 hidden rounded-lg border border-transparent p-4" />
                                     </form>
@@ -131,4 +251,4 @@ const contact = () => {
     )
 }
 
-export default contact
+export default Contact
