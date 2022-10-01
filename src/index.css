@@ -273,7 +273,7 @@ input:-webkit-autofill:active {
 
 #scroll-top:before {
   z-index: -1;
-  @apply bg-tdf-blue-100;
+  @apply bg-tdf-blue-50;
 }
 
 #scroll-top:after {

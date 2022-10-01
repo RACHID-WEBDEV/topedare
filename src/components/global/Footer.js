@@ -60,12 +60,12 @@ const Footer = () => {
 
                                     </Link>
                                 </li>
-                                <li >
+                                {/* <li >
                                     <Link to="/project-listing">
                                         <span className="hover:underline">Projects Lists</span>
 
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                         <div>

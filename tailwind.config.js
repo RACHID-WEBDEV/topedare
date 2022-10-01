@@ -23,7 +23,8 @@ module.exports = {
     extend: {
       colors: {
         "tdf-blue": {
-          50: "#048ABF",
+          // 50: "#048ABF",
+          50: "#1c4bc1",
           100: "#0367A6",
           200: "#048ABF",
           300: "#023E73",
