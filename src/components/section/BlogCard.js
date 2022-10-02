@@ -4,7 +4,7 @@ import BlogBtn from '../form/BlogBtn'
 
 const BlogCard = ({ blogImg, comments, description, date, title, url }) => {
     return (
-        <div className="w-full md:w-1/2 lg:w-1/3 px-2 my-4">
+        <div className="w-full px-2 my-4">
             <div className="border border-solid border-gray-300 p-3 rounded-lg md:p-5 group">
                 <div className="mb-6">
                     <Link to={url} className="overflow-hidden rounded-md block">

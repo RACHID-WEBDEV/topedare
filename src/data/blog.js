@@ -6,6 +6,7 @@ import BlogImage from "../assets/blog/TDF-images.jpg"
 
 const blogdata = [
     {
+        id: 1,
         blogImg: BlogImage,
         comments: "4",
         category: "Press Release",
@@ -47,6 +48,7 @@ const blogdata = [
         url: "/blog-details"
     },
     {
+        id: 2,
         blogImg: BlogImage,
         comments: "4",
 
@@ -80,6 +82,7 @@ const blogdata = [
         title: "Tope Dare Foundation Clears Jamb Exam Fees For 149 Final Year Students Of Unity School",
         url: "/blog-details"
     }, {
+        id: 3,
         blogImg: blogphoto2,
         comments: "4",
         category: "News",
@@ -89,6 +92,7 @@ const blogdata = [
         title: "Donation is Hope for Poor Childrens in Africa 3",
         url: "/blog-details"
     }, {
+        id: 4,
         blogImg: blogphoto,
         comments: "4",
         category: "News",
@@ -98,6 +102,7 @@ const blogdata = [
         title: "Donation is Hope for Poor Childrens in Africa 4",
         url: "/blog-details"
     }, {
+        id: 5,
         blogImg: blogphoto1,
         comments: "4",
         category: "News",
@@ -107,6 +112,7 @@ const blogdata = [
         title: "Donation is Hope for Poor Childrens in Africa 5",
         url: "/blog-details"
     }, {
+        id: 6,
         blogImg: blogphoto2,
         comments: "4",
         category: "News",
@@ -116,6 +122,7 @@ const blogdata = [
         title: "Donation is Hope for Poor Childrens in Africa not 6 ",
         url: "/blog-details"
     }, {
+        id: 7,
         blogImg: blogphoto,
         comments: "4",
         category: "News",
@@ -125,6 +132,7 @@ const blogdata = [
         title: "Donation is Hope for Poor Childrens in Africa 7",
         url: "/blog-details"
     }, {
+        id: 8,
         blogImg: blogphoto1,
         comments: "4",
         category: "News",
@@ -134,6 +142,7 @@ const blogdata = [
         title: "Donation is Hope for Poor Childrens in Africa 8",
         url: "/blog-details"
     }, {
+        id: 9,
         blogImg: blogphoto2,
         comments: "4",
         category: "News",
@@ -144,6 +153,7 @@ const blogdata = [
         url: "/blog-details"
     },
     {
+        id: 10,
         blogImg: blogphoto,
         comments: "4",
         category: "News",
@@ -154,6 +164,7 @@ const blogdata = [
         url: "/blog-details"
     },
     {
+        id: 11,
         blogImg: blogphoto1,
         comments: "4",
         category: "News",
@@ -163,6 +174,7 @@ const blogdata = [
         title: "Donation is Hope for Poor Childrens in Africa 11",
         url: "/blog-details"
     }, {
+        id: 12,
         blogImg: blogphoto2,
         comments: "4",
         category: "News",
@@ -172,6 +184,7 @@ const blogdata = [
         title: "Donation is Hope for Poor Childrens in Africa 12",
         url: "/blog-details"
     }, {
+        id: 13,
         blogImg: blogphoto,
         comments: "4",
         category: "News",
@@ -181,6 +194,7 @@ const blogdata = [
         title: "Help with Donation is Hope for Poor Childrens in Africa 13",
         url: "/blog-details"
     }, {
+        id: 14,
         blogImg: blogphoto1,
         comments: "4",
         category: "News",
@@ -190,6 +204,7 @@ const blogdata = [
         title: "Donation is Hope for Poor Childrens in Africa 14",
         url: "/blog-details"
     }, {
+        id: 15,
         blogImg: blogphoto2,
         comments: "4",
         category: "News",
@@ -199,6 +214,7 @@ const blogdata = [
         title: "Help with  Donation is Hope for Poor Childrens in Africa 15",
         url: "/blog-details"
     }, {
+        id: 16,
         blogImg: blogphoto1,
         comments: "4",
         category: "News",
