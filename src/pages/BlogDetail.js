@@ -7,6 +7,20 @@ import { Instagram, Twitter2, Search } from '../assets/svgsIcons';
 import BlogBtn from '../components/form/BlogBtn';
 import blogdata from '../data/blog';
 
+const SearchBar = ({ formSubmit, value, handleSearchKey, clearSearch }) => (
+    <div className='searchBar-wrap'>
+        <form onSubmit={formSubmit}>
+            <input
+                type='text'
+                placeholder='Search By Category'
+                value={value}
+                onChange={handleSearchKey}
+            />
+            {value && <span onClick={clearSearch}>X</span>}
+            <button>Go</button>
+        </form>
+    </div>
+);
 
 const BlogDetails = () => {
     const { id } = useParams();
@@ -41,17 +55,17 @@ const BlogDetails = () => {
                                 </div>
 
                                 <div className="mb-12 text-gray-600">
-                                    <h4 className="font-medium text-lg text-gray-700 xl:text-3xl text-dark capitalize mb-5">Custom Menu</h4>
+                                    <h4 className="font-medium text-lg text-gray-700 xl:text-3xl text-dark capitalize mb-5">Category</h4>
                                     <ul>
-                                        <li className="mb-4"><Link to="" className="text-base transition-all hover:text-orange">Best Value</Link></li>
+                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Donation</Link></li>
 
-                                        <li className="mb-4"><Link to="" className="text-base transition-all hover:text-orange">Your Order</Link></li>
+                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Charity</Link></li>
 
-                                        <li className="mb-4"><Link to="" className="text-base transition-all hover:text-orange">Terms & Condition</Link></li>
+                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Employment</Link></li>
 
-                                        <li className="mb-4"><Link to="" className="text-base transition-all hover:text-orange">Contact us</Link></li>
+                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Health</Link></li>
 
-                                        <li className="mb-4"><Link to="" className="text-base transition-all hover:text-orange">Manufactureres</Link></li>
+                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Empowerment</Link></li>
                                     </ul>
                                 </div>
 
@@ -94,7 +108,7 @@ const BlogDetails = () => {
                                     </div>
                                 </div>
 
-                                <div className="mb-12 text-gray-600 ">
+                                {/* <div className="mb-12 text-gray-600 ">
                                     <h4 className="font-medium text-gray-700  text-lg xl:text-3xl text-dark capitalize">Archive</h4>
 
                                     <span className="font-medium text-base text-dark capitalize my-4 block"> April 2021</span>
@@ -104,7 +118,7 @@ const BlogDetails = () => {
                                         <li className="mb-4"><Link to="" className="text-base transition-all hover:text-orange" ><i className="icofont-rounded-right" /> Norbi at omgula qorta</Link></li>
                                         <li className="mb-4"><Link to="" className="text-base transition-all hover:text-orange" ><i className="icofont-rounded-right" /> Mithout wery warkness</Link></li>
                                     </ul>
-                                </div>
+                                </div> */}
 
                                 <div>
                                     <h4 className="font-medium text-lg text-gray-700  xl:text-3xl text-dark capitalize mb-10">Tags</h4>
@@ -144,7 +158,7 @@ const BlogDetails = () => {
                                         el contenido del texto de un sitio mientras que mira su diseño.
                                     </blockquote> */}
 
-
+                                    {/* <div className="chip "> AnimateArrow</div> */}
                                     <div className="flex flex-wrap justify-between  my-8">
                                         <BlogBtn title="Back" url={-1} arrow={false} />
                                         <div className="flex flex-wrap items-center">
@@ -173,7 +187,7 @@ const BlogDetails = () => {
                                     </div>
 
 
-                                    <div>
+                                    {/* <div>
                                         <h4 className="mb-8 font-medium text-gray-700 text-lg uppercase">Leave a comment</h4>
                                         <form method="post" action="#">
                                             <div className="grid grid-cols-2 gap-x-4">
@@ -190,7 +204,7 @@ const BlogDetails = () => {
                                                 </div>
                                             </div>
                                         </form>
-                                    </div>
+                                    </div> */}
                                 </div>
                                     : <h1 className="text-gray-900">No Blog Found</h1>
                             }
