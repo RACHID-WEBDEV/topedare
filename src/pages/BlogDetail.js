@@ -145,7 +145,7 @@ const BlogDetails = () => {
                                     </blockquote> */}
 
 
-                                    <div className="flex flex-wrap justify-between mb-8">
+                                    <div className="flex flex-wrap justify-between  my-8">
                                         <BlogBtn title="Back" url="/blog" arrow={false} />
                                         <div className="flex flex-wrap items-center">
                                             <span className="mr-4">Share:</span>

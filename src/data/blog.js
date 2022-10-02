@@ -60,15 +60,15 @@ const blogdata = [
                 According to the information that was gathered, Tope Dare made this known through one of his social media handle where he ask that the information should be passed across to parents and guardians who have their children in the school.
             </p>
 
-            <q>
-                “I am TOPE DARE an Old Student: In 1992, with the support of God and my late parents, I had an excellent WASC result with 7As and 2Cs and was opportuned to gain a university admission on 1st attempt of JAMB to study Electronic & Electrical Engineering at Obafemi Awolowo University, Ile Ife. At my early age, I was brought up to understand that education shows us the importance of hard work and, at the same time, helps us to grow and develop in the society.”
+            <q className="text-gray-900">
+                I am TOPE DARE an Old Student: In 1992, with the support of God and my late parents, I had an excellent WASC result with 7As and 2Cs and was opportuned to gain a university admission on 1st attempt of JAMB to study Electronic & Electrical Engineering at Obafemi Awolowo University, Ile Ife. At my early age, I was brought up to understand that education shows us the importance of hard work and, at the same time, helps us to grow and develop in the society.
             </q>
 
             <p>
                 “In giving back to the society and more importantly the school that built my solid educational foundation, my charitable organization, Tope Dare Foundation, has paid for the 2021 JAMB examination fees for all the 149 final year students of St. Peter’s Unity Secondary, Akure because I believe these children have a future bright with hope to be great and successful.”
             </p>
             <q>
-                “It is my expectation that this little seed being sown today shall germinate with fruits to produce successful scholars, global professionals, technocrats and business men that the society and school will be proud of.”
+                It is my expectation that this little seed being sown today shall germinate with fruits to produce successful scholars, global professionals, technocrats and business men that the society and school will be proud of.
 
             </q>
             <p>
