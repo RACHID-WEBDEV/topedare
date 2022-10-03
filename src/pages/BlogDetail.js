@@ -6,32 +6,46 @@ import PagesIntro from '../components/global/PagesIntro';
 import { Instagram, Twitter2, Search } from '../assets/svgsIcons';
 import BlogBtn from '../components/form/BlogBtn';
 import blogdata from '../data/blog';
+import { kebabCase } from '../utils/utils'
+// const SearchBar = ({ formSubmit, value, handleSearchKey, clearSearch }) => (
+//     <div className='searchBar-wrap'>
+//         <form onSubmit={formSubmit}>
+//             <input
+//                 type='text'
+//                 placeholder='Search By Category'
+//                 value={value}
+//                 onChange={handleSearchKey}
+//             />
+//             {value && <span onClick={clearSearch}>X</span>}
+//             <button>Go</button>
+//         </form>
+//     </div>
+// );
 
-const SearchBar = ({ formSubmit, value, handleSearchKey, clearSearch }) => (
-    <div className='searchBar-wrap'>
-        <form onSubmit={formSubmit}>
-            <input
-                type='text'
-                placeholder='Search By Category'
-                value={value}
-                onChange={handleSearchKey}
-            />
-            {value && <span onClick={clearSearch}>X</span>}
-            <button>Go</button>
-        </form>
-    </div>
-);
 
 const BlogDetails = () => {
-    const { id } = useParams();
-    const [blogs, setBlogs] = useState(null);
+    // const { id } = useParams();
+    const { slug } = useParams();
+
+
+    // const [blogs, setBlogs] = useState(null);
+    const [posts, setPosts] = useState(null);
+
 
     useEffect(() => {
-        let blogs = blogdata.find((blogs) => blogs.id === parseInt(id));
-        if (blogs) {
-            setBlogs(blogs);
+        let posts = blogdata.find((blog) => kebabCase(blog.title) === slug);
+        if (posts) {
+            setPosts(posts);
         }
-    }, [id]);
+    }, [slug]);
+
+
+    // useEffect(() => {
+    //     let blogs = blogdata.find((blogs) => blogs.id === parseInt(id));
+    //     if (blogs) {
+    //         setBlogs(blogs);
+    //     }
+    // }, [id]);
 
 
     return (
@@ -137,13 +151,13 @@ const BlogDetails = () => {
 
                         <div className="flex-1 px-4">
                             {
-                                blogs ? <div className="blog-details-wrapper">
+                                posts ? <div className="blog-details-wrapper">
                                     <div className="mb-8">
                                         <div className="">
-                                            <img src={blogs.blogImg} loading="lazy" alt="blog details" className="mb-8  max-h-80 w-full h-full lg:max-h-[600px] rounded-xl" />
+                                            <img src={posts.blogImg} loading="lazy" alt="blog details" className="mb-8  max-h-80 w-full h-full lg:max-h-[600px] rounded-xl" />
                                         </div>
                                         <h3 className="mb-4 font-medium text-3xl lg:text-4xl text-gray-800 ">
-                                            {blogs.title}
+                                            {posts.title}
                                         </h3>
                                         <ul className="flex flex-wrap text-gray-500 text-base">
                                             <li>21 September, 2022</li>
@@ -152,7 +166,7 @@ const BlogDetails = () => {
                                         </ul>
                                     </div>
 
-                                    {blogs.description}
+                                    {posts.description}
                                     {/* <blockquote className="my-6 ml-12 relative before:absolute before:top-0 before:-left-5 before:w-1 before:h-full before:empty before:bg-orange">
                                         Es un hecho establecido hace demasiado tiempo que un lector se distraerá con
                                         el contenido del texto de un sitio mientras que mira su diseño.

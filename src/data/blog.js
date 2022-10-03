@@ -44,7 +44,7 @@ const blogdata = [
             </p>
         </div>,
         date: "21 Sept, 2022",
-        title: "Tope Dare Foundation’ Pays JAMB Fees Of All Final Year Students In Ondo School",
+        title: "Tope Dare Foundation Pays JAMB Fees Of All Final Year Students In Ondo School",
         url: "/blog-details"
     },
     {
@@ -68,7 +68,7 @@ const blogdata = [
                 “In giving back to the society and more importantly the school that built my solid educational foundation, my charitable organization, Tope Dare Foundation, has paid for the 2021 JAMB examination fees for all the 149 final year students of St. Peter’s Unity Secondary, Akure because I believe these children have a future bright with hope to be great and successful.”
             </p>
             <q>
-                It is my expectation that this little seed being sown today shall germinate with fruits to produce successful scholars, global professionals, technocrats and business men that the society and school will be proud of.
+                It is my expectation that this little seed being sown today shall germinate with fruits to produce successful scholars, global professionals, technocrats and business men that the society and school will be proud of.”
 
             </q>
             <p>
