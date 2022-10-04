@@ -11,6 +11,7 @@ import Blog from './pages/Blog';
 import BlogDetails from './pages/BlogDetails';
 import BlogDetail from './pages/BlogDetail';
 import ProjectListing from './pages/ProjectListing';
+import { ToastContainer } from 'react-toastify';
 
 
 export const NotFound = () => (
@@ -31,7 +32,19 @@ export const NotFound = () => (
 function App() {
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
@@ -45,6 +58,9 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
+      {/* Same as */}
+      <ToastContainer />
+
     </>
   );
 }

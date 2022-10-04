@@ -4,10 +4,10 @@ import Button from '../components/form/Button'
 import Fade from 'react-reveal/Fade';
 import PagesIntro from '../components/global/PagesIntro';
 import SectionSubTitle from './../components/section/SectionSubTitle';
-// import { ToastContainer, toast } from 'react-toastify';
+
 import { toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -29,25 +29,15 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormErrors(validate(formValues));
-        // e.target.reset()
-        // setIsSubmit(true);
 
         if ((Object.keys(formErrors).length === 0 && isSubmit)) {
-            emailjs.sendForm('service_u22p9ae', 'template_s4aq2b9', form.current,
-                'poAOkPy9QvxJp9LWU')
+
+            emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, form.current,
+                process.env.REACT_APP_PUBLIC_KEY)
                 .then((result) => {
                     console.log(result.text);
-                    toast.success('🦄 Message sent Successfully!', {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
                     setFormValues(initialValues)
-                    e.target.reset()
+                    toast.success('Message sent Successfully!');
                     console.log('Message Sent Successfully')
                 }, (error) => {
                     console.log(error.text);
@@ -60,7 +50,7 @@ const Contact = () => {
 
 
     useEffect(() => {
-        console.log(formErrors);
+        // console.log(formErrors);
         if ((Object.keys(formErrors).length === 0 && isSubmit)) {
             console.log(formValues);
         }
@@ -118,11 +108,11 @@ const Contact = () => {
                                         Have a question? Need help? Don&apos;t hesitate, drop us a line
                                     </p>
 
-                                    {Object.keys(formErrors).length === 0 && isSubmit ? (
+                                    {/* {Object.keys(formErrors).length === 0 && isSubmit ? (
                                         <div className="text-green-500 text-2xl">Message Sent Successfully</div>
                                     ) : (
                                         <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-                                    )}
+                                    )} */}
                                     <form ref={form} id="contact-form" onSubmit={handleSubmit}>
                                         <div className="flex space-x-7">
                                             <div className="mb-6 w-1/2">
@@ -174,7 +164,9 @@ const Contact = () => {
                                         <p className="text-red-500 mt-1">{formErrors.agreeToTerms}</p>
                                         <Button
                                             className=" capitalize"
+
                                         >
+
                                             Submit
                                         </Button>
 

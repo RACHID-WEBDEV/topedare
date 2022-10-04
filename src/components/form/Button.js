@@ -9,6 +9,7 @@ const Button = ({ className, children, color, onClick, icon }) => {
 
       <button
         onClick={onClick}
+        // type="button"
         className={classNames(
           'inline-flex items-center whitespace-nowrap w-fit font-DmSans rounded-lg lg:text-[1.125rem] uppercase tracking-wider font-medium py-[1rem] px-8 text-center transition-all',
           { 'bg-tdf-blue-50 hover:bg-tdf-blue-400 text-white hover:text-white': color === 'gray' },
