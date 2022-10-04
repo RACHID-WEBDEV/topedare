@@ -117,13 +117,13 @@ const Contact = () => {
                                                     name="fname"
                                                     value={formValues.fname}
                                                     onChange={handleChange}
-                                                    className="contact-form-input border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2"
+                                                    className="contact-form-input border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 px-2 hover:ring-2"
                                                     id="name" type="text" />
                                                 <p className="text-red-500 mt-1">{formErrors.fname}</p>
                                             </div>
                                             <div className="mb-6 w-1/2">
                                                 <label htmlFor="email" className="font-display text-gray-700 mb-1 block text-lg">Email<span className="text-red-500">*</span></label>
-                                                <input name="email" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" id="email" type="email"
+                                                <input name="email" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 px-2 hover:ring-2" id="email" type="email"
                                                     value={formValues.email}
                                                     onChange={handleChange}
                                                 />
@@ -135,12 +135,12 @@ const Contact = () => {
                                             <input name="phone"
                                                 value={formValues.phone}
                                                 onChange={handleChange}
-                                                className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" id="phone" type="number" />
+                                                className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 px-2 hover:ring-2" id="phone" type="number" />
                                             <p className="text-red-500 mt-1">{formErrors.phone}</p>
                                         </div>
                                         <div className="mb-4">
                                             <label htmlFor="message" className="font-display text-gray-700 mb-1 block text-lg">Message<span className="text-red-500">*</span></label>
-                                            <textarea id="message" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 hover:ring-2" name="message"
+                                            <textarea id="message" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 px-2 hover:ring-2" name="message"
                                                 value={formValues.message}
                                                 onChange={handleChange}
                                                 rows={5} defaultValue={""} />
