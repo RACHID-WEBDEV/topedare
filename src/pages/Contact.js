@@ -4,11 +4,7 @@ import Button from '../components/form/Button'
 import Fade from 'react-reveal/Fade';
 import PagesIntro from '../components/global/PagesIntro';
 import SectionSubTitle from './../components/section/SectionSubTitle';
-
 import { toast } from 'react-toastify';
-
-
-
 
 
 const Contact = () => {
