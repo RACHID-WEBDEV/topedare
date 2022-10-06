@@ -11,7 +11,7 @@ import SectionImg from '../../assets/section/section-img.jpg'
 
 
 
-const WhatWeDo = () => {
+const WhatWeDo = ({ title, subTitle, cat1Title, cat1SubTitle, cat2Title, cat2SubTitle, cat3Title, cat3SubTitle, cat4Title, cat4SubTitle }) => {
     return (
         <>
             <section className="relative overflow-hidden ">
@@ -24,9 +24,9 @@ const WhatWeDo = () => {
                             <Fade left>
                                 <div className="max-w-2xl">
                                     {/* We believe they have a future bright with hope if we assist them */}
-                                    <SectionSubTitle subTitle=" Spread Love with Donations" />
+                                    <SectionSubTitle subTitle={title} />
                                     <p className=" mb-10 text-gray-600">
-                                        Here some of the Categories and Sector we Work regularly, We believe they have a future bright with hope if we assist them </p>
+                                        {subTitle} </p>
 
                                 </div>
                             </Fade>
@@ -50,8 +50,8 @@ const WhatWeDo = () => {
 
                                                     </div>
                                                     <div className="">
-                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">Health</p>
-                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">Helping those in need of basic medical health care get and stay healthy for life by teaching good habits, payment of hospital bills and provision of drugs and equipment.</p>
+                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">{cat1Title}</p>
+                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">{cat1SubTitle}</p>
                                                     </div>
                                                 </div>
 
@@ -62,8 +62,8 @@ const WhatWeDo = () => {
                                                         <img src={Education} width={65} height={65} alt="health icon" className="min-w-[40px] min-h-[40px]" />
                                                     </div>
                                                     <div className="">
-                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">Education</p>
-                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">Keeping kids in school through tutoring, computer courses and financial aid as education serves as a panacea for socio-economic.</p>
+                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">{cat2Title}</p>
+                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">{cat2SubTitle}</p>
                                                     </div>
                                                 </div>
 
@@ -76,8 +76,8 @@ const WhatWeDo = () => {
 
                                                     </div>
                                                     <div className="">
-                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">Employment</p>
-                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">Providing an avenue to train unemployed youths with the necessary skills to get jobs and start a career or profession for financial freedom.</p>
+                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">{cat3Title}</p>
+                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">{cat3SubTitle}</p>
                                                     </div>
                                                 </div>
 
@@ -91,8 +91,8 @@ const WhatWeDo = () => {
 
                                                     </div>
                                                     <div className="">
-                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">Empowerment</p>
-                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">Promoting empowerment of the unemployed in achieving poverty eradication, social integration and full employment integration for our youth and women.</p>
+                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">{cat4Title}</p>
+                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">{cat4SubTitle}</p>
                                                     </div>
                                                 </div>
                                             </Fade>

@@ -12,7 +12,7 @@ import { CheckIcon } from '../../assets/svgsIcons';
 
 
 
-function AboutIntro({ content, switchColumn, subTitle, title, }) {
+function AboutIntro({ content, switchColumn, subTitle, floatStats, title, statsTitle1, statsSubTitle1, statsTitle2, statsSubTitle2 }) {
     return (
         <>
             <section className={classNames("relative pt-24 pb-10 lg:pt-32 lg:pb-2 text-gray-800", { 'pb-0 lg:pb-10': switchColumn })}>
@@ -35,7 +35,7 @@ function AboutIntro({ content, switchColumn, subTitle, title, }) {
                                         <span className="rounded-full p-4 bg-tdf-blue-50/20" >
                                             <img src={ShowLove} width={30} height={30} alt="" className="" />
                                         </span>
-                                        <p className="text-xs font-black mr-8 text-gray-900 w-[155px]">We help more than 320+ children every year</p>
+                                        <p className="text-xs font-black mr-8 text-gray-900 w-[155px]">{floatStats}</p>
                                     </div>
                                 </div>
 
@@ -61,15 +61,15 @@ function AboutIntro({ content, switchColumn, subTitle, title, }) {
                                         <div className="flex space-x-4">
                                             <CheckIcon />
                                             <div>
-                                                <span className="font-black text-gray-600 block text-xl dark:text-white">82+</span>
-                                                <span className="text-gray-500">Completed Project</span>
+                                                <span className="font-black text-gray-600 block text-xl dark:text-white">{statsTitle1}</span>
+                                                <span className="text-gray-500">{statsSubTitle1}</span>
                                             </div>
                                         </div>
                                         <div className="flex space-x-4">
                                             <CheckIcon />
                                             <div>
-                                                <span className="font-black text-gray-600 block text-xl dark:text-white">90.7%</span>
-                                                <span className="text-gray-500">Satisfaction Rate</span>
+                                                <span className="font-black text-gray-600 block text-xl dark:text-white">{statsTitle2}</span>
+                                                <span className="text-gray-500">{statsSubTitle2}</span>
                                             </div>
 
 

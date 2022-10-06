@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 // import AboutUs from './../components/section/AboutUs';
 import SectionTitle from './../components/section/SectionTitle';
 import { Fade, Bounce } from 'react-reveal';
 import SectionSubTitle from './../components/section/SectionSubTitle';
 import AboutIntro from './../components/section/AboutIntro';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Health from '../assets/section/health-care.svg'
 import Education from '../assets/section/charity-education.svg'
@@ -19,6 +20,24 @@ import PagesIntro from './../components/global/PagesIntro';
 
 
 const About = () => {
+
+    const [data, setData] = useState("");
+    useEffect(() => {
+        loadData()
+    }, [])
+    // Object.values()
+    const loadData = async () => {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+        if (response.status === 200) {
+            const output = response.data.data.components.map(({ description }) => {
+                return description
+            })
+            setData(output)
+        } else {
+            console.log('Message =>', response.message)
+            // toast.error('Something went wrong')
+        }
+    }
     return (
         <>
 
@@ -64,7 +83,7 @@ const About = () => {
             </section>
 
 
-            <AboutIntro title="Helping Them Today" subTitle=" See what we do for the poor people and the children" content="Help is Our Goal. We Can Save More Lifes With Your Helping Hand. We believe they have a future bright with hope if we assist with the basic education, health care employment opportunity and empowerment." switchColumn />
+            <AboutIntro title="Helping Them Today" subTitle=" See what we do for the poor people and the children" content="Help is Our Goal. We Can Save More Lifes With Your Helping Hand. We believe they have a future bright with hope if we assist with the basic education, health care employment opportunity and empowerment." statsTitle1={data.slice(2, 3)} statsSubTitle1={data.slice(3, 4)} statsTitle2={data.slice(4, 5)} statsSubTitle2={data.slice(5, 6)} floatStats={data.slice(6, 7)} switchColumn />
 
             <div className=" lg:pt-28 lg:pb-4 object-cover object-[83%]  bg-cover bg-right bg-section-bg overflow-hidden">
                 <div className="container m-auto px-6 space-y-8 text-gray-500 md:px-12">
