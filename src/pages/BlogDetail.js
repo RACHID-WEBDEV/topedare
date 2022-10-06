@@ -22,7 +22,22 @@ import { kebabCase } from '../utils/utils'
 //     </div>
 // );
 
+export const CategoryTab = ({ handleCategory, data }) => {
+    return (
+        <>
+            {
+                data.map((item, index) => (
+                    <li key={index} className="mb-4 flex items-center justify-between">
+                        <p className="text-xl font-medium transition-all cursor-pointer hover:text-tdf-blue-100"
+                            onClick={() => handleCategory(item.category)}>{item.category}</p>
 
+                        <p className='p-0.5 px-2.5 bg-gray-200 rounded-md text-gray-600 font-medium '>12</p>
+                    </li>
+                ))
+            }
+        </>
+    )
+}
 const BlogDetails = () => {
     // const { id } = useParams();
     const { slug } = useParams();
@@ -30,7 +45,45 @@ const BlogDetails = () => {
 
     // const [blogs, setBlogs] = useState(null);
     const [posts, setPosts] = useState(null);
+    const filterCategory = blogdata.reduce((acc, item) => {
+        if (!acc[item.category]) {
+            return { ...acc, [item.category]: 1 };
+        }
+        return { ...acc, [item.category]: acc[item.category] + 1 }
 
+    }, [])
+
+    const categoryResults = Object.entries(filterCategory).map(([key, value]) => {
+        return (
+
+            <li className="mb-4 flex items-center justify-between">
+                <Link to="/blog">
+                    <p className="text-xl font-medium transition-all cursor-pointer hover:text-tdf-blue-100"
+                    >{key}</p>
+                </Link>
+
+                <p className='p-0.5 px-2.5 bg-gray-200 rounded-md text-gray-600 font-medium '>{value}</p>
+            </li>
+        )
+    })
+
+
+    // Object.entries(filterCategory).forEach(([key, value]) => console.log("loop", `${key}: ${value}`));
+
+
+    const handleCategory = async (category) => {
+        // const response = await axios.get(`http://localhost:5000/blogs?category=${category}`)
+        // if (response.status === 200) {
+        //     setData(response.data)
+        // } else {
+        //     toast.error('Something went wrong')
+        // }
+        let posts = blogdata.filter((blog) => blog.category);
+        if (posts) {
+
+            setPosts(posts);
+        }
+    }
 
     useEffect(() => {
         let posts = blogdata.find((blog) => kebabCase(blog.title) === slug);
@@ -71,7 +124,9 @@ const BlogDetails = () => {
                                 <div className="mb-12 text-gray-600">
                                     <h4 className="font-medium text-lg text-gray-700 xl:text-3xl text-dark capitalize mb-5">Category</h4>
                                     <ul>
-                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Donation</Link></li>
+                                        {categoryResults}
+                                        {/* <CategoryTab data={blogdata} handleCategory={handleCategory} /> */}
+                                        {/* <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Donation</Link></li>
 
                                         <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Charity</Link></li>
 
@@ -79,7 +134,7 @@ const BlogDetails = () => {
 
                                         <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Health</Link></li>
 
-                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Empowerment</Link></li>
+                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Empowerment</Link></li> */}
                                     </ul>
                                 </div>
 

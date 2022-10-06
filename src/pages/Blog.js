@@ -7,6 +7,7 @@ import { LeftArrow, RightArrow } from '../assets/svgsIcons';
 import { Link } from 'react-router-dom';
 import BlogBtn from './../components/form/BlogBtn';
 import { kebabCase } from '../utils/utils'
+import Helmets from './Helmet';
 
 
 export const LargeBlogcard = ({ blogPhoto, category, id, short_desc, title, slug }) => (
@@ -60,6 +61,7 @@ const Blog = () => {
 
     return (
         <>
+            <Helmets title="Our Blog Page" />
             <PagesIntro title="Our Blog" />
             <div>
                 <div className="py-10 px-2 lg:px-16  ">
