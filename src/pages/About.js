@@ -16,6 +16,7 @@ import Button from '../components/form/Button';
 import AboutImg1 from '../assets/about/about-landing-image.jpg'
 import AboutImg2 from '../assets/about/about-landing-image2.jpg'
 import PagesIntro from './../components/global/PagesIntro';
+import Helmets from './Helmet';
 
 
 
@@ -40,7 +41,7 @@ const About = () => {
     }
     return (
         <>
-
+            <Helmets title="About Us" />
             <PagesIntro className="text-tdf-bg" title="About Us" />
             <section className="object-cover object-[83%] pb-10  bg-cover bg-center bg-hero-bg overflow-hidden pt-5 ">
                 <div className="hidden lg:block">
