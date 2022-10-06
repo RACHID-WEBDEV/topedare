@@ -4,10 +4,12 @@ import { Fade } from 'react-reveal';
 import SectionSubTitle from './../components/section/SectionSubTitle';
 import CTA from './../components/section/CTA';
 import SectionTitle from './../components/section/SectionTitle';
+import Helmets from './Helmet';
 
 const Gallery = () => {
     return (
         <div>
+            <Helmets title="Gallery Page" />
             <PagesIntro title="Our Gallery" />
             <div className="hidden lg:block">
                 <Fade bottom>

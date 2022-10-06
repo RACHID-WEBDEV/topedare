@@ -5,6 +5,7 @@ import Fade from 'react-reveal/Fade';
 import PagesIntro from '../components/global/PagesIntro';
 import SectionSubTitle from './../components/section/SectionSubTitle';
 import { toast } from 'react-toastify';
+import Helmets from './Helmet';
 
 
 const Contact = () => {
@@ -82,6 +83,7 @@ const Contact = () => {
 
     return (
         <>
+            <Helmets title="Contact Us Page" />
             <PagesIntro title="Get in touch" />
 
             <main className="pt-[1.5rem] lg:pt-10 ">

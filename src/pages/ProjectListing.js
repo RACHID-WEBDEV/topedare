@@ -2,9 +2,11 @@ import React from 'react'
 import PagesIntro from '../components/global/PagesIntro'
 import ProjectImg from '../assets/about/about-banner.jpg'
 import { Link } from 'react-router-dom'
+import Helmets from './Helmet'
 
 export const ProjectCard = () => (
     <div className="w-full px-4 my-4">
+        <Helmets title="Project-Listing Page" />
         <div className="border border-solid border-gray-300 p-[20px] md:p-[30px] group flex flex-wrap items-center">
             <div className="mb-6 lg:mb-0 lg:mr-8 w-full lg:w-1/2 xl:w-1/2">
                 <Link to="project-details" className="overflow-hidden block">

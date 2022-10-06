@@ -5,10 +5,12 @@ import { Fade } from 'react-reveal';
 import SectionSubTitle from './../components/section/SectionSubTitle';
 import SectionTitle from './../components/section/SectionTitle';
 import CTA from '../components/section/CTA';
+import Helmets from './Helmet';
 
 const Projects = () => {
     return (
         <div>
+            <Helmets title="Our Projects Page" />
             <PagesIntro title="Our Projects" />
             {/* <div className="hidden lg:block"> */}
             {/* <Fade bottom>
