@@ -9,6 +9,7 @@ import { Fade } from 'react-reveal';
 import SectionSubTitle from './../components/section/SectionSubTitle';
 import Pagination from '../components/Pagination';
 import { LargeBlogcard } from '../components/BlogCards';
+import BlogBtn from '../components/form/BlogBtn';
 
 
 const Blog = () => {
@@ -82,6 +83,10 @@ const Blog = () => {
                         {setShowPost &&
                             <Pagination pageCount={pageCount} onPageChange={changePage} />
                         }
+<div className="flex items-center justify-center mt-6">
+                    <BlogBtn title="Go Back" url={-1} arrow={false} />
+
+</div>
                     </div>
                 </div>
 
