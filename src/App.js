@@ -8,6 +8,7 @@ import Projects from './pages/Projects';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import Category from './pages/Category';
 import BlogDetails from './pages/BlogDetails';
 import BlogDetail from './pages/BlogDetail';
 import ProjectListing from './pages/ProjectListing';
@@ -52,7 +53,7 @@ function App() {
         <Route path="gallery" element={<Gallery />} />
         <Route path="contact" element={<Contact />} />
         <Route path="blog" element={<Blog />} />
-        {/* <Route path="blog/:search" element={<Blog />} /> */}
+        <Route path="blog/category/:catgory" element={<Category />} />
         <Route path="blog/:slug" element={<BlogDetail />} />
         <Route path="blog-details" element={<BlogDetails />} />
         <Route path="project-listing" element={<ProjectListing />} />

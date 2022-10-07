@@ -413,7 +413,7 @@ body::-webkit-scrollbar-thumb {
    Pagination style
 =============================================
 ***/
-.paginationBttns {
+/* .paginationBttns {
   margin-top: 50px;
   display: flex;
   align-items: center;
@@ -427,10 +427,54 @@ body::-webkit-scrollbar-thumb {
 .paginationActive {
   @apply bg-tdf-blue-50 text-white p-2 px-4 font-bold;
   border-radius: 50%;
-}
+} */
 
 /*** 
 =============================================
    Pagination style end
 =============================================
 ***/
+.paginationBttns {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  width: 100%;
+  justify-content: center;
+  /* @apply text-gray-800; */
+  font-weight: 700;
+}
+
+.paginationBttns a {
+  padding: 10px 15px;
+  margin: 8px;
+  @apply text-gray-800;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+/* .paginationBttns a:hover {
+  color: white;
+  background-color: #2b2eff;
+} */
+
+.paginationActive a {
+  @apply bg-tdf-blue-50 text-white border border-tdf-blue-50 rounded-md;
+}
+
+.paginationDisabled a {
+  /* color: grey; */
+  @apply text-gray-400;
+  font-size: 50px;
+  cursor: not-allowed;
+}
+.previousBttn {
+  font-size: 50px;
+}
+.nextBttn {
+  border-radius: 5px;
+  font-size: 50px;
+}
+.nextBttn:hover {
+  background-color: none;
+}

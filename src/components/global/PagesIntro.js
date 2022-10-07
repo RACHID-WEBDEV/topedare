@@ -11,7 +11,7 @@ const PagesIntro = ({ className, title }) => {
 
                 <div className="relative px-4  mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
                     <div className="py-16">
-                        <div className="h-[150px] pb-16 lg:h-[300px] lg:py-10">
+                        <div className="h-[150px] pb-16 lg:h-[330px] lg:py-10">
                             <Fade top>
                                 <h1 className="text-center tracking-wider pt-10 md:leading-normal lg:text-[50px] text-4xl font-medium text-white" >{title}</h1>
                             </Fade>

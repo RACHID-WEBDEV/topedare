@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from "react-router-dom";
-import blogImg from '../assets/project/empower-woman.jpg'
 import { Facebook, WhatsApp } from '../assets/svgsIcons';
 import PagesIntro from '../components/global/PagesIntro';
-import { Instagram, Twitter2, Search } from '../assets/svgsIcons';
+import { Instagram, Twitter2 } from '../assets/svgsIcons';
 import BlogBtn from '../components/form/BlogBtn';
 import blogdata from '../data/blog';
 import { kebabCase } from '../utils/utils'
+
 // const SearchBar = ({ formSubmit, value, handleSearchKey, clearSearch }) => (
 //     <div className='searchBar-wrap'>
 //         <form onSubmit={formSubmit}>
@@ -45,6 +45,7 @@ const BlogDetails = () => {
 
     // const [blogs, setBlogs] = useState(null);
     const [posts, setPosts] = useState(null);
+
     const filterCategory = blogdata.reduce((acc, item) => {
         if (!acc[item.category]) {
             return { ...acc, [item.category]: 1 };
@@ -53,11 +54,10 @@ const BlogDetails = () => {
 
     }, [])
 
-    const categoryResults = Object.entries(filterCategory).map(([key, value]) => {
+    const categoryResults = Object.entries(filterCategory).map(([key, value], index) => {
         return (
-
-            <li className="mb-4 flex items-center justify-between">
-                <Link to="/blog">
+            <li key={index} className="mb-4 flex items-center justify-between">
+                <Link to={`/blog/category/${kebabCase(key)}`}>
                     <p className="text-xl font-medium transition-all cursor-pointer hover:text-tdf-blue-100"
                     >{key}</p>
                 </Link>
@@ -71,19 +71,19 @@ const BlogDetails = () => {
     // Object.entries(filterCategory).forEach(([key, value]) => console.log("loop", `${key}: ${value}`));
 
 
-    const handleCategory = async (category) => {
-        // const response = await axios.get(`http://localhost:5000/blogs?category=${category}`)
-        // if (response.status === 200) {
-        //     setData(response.data)
-        // } else {
-        //     toast.error('Something went wrong')
-        // }
-        let posts = blogdata.filter((blog) => blog.category);
-        if (posts) {
+    // const handleCategory = async (category) => {
+    //     const response = await axios.get(`http://localhost:5000/blogs?category=${category}`)
+    //     if (response.status === 200) {
+    //         setData(response.data)
+    //     } else {
+    //         toast.error('Something went wrong')
+    //     }
+    //     let posts = blogdata.filter((blog) => blog.category);
+    //     if (posts) {
 
-            setPosts(posts);
-        }
-    }
+    //         setPosts(posts);
+    //     }
+    // }
 
     useEffect(() => {
         let posts = blogdata.find((blog) => kebabCase(blog.title) === slug);
@@ -109,7 +109,7 @@ const BlogDetails = () => {
                     <div className="flex flex-wrap flex-col lg:flex-row -mx-4">
                         <div className="lg:w-[30%] px-4 order-last mt-8 lg:mt-0">
                             <div>
-                                <div className="mb-12">
+                                {/* <div className="mb-12">
                                     <h4 className="font-medium text-gray-700 text-lg xl:text-3xl text-dark capitalize mb-6">Search</h4>
                                     <div className="pro-sidebar-search mb-50 mt-25">
                                         <form className="border border-solid border-gray-300" action="#" method="get">
@@ -119,61 +119,41 @@ const BlogDetails = () => {
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> */}
 
                                 <div className="mb-12 text-gray-600">
-                                    <h4 className="font-medium text-lg text-gray-700 xl:text-3xl text-dark capitalize mb-5">Category</h4>
+                                    <h4 className="font-medium text-2xl text-gray-700 xl:text-3xl text-dark capitalize mb-5">Category</h4>
                                     <ul>
                                         {categoryResults}
-                                        {/* <CategoryTab data={blogdata} handleCategory={handleCategory} /> */}
-                                        {/* <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Donation</Link></li>
 
-                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Charity</Link></li>
-
-                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Employment</Link></li>
-
-                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Health</Link></li>
-
-                                        <li className="mb-4"><Link to="" className="text-xl font-medium transition-all hover:text-tdf-blue-100">Empowerment</Link></li> */}
                                     </ul>
                                 </div>
 
                                 <div className="mb-12 text-gray-600 ">
-                                    <h4 className="font-medium text-gray-700  text-lg xl:text-3xl text-dark capitalize mb-8">Recent Post</h4>
+                                    <h4 className="font-medium text-gray-700  text-2xl xl:text-3xl text-dark capitalize mb-8">Recent Post</h4>
 
                                     <div className="sidebar-project-wrap mt-30">
-                                        <div className="flex flex-wrap pb-5 mb-5 border-b border-solid border-gray-300">
-                                            <div className="w-20 mr-5 relative">
-                                                <Link to="" className="block absolute top-0 left-0 h-full">
-                                                    <img className="object-cover rounded-md w-16 h-16" loading="lazy" src={blogImg} alt="blog details" /></Link>
-                                            </div>
-                                            <div className="flex-1">
-                                                <span className="text-base">Apr 21, 2021</span>
-                                                <h4><Link to="" className="transition-all hover:text-orange text-base" >Sarbi at ligula porta</Link></h4>
-                                            </div>
-                                        </div>
 
-                                        <div className="flex flex-wrap pb-5 mb-5 border-b border-solid border-gray-300">
-                                            <div className="w-20 mr-5 relative">
-                                                <Link to="" className="block absolute top-0 left-0 h-full">
-                                                    <img className="object-cover rounded-md w-16 h-16" loading="lazy" src={blogImg} alt="blog details" /></Link>
-                                            </div>
-                                            <div className="flex-1">
-                                                <span className="text-base">Apr 21, 2021</span>
-                                                <h4><Link to="" className="transition-all hover:text-orange text-base" >Donec tellus Nulla lorem</Link></h4>
-                                            </div>
-                                        </div>
+                                        {
+                                            blogdata.slice(0, 4).map(({ blogImg, title, url }) => (
+                                                <div className="flex flex-wrap pb-4 mb-5 border-b border-solid border-gray-300">
+                                                    <div className="w-20 mr-5 relative">
+                                                        <Link to={`/blog/${kebabCase(title)}`} className="block absolute top-0 max-w-[80px] max-h-[80px] left-0 h-full">
+                                                            <img className="object-cover bg-center min-w-[80px] min-h-[80px] rounded-md w-full h-full" loading="lazy" src={blogImg} alt="blog details" />
+                                                        </Link>
+                                                    </div>
+                                                    <div className="flex-1">
+                                                        <Link to={`/blog/${kebabCase(title)}`} >
+                                                            <h4 className="transition-all three-row-paragraph hover:text-tdf-blue-50 text-base" >{title}
+                                                            </h4>
+                                                        </Link>
+                                                        {/* <span className="text-base">Apr 21, 2021</span> */}
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
 
-                                        <div className="flex flex-wrap">
-                                            <div className="w-20 mr-5 relative">
-                                                <Link to="" className="block absolute top-0 left-0 h-full">
-                                                    <img className="object-cover rounded-md w-16 h-16" loading="lazy" width="240" height="114" src={blogImg} alt="blog details" /></Link>
-                                            </div>
-                                            <div className="flex-1">
-                                                <span className="text-base">Apr 20, 2021</span>
-                                                <h4><Link to="" className="transition-all hover:text-orange text-base" >Norbi at omgula qorta</Link></h4>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
 
@@ -190,7 +170,7 @@ const BlogDetails = () => {
                                 </div> */}
 
                                 <div>
-                                    <h4 className="font-medium text-lg text-gray-700  xl:text-3xl text-dark capitalize mb-10">Tags</h4>
+                                    <h4 className="font-medium text-2xl text-gray-700  xl:text-3xl text-dark capitalize mb-10">Tags</h4>
 
                                     <ul className="flex flex-wrap -m-1 text-gray-600 ">
                                         <li className="m-1"><Link to="" className="bg-gray-light leading-none py-3 px-5 block text-base transition-all hover:text-white border border-gray-200 hover:bg-tdf-blue-100">Donation</Link></li>
@@ -211,7 +191,7 @@ const BlogDetails = () => {
                                         <div className="">
                                             <img src={posts.blogImg} loading="lazy" alt="blog details" className="mb-8  max-h-80 w-full h-full lg:max-h-[600px] rounded-xl" />
                                         </div>
-                                        <h3 className="mb-4 font-medium text-3xl lg:text-4xl text-gray-800 ">
+                                        <h3 className="mb-4 font-medium text-2xl lg:text-4xl text-gray-800 ">
                                             {posts.title}
                                         </h3>
                                         <ul className="flex flex-wrap text-gray-500 text-base">
