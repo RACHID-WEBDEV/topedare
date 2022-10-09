@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import PagesIntro from './../components/global/PagesIntro';
-import blogdata from '../data/blog';
 // import BlogCard from '../components/section/BlogCard';
-
+import ReactPaginate from "react-paginate";
 import Helmets from './Helmet';
-import Pagination from '../components/Pagination';
 import { LargeBlogcard } from '../components/BlogCards';
+import useSWR from 'swr';
+import parse from "html-react-parser";
 
 const Blog = () => {
+    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/posts?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
 
-    const [showPost, setShowPost] = useState(blogdata.slice(0, 18))
-
+    if (error) console.log(error)
     const [pageNumber, setPageNumber] = useState(0);
     // scrollTo top
     useEffect(() => {
@@ -20,21 +20,18 @@ const Blog = () => {
     const postPerPage = 6;
     const pagesVisited = pageNumber * postPerPage;
 
-    const displayUsers = showPost
-        .slice(pagesVisited, pagesVisited + postPerPage)
-        .map(({ blogImg, comments, description, date, title, id, url, category, short_desc }, idx) => (
-            <>
-                {/* <BlogCard key={idx} blogImg={blogImg} comments={comments} description={description} date={date} title={title} url={url} /> */}
-                <LargeBlogcard key={idx} blogPhoto={blogImg} id={id} slug={url} comments={comments} category={category} description={description} date={date} title={title} short_desc={short_desc} />
-            </>
-        ))
+    const displayPosts = data?.data?.posts?.slice(pagesVisited, pagesVisited + postPerPage)?.map(({ title, image, category, content, id }) => (
+        <>
+            <LargeBlogcard key={id} title={title} blogPhoto={image} category={category.label} short_desc={parse(content.substring(0, 299))
+            } />
+        </>
+    ))
 
-    const pageCount = Math.ceil(showPost.length / postPerPage);
+    const pageCount = Math.ceil(data?.data?.posts?.length / postPerPage);
 
     const changePage = ({ selected }) => {
         setPageNumber(selected);
     };
-
 
     return (
         <>
@@ -45,11 +42,20 @@ const Blog = () => {
                     <div className="container">
                         {/* <div className="flex items-center gap-2 flex-wrap"> */}
                         <div className="grid grid-cols-1 gap-6 px-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-                            {displayUsers}
+                            {displayPosts}
                         </div>
-                        {setShowPost &&
-                            <Pagination pageCount={pageCount} onPageChange={changePage} />
-                        }
+                        <ReactPaginate
+                            previousLabel={<span >&#x2039; </span>}
+                            nextLabel={<span >   &#8250;</span>}
+                            pageCount={pageCount}
+                            onPageChange={changePage}
+                            containerClassName={"paginationBttns"}
+                            previousLinkClassName={"previousBttn"}
+                            nextLinkClassName={"nextBttn"}
+                            disabledClassName={"paginationDisabled"}
+                            activeClassName={"paginationActive"}
+                        />
+
                     </div>
                 </div>
 

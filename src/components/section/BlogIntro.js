@@ -5,8 +5,10 @@ import Button from '../form/Button';
 import { Fade } from 'react-reveal';
 import blogdata from '../../data/blog';
 import { kebabCase } from '../../utils/utils'
+import useSWR from 'swr';
+import parse from "html-react-parser";
 
-export const LargeBlogcard = ({ blogPhoto, category, id, short_desc, title, slug }) => (
+export const LargeBlogcard = ({ blogPhoto, category, short_desc, title, }) => (
     <div className="lg:w-6/12 group">
         <Link to={`/blog/${kebabCase(title)}`}>
             <div className="relative overflow-hidden rounded-md w-full max-h-96 h-80 ">
@@ -30,7 +32,7 @@ export const SmallBlogcard = ({ blogPhoto, category, id, short_desc, title, slug
                 <div className="relative group">
                     <Link to={`/blog/${kebabCase(title)}`}>
                         <div className="relative overflow-hidden rounded-md max-w-[200px] max-h-32 lg:max-h-40 ">
-                            <img className="transform group-hover:scale-110 w-full h-full rounded-xl mb-6 transition-transform duration-500" src={blogPhoto} alt="blog" />
+                            <img className="transform group-hover:scale-110 w-full h-full min-h-[128px] lg:min-h-[160px] rounded-xl mb-6 transition-transform duration-500" src={blogPhoto} alt="blog" />
                             <span className="bg-yellow-300 absolute bottom-2 right-2 text-darken text-xs font-semibold px-4 py-1 uppercase  rounded-full">{category}</span>
                         </div>
                     </Link>
@@ -39,15 +41,18 @@ export const SmallBlogcard = ({ blogPhoto, category, id, short_desc, title, slug
             </div>
             <div className="w-8/12">
                 <Link to={`/blog/${kebabCase(title)}`}>
-                    <h1 className="text-gray-800 font-DmSans text-xl font-bold two-row-paragraph">{title}</h1>
+                    <h1 className="text-gray-800 font-DmSans capitalize text-xl font-bold two-row-paragraph">{title}</h1>
                 </Link>
-                <p className="text-gray-500 my-1 text-sm lg:text-lg three-row-paragraph">{short_desc}</p>
+                <div className="text-gray-500 my-1 !text-sm three-row-paragraph">{short_desc}</div>
             </div>
         </div>
     </div>
 )
 
 const BlogIntro = () => {
+    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/posts?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+
+    if (error) console.log(error)
     return (
         <div className="my-14 bg-tdf-bg py-8 lg:px-10 lg:py-16">
             <Fade top>
@@ -60,17 +65,16 @@ const BlogIntro = () => {
             </Fade>
             <div className="p-4 lg:p-12 flex flex-col lg:flex-row lg:space-x-20 ">
                 {
-                    blogdata.slice(0, 1).map(({ blogImg, category, id, short_desc, title, url }, idx) => (
-                        <LargeBlogcard key={idx} blogPhoto={blogImg} id={id} category={category} slug={url}
-                            short_desc={short_desc} title={title} />
+                    data?.data?.posts?.slice(0, 1).map(({ title, image, category, content, id }) => (
+                        <LargeBlogcard key={id} title={title} blogPhoto={image} category={category.label} short_desc={parse(content.substring(0, 299))
+                        } />
                     ))
                 }
 
                 <div className="lg:w-7/12 flex flex-col justify-between mt-12 space-y-5 lg:space-y-0 lg:mt-0">
                     {
-                        blogdata.slice(1, 4).map(({ blogImg, category, id, short_desc, title, url }, idx) => (
-                            <SmallBlogcard key={idx} blogPhoto={blogImg} id={id} category={category} slug={url}
-                                short_desc={short_desc} title={title} />
+                        data?.data?.posts?.sort().reverse().slice(1, 4).map(({ title, image, category, content, id }) => (
+                            <SmallBlogcard key={id} title={title} blogPhoto={image} category={category.label} short_desc={parse(content.substring(0, 299))} />
                         ))
                     }
 

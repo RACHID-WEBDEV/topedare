@@ -1,0 +1,37 @@
+import useSWR from 'swr';
+import parse from "html-react-parser";
+
+
+
+// const [showPost, setShowPost] = useState(data?.data?.posts)
+
+// const [pageNumber, setPageNumber] = useState(0);
+// // scrollTo top
+// useEffect(() => {
+//     window.scrollTo({ behavior: 'smooth', top: '0px' });
+// }, [pageNumber]);
+
+// const postPerPage = 6;
+// const pagesVisited = pageNumber * postPerPage;
+
+// const displayPosts = showPost?.slice(pagesVisited, pagesVisited + postPerPage)?.map(({ title, image, category, content }, idx) => (
+//     <>
+
+//         <LargeBlogcard key={idx} title={title} blogPhoto={image} category={category.label} short_desc={parse(content.substring(0, 299))
+//         } />
+//     </>
+// ))
+
+// const pageCount = Math.ceil(showPost?.length / postPerPage);
+
+// const changePage = ({ selected }) => {
+//     setPageNumber(selected);
+// };
+{/* {
+                                data?.data?.posts?.map(({ title, image, category, content }, idx) => {
+                                    return (
+                                        <LargeBlogcard key={idx} title={title} blogPhoto={image} category={category.label} short_desc={parse(content.substring(0, 299))
+                                        } />
+                                    )
+                                })
+                            } */}

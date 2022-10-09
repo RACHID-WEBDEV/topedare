@@ -6,9 +6,6 @@ import { Instagram, Twitter2 } from '../assets/svgsIcons';
 import BlogBtn from '../components/form/BlogBtn';
 import blogdata from '../data/blog';
 import { kebabCase } from '../utils/utils'
-import useSWR from 'swr';
-import parse from "html-react-parser";
-import moment from "moment";
 
 // const SearchBar = ({ formSubmit, value, handleSearchKey, clearSearch }) => (
 //     <div className='searchBar-wrap'>
@@ -45,26 +42,19 @@ const BlogDetails = () => {
     // const { id } = useParams();
     const { slug } = useParams();
 
-    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/posts?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
-    if (error) console.log(error)
 
-    let postDetails = data?.data?.posts?.find((blog) => kebabCase(blog.title) === slug);
+    // const [blogs, setBlogs] = useState(null);
+    const [posts, setPosts] = useState(null);
 
-    const filterCategory = data?.data?.posts?.map(({ category }) => {
-        return category
-    })
-    //    console.log('filterCategory', filterCategory)
-
-    const catResult = filterCategory?.reduce((acc, item) => {
-        if (!acc[item.label]) {
-            return { ...acc, [item.label]: 1 };
+    const filterCategory = blogdata.reduce((acc, item) => {
+        if (!acc[item.category]) {
+            return { ...acc, [item.category]: 1 };
         }
-        return { ...acc, [item.label]: acc[item.label] + 1 }
+        return { ...acc, [item.category]: acc[item.category] + 1 }
 
     }, [])
-    // console.log('catResult', catResult)
 
-    const categoryResults = Object.entries(catResult).map(([key, value], index) => {
+    const categoryResults = Object.entries(filterCategory).map(([key, value], index) => {
         return (
             <li key={index} className="mb-4 flex items-center justify-between">
                 <Link to={`/blog/category/${kebabCase(key)}`}>
@@ -76,6 +66,32 @@ const BlogDetails = () => {
             </li>
         )
     })
+
+
+    // Object.entries(filterCategory).forEach(([key, value]) => console.log("loop", `${key}: ${value}`));
+
+
+    // const handleCategory = async (category) => {
+    //     const response = await axios.get(`http://localhost:5000/blogs?category=${category}`)
+    //     if (response.status === 200) {
+    //         setData(response.data)
+    //     } else {
+    //         toast.error('Something went wrong')
+    //     }
+    //     let posts = blogdata.filter((blog) => blog.category);
+    //     if (posts) {
+
+    //         setPosts(posts);
+    //     }
+    // }
+
+    useEffect(() => {
+        let posts = blogdata.find((blog) => kebabCase(blog.title) === slug);
+        if (posts) {
+            setPosts(posts);
+        }
+    }, [slug]);
+
 
     // useEffect(() => {
     //     let blogs = blogdata.find((blogs) => blogs.id === parseInt(id));
@@ -119,11 +135,11 @@ const BlogDetails = () => {
                                     <div className="sidebar-project-wrap mt-30">
 
                                         {
-                                            data?.data?.posts?.sort().reverse().slice(0, 4).map(({ image, title, url }) => (
+                                            blogdata.slice(0, 4).map(({ blogImg, title, url }) => (
                                                 <div className="flex flex-wrap pb-4 mb-5 border-b border-solid border-gray-300">
                                                     <div className="w-20 mr-5 relative">
                                                         <Link to={`/blog/${kebabCase(title)}`} className="block absolute top-0 max-w-[80px] max-h-[80px] left-0 h-full">
-                                                            <img className="object-cover bg-center min-w-[80px] min-h-[80px] rounded-md w-full h-full" loading="lazy" src={image} alt="blog details" />
+                                                            <img className="object-cover bg-center min-w-[80px] min-h-[80px] rounded-md w-full h-full" loading="lazy" src={blogImg} alt="blog details" />
                                                         </Link>
                                                     </div>
                                                     <div className="flex-1">
@@ -170,24 +186,26 @@ const BlogDetails = () => {
 
                         <div className="flex-1 px-4">
                             {
-                                postDetails ? <div className="blog-details-wrapper">
+                                posts ? <div className="blog-details-wrapper">
                                     <div className="mb-8">
                                         <div className="">
-                                            <img src={postDetails.image} loading="lazy" alt="blog details" className="mb-8  max-h-80 w-full h-full lg:max-h-[600px] rounded-xl" />
+                                            <img src={posts.blogImg} loading="lazy" alt="blog details" className="mb-8  max-h-80 w-full h-full lg:max-h-[600px] rounded-xl" />
                                         </div>
                                         <h3 className="mb-4 font-medium text-2xl lg:text-4xl text-gray-800 ">
-                                            {postDetails.title}
+                                            {posts.title}
                                         </h3>
                                         <ul className="flex flex-wrap text-gray-500 text-base">
-                                            <li>{
-                                                moment(postDetails.date_added.replaceAll('-', "").replaceAll(':', "").slice(0, 15)).fromNow()
-                                            }</li>
+                                            <li>21 September, 2022</li>
                                             <li><span className="inline-block mx-2">\</span></li>
-                                            <li>{postDetails.author}</li>
+                                            <li>Tope Dare</li>
                                         </ul>
                                     </div>
 
-                                    {parse(postDetails.content)}
+                                    {posts.description}
+                                    {/* <blockquote className="my-6 ml-12 relative before:absolute before:top-0 before:-left-5 before:w-1 before:h-full before:empty before:bg-orange">
+                                        Es un hecho establecido hace demasiado tiempo que un lector se distraerá con
+                                        el contenido del texto de un sitio mientras que mira su diseño.
+                                    </blockquote> */}
 
                                     {/* <div className="chip "> AnimateArrow</div> */}
                                     <div className="flex flex-wrap justify-between  my-8">

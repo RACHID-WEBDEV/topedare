@@ -13,6 +13,8 @@ import BlogDetails from './pages/BlogDetails';
 import BlogDetail from './pages/BlogDetail';
 import ProjectListing from './pages/ProjectListing';
 import { ToastContainer } from 'react-toastify';
+import { SWRConfig } from 'swr'
+import axios from 'axios'
 
 
 export const NotFound = () => (
@@ -31,37 +33,43 @@ export const NotFound = () => (
 )
 
 function App() {
+  // const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const fetcher = (...args) => axios.get(...args).then(res => res.data)
+
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      <Header />
+      <SWRConfig value={{ fetcher }}>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        <Header />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="projects" element={<Projects />} />
-        <Route path="gallery" element={<Gallery />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="blog" element={<Blog />} />
-        <Route path="blog/category/:catgory" element={<Category />} />
-        <Route path="blog/:slug" element={<BlogDetail />} />
-        <Route path="blog-details" element={<BlogDetails />} />
-        <Route path="project-listing" element={<ProjectListing />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-      {/* Same as */}
-      <ToastContainer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="gallery" element={<Gallery />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="blog/category/:catgory" element={<Category />} />
+          <Route path="blog/:slug" element={<BlogDetail />} />
+          <Route path="blog-details" element={<BlogDetails />} />
+          <Route path="project-listing" element={<ProjectListing />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+        {/* Same as */}
+        <ToastContainer />
+
+      </SWRConfig>
 
     </>
   );

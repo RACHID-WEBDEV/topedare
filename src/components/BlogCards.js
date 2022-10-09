@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { Comment } from "../assets/svgsIcons";
 import { kebabCase } from "../utils/utils";
-import BlogBtn from "./form/BlogBtn";
+import { BlogBtn2 } from "./form/BlogBtn";
 
 export const LargeBlogcard = ({ blogPhoto, category, id, short_desc, title, slug }) => (
     <div className="border border-gray-200  p-2 rounded-lg group">
@@ -14,9 +15,18 @@ export const LargeBlogcard = ({ blogPhoto, category, id, short_desc, title, slug
             <h1 className="text-gray-900 font-bold my-3 lg:mt-4 font-DmSans text-xl lg:text-2xl two-row-paragraph">{title}</h1>
 
         </Link>
-        <p className="text-gray-600 text-base lg:text-xl mb-3  two-row-paragraph">{short_desc}</p>
+        <div className="text-gray-600 text-base lg:text-xl mb-3  two-row-paragraph">{short_desc}</div>
         {/* <Link to={`/blog/${id}`} className="underline">Read more</Link> */}
+        <div className="flex items-center justify-between py-4 pt-6 px-2">
+            <BlogBtn2 title="Blog details" url={`/blog/${kebabCase(title)}`} />
 
-        <BlogBtn title="Blog details" url={`/blog/${kebabCase(title)}`} />
+            <div className="text-gray-800 hover:text-tdf-blue-50 inline-flex items-center gap-2">
+                <Comment /> <p className="font-medium text-base leading-none">Comments</p>
+            </div>
+
+        </div>
+
+
+
     </div>
 )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import AboutIntro from '../components/section/AboutIntro'
 import WhatWeDo from '../components/section/WhatWeDo'
 import HeroIntro from '../components/section/HeroIntro'
@@ -7,33 +7,27 @@ import Stats from '../components/section/Stats'
 import CTA from '../components/section/CTA'
 import Subcribe from '../components/section/Subcribe';
 import BlogIntro from '../components/section/BlogIntro'
-import axios from 'axios'
-import Helmets from './Helmet'
 
+import Helmets from './Helmet'
+import useSWR from 'swr'
 
 
 
 
 const Home = () => {
+  const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
 
-  const [data, setData] = useState("");
-  useEffect(() => {
-    loadData()
-  }, [])
-  // Object.values()
-  const loadData = async () => {
-    // const response = await axios.get(`https://hubit-core.herokuapp.com/client/api/1.0/public/content/components?user=633c095dd4d70251093c3c61`)
+  const result = data?.data?.components?.map(({ description }) => {
+    return description
+  })
 
-    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
-    if (response.status === 200) {
-      const output = response.data.data.components.map(({ description }) => {
-        return description
-      })
-      setData(output)
-    } else {
-      console.log('Message =>', response.message)
-      // toast.error('Something went wrong')
-    }
+  // console.log('result out', result)
+
+  if (error) return console.log(error)
+  if (error) return <h1> {error.message}</h1>
+
+  if (!result) {
+    return <h1>Loading...</h1>
   }
   return (
     <div className="">
@@ -41,25 +35,35 @@ const Home = () => {
 
       <HeroIntro />
 
-      <AboutIntro title="About Us" subTitle={data.slice(0, 1)} content={data.slice(1, 2)} statsTitle1={data.slice(2, 3)} statsSubTitle1={data.slice(3, 4)} statsTitle2={data.slice(4, 5)} statsSubTitle2={data.slice(5, 6)} floatStats={data.slice(6, 7)} />
+      <AboutIntro title="About Us" subTitle={result?.slice(0, 1)} content={result?.slice(1, 2)} statsTitle1={result?.slice(2, 3)} statsSubTitle1={result?.slice(3, 4)} statsTitle2={result?.slice(4, 5)} statsSubTitle2={result?.slice(5, 6)} floatStats={result?.slice(6, 7)} />
 
 
       <WhatWeDo
-        title={data.slice(7, 8)}
-        subTitle={data.slice(8, 9)}
+        title={result?.slice(7, 8)}
+        subTitle={result?.slice(8, 9)}
 
-        cat1Title={data.slice(9, 10)}
-        cat1SubTitle={data.slice(10, 11)}
+        cat1Title={result?.slice(9, 10)}
+        cat1SubTitle={result?.slice(10, 11)}
 
-        cat2Title={data.slice(11, 12)}
-        cat2SubTitle={data.slice(12, 13)}
+        cat2Title={result?.slice(11, 12)}
+        cat2SubTitle={result?.slice(12, 13)}
 
-        cat3Title={data.slice(13, 14)}
-        cat3SubTitle={data.slice(14, 15)}
+        cat3Title={result?.slice(13, 14)}
+        cat3SubTitle={result?.slice(14, 15)}
 
-        cat4Title={data.slice(15, 16)}
-        cat4SubTitle={data.slice(16, 17)} />
-      <CTA />
+        cat4Title={result?.slice(15, 16)}
+        cat4SubTitle={result?.slice(16, 17)} />
+
+      <CTA
+        ctaSectionHeading="Become a Volunteer"
+        title="Support and Donate"
+        subTitle="Lets Change The World With Humanity. Your Mercy Can Change Someone’s Life"
+        qoute="Service to others is the rent you pay for your room here on earth."
+        qouteAuthor="Muhammad Ali "
+        volunteerHeading="Make a Difference Today!"
+        volunteerTitle="Become a Volunteer"
+      />
+
       <Stats />
       <BlogIntro />
       <Subcribe />
