@@ -43,7 +43,7 @@ export const SmallBlogcard = ({ blogPhoto, category, id, short_desc, title, slug
                 <Link to={`/blog/${kebabCase(title)}`}>
                     <h1 className="text-gray-800 font-DmSans capitalize text-xl font-bold two-row-paragraph">{title}</h1>
                 </Link>
-                <div className="text-gray-500 my-1 !text-sm three-row-paragraph">{short_desc}</div>
+                <div className="text-gray-500 my-1 text-sm lg:text-xl excerpt three-row-paragraph">{short_desc}</div>
             </div>
         </div>
     </div>

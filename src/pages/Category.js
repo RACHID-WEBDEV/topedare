@@ -39,6 +39,14 @@ const Blog = () => {
     // const showPosts = data?.data?.posts
     // console.log('showPosts', (showPosts))
 
+    // const catResult = filterCategory?.reduce((acc, item) => {
+    //     if (!acc[item.label]) {
+    //         return { ...acc, [item.label]: 1 };
+    //     }
+    //     return { ...acc, [item.label]: acc[item.label] + 1 }
+
+    // }, [])
+    // console.log('catResult', catResult)
 
 
 

@@ -5,6 +5,8 @@ export const BlogBtn2 = ({ arrow, title, url }) => {
         <button>
             <Link to={url} className="bg-white inline-flex items-center group transition-all hover:text-tdf-blue-50  text-gray-700 capitalize font-medium text-base pr-4 leading-none">
 
+
+
                 {title}
                 {
                     arrow &&

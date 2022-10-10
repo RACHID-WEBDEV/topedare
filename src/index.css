@@ -336,6 +336,10 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-orient: vertical;
 }
 
+.excerpt p {
+  @apply text-base lg:text-xl;
+}
+
 .two-row-paragraph {
   opacity: 1;
   overflow: hidden;
