@@ -22,7 +22,7 @@ const Blog = () => {
 
     const gettAllCategory = data?.data?.posts
 
-    const AllCategory = gettAllCategory.filter((item) => {
+    const AllCategory = gettAllCategory?.filter((item) => {
         return (item.category.value === categoryPath)
     })
 
