@@ -14,7 +14,7 @@ import parse from "html-react-parser";
 
 
 
-function AboutIntro({ content, intro, switchColumn, subTitle, floatStats, title, statsTitle1, statsSubTitle1, statsTitle2, statsSubTitle2 }) {
+function AboutIntro({ content, intro, switchColumn, aboutpage, subTitle, floatStats, title, statsTitle1, statsSubTitle1, statsTitle2, statsSubTitle2 }) {
     const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
 
     if (error) return console.log(error)
@@ -43,9 +43,15 @@ function AboutIntro({ content, intro, switchColumn, subTitle, floatStats, title,
     const floatStatss = data?.data?.components?.find(({ slug }) => {
         return slug === "about-intro-floating-stats"
     })
+    const aboutPageIntro = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-us-page-intro-2"
+    })
+    const aboutPageContent = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-page-intro-2-content"
+    })
 
 
-    console.log("stats4", stats4)
+    // console.log("stats4", stats4)
     return (
         <>
             <section className={classNames("relative pt-24 pb-10 lg:pt-32 lg:pb-2 text-gray-800", { 'pb-0 lg:pb-10': switchColumn })}>
@@ -87,33 +93,47 @@ function AboutIntro({ content, intro, switchColumn, subTitle, floatStats, title,
 
                                     </>
                                 }
+                                {
+                                    aboutpage &&
+                                    <div>
+                                        {aboutPageIntro &&
+                                            <Fade top>
+                                                {parse(aboutPageIntro?.description)}
+                                            </Fade>}
+                                        <Fade bottom>
+                                            {parse(aboutPageContent?.description)}
 
+                                        </Fade>
+                                    </div>
+                                }
                                 <Fade right>
                                     <div className="flex space-x-4 mb-8 sm:space-x-10">
-                                        <div className="flex space-x-4">
-                                            <CheckIcon />
-                                            {parse(stats1?.description)}
-                                        </div>
-                                        <div className="flex space-x-4">
-                                            <CheckIcon />
-                                            {parse(stats2?.description)}
-                                        </div>
+                                        {stats1 &&
+                                            <div className="flex space-x-4">
+                                                <CheckIcon />
+                                                {parse(stats1?.description)}
+                                            </div>}
+                                        {stats2 &&
+                                            <div className="flex space-x-4">
+                                                <CheckIcon />
+                                                {parse(stats2?.description)}
+                                            </div>}
                                     </div>
                                 </Fade>
                                 {
                                     switchColumn &&
                                     <Fade bottom delay={1000}>
                                         <div className="flex space-x-4 mb-8 sm:space-x-10">
-                                            <div className="flex space-x-4">
-                                                <CheckIcon />
-                                                {parse(stats3?.description)}
-
-                                            </div>
-                                            <div className="flex space-x-4">
-                                                <CheckIcon />
-                                                {parse(stats4?.description)}
-                                            </div>
-
+                                            {stats3 &&
+                                                <div className="flex space-x-4">
+                                                    <CheckIcon />
+                                                    {parse(stats3?.description)}
+                                                </div>}
+                                            {stats4 &&
+                                                <div className="flex space-x-4">
+                                                    <CheckIcon />
+                                                    {parse(stats4?.description)}
+                                                </div>}
                                         </div>
 
                                     </Fade>

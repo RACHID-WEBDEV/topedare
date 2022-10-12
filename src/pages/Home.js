@@ -16,48 +16,14 @@ import useSWR from 'swr'
 
 
 const Home = () => {
-  const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
-
-  const result = data?.data?.components?.map(({ description }) => {
-    return description
-  })
-
-  // console.log('result out', result)
-
-  if (error) return console.log(error)
-  if (error) return <h1> {error.message}</h1>
-
-  if (!result) {
-    return <h1>Loading...</h1>
-  }
-  // const render = data?.data?.components?.find(({ slug }) => {
-  //   // return slug === "about-intro-test"
-  //   return slug === "cta-component"
-
-  // })
-  // console.log('render', render)
-  // console.log('render.description', render?.description)
 
   return (
     <div className="">
       <Helmets title="Home Page" />
-
       <HeroIntro />
-
       <AboutIntro intro />
-
-
       <WhatWeDo />
-
-      <CTA
-        ctaSectionHeading="Become a Volunteer"
-        title="Support and Donate"
-        subTitle="Lets Change The World With Humanity. Your Mercy Can Change Someone’s Life"
-        qoute="Service to others is the rent you pay for your room here on earth."
-        qouteAuthor="Muhammad Ali "
-        volunteerHeading="Make a Difference Today!"
-        volunteerTitle="Become a Volunteer"
-      />
+      <CTA />
 
       <Stats />
       <BlogIntro />
@@ -100,3 +66,13 @@ export default Home
   // cat4Title="Empowerment"
   // cat4SubTitle="Promoting empowerment of the unemployed in achieving poverty eradication, social integration, and full employment integration for our youth and women." />
 // <CTA />
+
+// <CTA
+//         ctaSectionHeading="Become a Volunteer"
+//         title="Support and Donate"
+//         subTitle="Lets Change The World With Humanity. Your Mercy Can Change Someone’s Life"
+//         qoute="Service to others is the rent you pay for your room here on earth."
+//         qouteAuthor="Muhammad Ali "
+//         volunteerHeading="Make a Difference Today!"
+//         volunteerTitle="Become a Volunteer"
+//       />

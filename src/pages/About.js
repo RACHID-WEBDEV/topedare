@@ -19,31 +19,33 @@ import PagesIntro from './../components/global/PagesIntro';
 import Helmets from './Helmet';
 // import useSWR from 'swr';
 // import { kebabCase } from '../utils/utils';
+import useSWR from 'swr';
+import parse from 'html-react-parser';
 
 
 
 const About = () => {
+    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
 
-    const [data, setData] = useState("");
-    useEffect(() => {
-        loadData()
-    }, [])
-    // Object.values()
-    const loadData = async () => {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
-        if (response.status === 200) {
-            const output = response.data.data.components.map(({ description }) => {
-                return description
-            })
-            setData(output)
-        } else {
-            console.log('Message =>', response.message)
-            // toast.error('Something went wrong')
-        }
+    const result = data?.data?.components?.map(({ description }) => {
+        return description
+    })
+
+    // console.log('result out', result)
+
+    if (error) return console.log(error)
+
+    if (!result) {
+        return <h1>Loading...</h1>
     }
+    const aboutIntro = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-us-page-intro"
+    })
+    const aboutContent1 = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-us-page-content1"
+    })
 
-    // const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
-    // console.log('data', data?.find((item) => kebabCase(item.slug) === "testdata"))
+
     return (
         <>
             <Helmets title="About Us" />
@@ -57,23 +59,22 @@ const About = () => {
                 </div>
                 <div className="gap-16 items-center xl:px-16 py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
                     <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-                        <Fade top>
-                            <SectionTitle title="Who We Are" />
-                        </Fade>
-                        <Fade left>
-                            <div className="max-w-2xl">
-                                <SectionSubTitle subTitle=" Helping each other can make world better" />
+                        {aboutIntro && <Fade top>
+                            {parse(aboutIntro?.description)}
+                        </Fade>}
 
-                            </div>
-                        </Fade>
-                        <Fade bottom>
-                            <p className=" text-gray-600 pb-1">
-                                The Tope Dare Foundation is a charity initiative of Babatope Dare with the primary goal of giving back to society and helping the less privileged and vulnerable in our communities to alleviate human sufferings and create opportunities for a better life.
-                            </p>
-                        </Fade>
-                        <Fade left>
-                            <p className=" text-gray-600">The Tope Dare Foundation reaches out basically to children who are vulnerable and may have otherwise been left to roam the streets with no hopes, children who were perhaps destined to live in poverty or become miscreants in our society.</p>
-                        </Fade>
+                        {aboutContent1 &&
+                            <Fade bottom>
+                                {parse(aboutContent1?.description)}
+
+                                {/* <div>
+                                <p className=" text-gray-600 pb-1">
+                                    The Tope Dare Foundation is a charity initiative of Babatope Dare with the primary goal of giving back to society and helping the less privileged and vulnerable in our communities to alleviate human sufferings and create opportunities for a better life.
+                                </p>
+
+                                <p className=" text-gray-600">The Tope Dare Foundation reaches out basically to children who are vulnerable and may have otherwise been left to roam the streets with no hopes, children who were perhaps destined to live in poverty or become miscreants in our society.</p>
+                            </div> */}
+                            </Fade>}
 
 
                     </div>
@@ -89,7 +90,7 @@ const About = () => {
             </section>
 
 
-            <AboutIntro title="Helping Them Today" subTitle=" See what we do for the poor people and the children" content="Help is Our Goal. We Can Save More Lifes With Your Helping Hand. We believe they have a future bright with hope if we assist with the basic education, health care employment opportunity and empowerment." statsTitle1={data.slice(2, 3)} statsSubTitle1={data.slice(3, 4)} statsTitle2={data.slice(4, 5)} statsSubTitle2={data.slice(5, 6)} floatStats={data.slice(6, 7)} switchColumn />
+            <AboutIntro aboutpage title="Helping Them Today" subTitle=" See what we do for the poor people and the children" content="Help is Our Goal. We Can Save More Lifes With Your Helping Hand. We believe they have a future bright with hope if we assist with the basic education, health care employment opportunity and empowerment." switchColumn />
 
             <div className=" lg:pt-28 lg:pb-4 object-cover object-[83%]  bg-cover bg-right bg-section-bg overflow-hidden">
                 <div className="container m-auto px-6 space-y-8 text-gray-500 md:px-12">

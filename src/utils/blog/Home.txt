@@ -174,3 +174,117 @@ WHO WE ARE
 </h1>
 <p className=" mb-10 text-gray-600">
     Here are some of the Categories and Sector we Work regularly, We believe they have a future bright with hope if we assist them </p>
+
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+CTA
+
+
+
+ <SectionTitle title="Become a Volunteer" />
+
+   <SectionSubTitle subTitle="Support and Donate" />
+
+   <div className="relative">
+        <Fade top>
+            <div className="flex items-center space-x-20 mb-5">
+                <span className="border border-gray-300 w-14 absolute" ></span>
+                <p className="text-gray-400 tracking-wide uppercase font-black text-base">Become a Volunteer</p>
+            </div>
+        </Fade>
+        <Fade left>
+            <div className="max-w-2xl">
+                <h1 className="text-gray-800 mb-6 text-3xl lg:text-4xl ">
+                    Support and Donate
+                </h1>
+                <p className=" mb-10 text-gray-600">
+                    Let's Change The World With Humanity. Your Mercy Can Change Someone’s Life
+                </p>
+            </div>
+        </Fade>
+
+    </div>
+
+    ==>  QOUTE
+     <div className="cta-content_top pl-4 lg:px-[100px] pt-[4.5rem] pb-[4.8125rem] bg-cta-bg relative block bg-scroll bg-no-repeat bg-cover " >
+                                    <Fade top>
+                                        <h2 className="text-white w-[19.5625rem] lg:w-[21.25rem] text-[1.625rem] lg:text-4xl font-medium mb-6 leading-[2.75rem]">Service to others is the rent you pay for your room here on earth.</h2>
+
+                                    </Fade>
+                                    <Fade bottom>
+                                        <div className="name relative block pl-16">
+                                            <p className="text-white text-lg lg:text-xl leading-4 font-normal">Muhammad Ali</p>
+                                        </div>
+                                    </Fade>
+                                </div>
+
+
+==>  QOUTE BECOME Volunteer
+
+<div className="relative block pl-5">
+    <p className="text-gray-600 text-lg lg:text-2xl leading-6 font-medium m-0 mb-2">Make a Difference Today!</p>
+    <h2 className="text-2xl lg:text-5xl font-extrabold text-tdf-blue-50/80 ">Become a Volunteer</h2>
+</div>                         
+////////////////////////////////////////////////////// 
+
+//////////////////////////////////////////////////////
+
+STATS
+
+ <SectionSubTitle subTitle="Happy People. Better World " />
+
+
+   <Fade left>
+    <h1 className="text-gray-800 mb-6 text-3xl lg:text-4xl">
+        Happy People. Better World
+    </h1>
+
+</Fade>
+<Fade bottom>
+    <p className=" mb-10 pb-10 lg:pb-5 text-gray-600">Join hands with us for a better life and future for the poor across the country, Small Donations Make a Bigger Impact
+        On Someone’s Life, Act Today!</p>
+</Fade>
+
+
+===>Project 1
+ <div>
+    <p className="text-4xl font-bold text-gray-800">88+</p>
+    <p className="text-base leading-4 uppercase xl:mt-4 mt-2 text-gray-600">Completed Project</p>
+</div>
+
+ <div>
+<p className="text-4xl font-bold text-gray-800">42+</p>
+<p className="text-base leading-4 xl:mt-4 mt-2 text-gray-600">FINANCIAL EMPOWERMENT</p>
+</div>
+
+ <div>
+    <p className="text-4xl font-bold text-gray-800">18+</p>
+    <p className="text-base leading-4 xl:mt-4 mt-2 text-gray-600">SCHOOLS SUPPORTED</p>
+</div>
+
+<div>
+    <p className="text-4xl font-bold text-gray-800">320+</p>
+    <p className="text-base leading-4 xl:mt-4 mt-2 text-gray-600">HAPPY CHILDREN</p>
+</div>
+
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+Subscribe
+
+  <SectionSubTitle className="text-center " subTitle=" Let makes a difference in the lives of others" />
+   <p className="text-gray-600 text-center ">
+          Join our mailing list  subcribe for our upcoming events
+        </p>
+    {/* <div>
+    <div className=" flex items-center justify-center">
+
+        <h1 className="text-gray-800 mb-6 text-3xl lg:text-4xl ">
+        Let makes a difference in the lives of others
+        </h1>
+    </div>
+
+    <p className="text-gray-600 text-center ">
+        Join our mailing list  subcribe for our upcoming events
+    </p>
+    </div> */}
