@@ -9,10 +9,43 @@ import SectionTitle from './SectionTitle';
 import SectionSubTitle from './SectionSubTitle';
 import classNames from 'classnames';
 import { CheckIcon } from '../../assets/svgsIcons';
+import useSWR from 'swr';
+import parse from "html-react-parser";
 
 
 
-function AboutIntro({ content, switchColumn, subTitle, floatStats, title, statsTitle1, statsSubTitle1, statsTitle2, statsSubTitle2 }) {
+function AboutIntro({ content, intro, switchColumn, subTitle, floatStats, title, statsTitle1, statsSubTitle1, statsTitle2, statsSubTitle2 }) {
+    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+
+    if (error) return console.log(error)
+
+    if (!data) {
+        return <h1>Loading...</h1>
+    }
+    const render = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-intro-test"
+    })
+
+    const stats1 = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-intro-stats-1"
+    })
+    const stats2 = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-intro-stats-2"
+    })
+
+    const stats3 = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-intro-stats-3"
+    })
+    const stats4 = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-intro-stats-4"
+    })
+
+    const floatStatss = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-intro-floating-stats"
+    })
+
+
+    console.log("stats4", stats4)
     return (
         <>
             <section className={classNames("relative pt-24 pb-10 lg:pt-32 lg:pb-2 text-gray-800", { 'pb-0 lg:pb-10': switchColumn })}>
@@ -35,7 +68,9 @@ function AboutIntro({ content, switchColumn, subTitle, floatStats, title, statsT
                                         <span className="rounded-full p-4 bg-tdf-blue-50/20" >
                                             <img src={ShowLove} width={30} height={30} alt="" className="" />
                                         </span>
-                                        <p className="text-xs font-black mr-8 text-gray-900 w-[155px]">{floatStats}</p>
+
+                                        {parse(floatStatss?.description)}
+
                                     </div>
                                 </div>
 
@@ -44,39 +79,26 @@ function AboutIntro({ content, switchColumn, subTitle, floatStats, title, statsT
                         </div>
                         <div className="mt-[-30px] md:mt-0 lg:pb-20 lg:mt-[-100px] xl:mt-[-50px] lg:w-[45%] px-3 ">
                             <div className="md:px-8 md:mt-12 lg:mt-0 lg:px-0">
-                                <Fade top>
-                                    <SectionTitle title={title} />
-                                </Fade>
-                                <Fade left>
-                                    <SectionSubTitle subTitle={subTitle} />
-                                </Fade>
-                                <Fade bottom>
-                                    <p className="mb-10 text-gray-600">
-                                        {content}
-                                    </p>
+                                {
+                                    intro && <>
+                                        <Fade bottom>
+                                            {parse(render?.description)}
+                                        </Fade>
 
-                                </Fade>
+                                    </>
+                                }
+
                                 <Fade right>
                                     <div className="flex space-x-4 mb-8 sm:space-x-10">
                                         <div className="flex space-x-4">
                                             <CheckIcon />
-                                            <div>
-                                                <span className="font-black text-gray-600 block text-xl dark:text-white">{statsTitle1}</span>
-                                                <span className="text-gray-500">{statsSubTitle1}</span>
-                                            </div>
+                                            {parse(stats1?.description)}
                                         </div>
                                         <div className="flex space-x-4">
                                             <CheckIcon />
-                                            <div>
-                                                <span className="font-black text-gray-600 block text-xl dark:text-white">{statsTitle2}</span>
-                                                <span className="text-gray-500">{statsSubTitle2}</span>
-                                            </div>
-
-
-
+                                            {parse(stats2?.description)}
                                         </div>
                                     </div>
-
                                 </Fade>
                                 {
                                     switchColumn &&
@@ -84,17 +106,12 @@ function AboutIntro({ content, switchColumn, subTitle, floatStats, title, statsT
                                         <div className="flex space-x-4 mb-8 sm:space-x-10">
                                             <div className="flex space-x-4">
                                                 <CheckIcon />
-                                                <div>
-                                                    <span className="font-black text-gray-600 block text-xl dark:text-white">425+</span>
-                                                    <span className="text-gray-500">Successful Campaigns</span>
-                                                </div>
+                                                {parse(stats3?.description)}
+
                                             </div>
                                             <div className="flex space-x-4">
                                                 <CheckIcon />
-                                                <div>
-                                                    <span className="font-black text-gray-600 block text-xl dark:text-white">162+</span>
-                                                    <span className="text-gray-500">Happy Families</span>
-                                                </div>
+                                                {parse(stats4?.description)}
                                             </div>
 
                                         </div>
