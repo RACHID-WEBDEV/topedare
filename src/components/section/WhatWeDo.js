@@ -1,17 +1,42 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import SectionTitle from "./SectionTitle";
-import SectionSubTitle from './SectionSubTitle';
+// import SectionSubTitle from './SectionSubTitle';
 import { Fade } from 'react-reveal'
 import Health from '../../assets/section/health-care.svg'
 import Education from '../../assets/section/charity-education.svg'
 import Employment from '../../assets/section/work.svg'
 import { EmpowerIcon } from "../../assets/svgsIcons";
 import SectionImg from '../../assets/section/section-img.jpg'
+import useSWR from 'swr';
+import parse from 'html-react-parser';
 
 
 
 const WhatWeDo = ({ title, subTitle, cat1Title, cat1SubTitle, cat2Title, cat2SubTitle, cat3Title, cat3SubTitle, cat4Title, cat4SubTitle }) => {
+    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+
+    if (error) return console.log(error)
+
+    if (!data) {
+        return <h1>Loading...</h1>
+    }
+    const intro = data?.data?.components?.find(({ slug }) => {
+        return slug === "what-we-do"
+    })
+    const category1 = data?.data?.components?.find(({ slug }) => {
+        return slug === "what-we-do-category-1"
+    })
+    const category2 = data?.data?.components?.find(({ slug }) => {
+        return slug === "what-we-do-category-2"
+    })
+    const category3 = data?.data?.components?.find(({ slug }) => {
+        return slug === "what-we-do-category-3"
+    })
+    const category4 = data?.data?.components?.find(({ slug }) => {
+        return slug === "what-we-do-category-4"
+    })
+
     return (
         <>
             <section className="relative overflow-hidden ">
@@ -21,15 +46,16 @@ const WhatWeDo = ({ title, subTitle, cat1Title, cat1SubTitle, cat2Title, cat2Sub
                             <Fade top>
                                 <SectionTitle title="What We do" />
                             </Fade>
-                            <Fade left>
-                                <div className="max-w-2xl">
-                                    {/* We believe they have a future bright with hope if we assist them */}
-                                    <SectionSubTitle subTitle={title} />
-                                    <p className=" mb-10 text-gray-600">
-                                        {subTitle} </p>
+                            {intro &&
+                                <Fade left>
+                                    <div className="max-w-2xl">
+                                        {/* We believe they have a future bright with hope if we assist them */}
+                                        {/* <SectionSubTitle subTitle={title} /> */}
+                                        {parse(intro?.description)}
 
-                                </div>
-                            </Fade>
+                                    </div>
+                                </Fade>
+                            }
 
                         </div>
                     </div>
@@ -43,59 +69,44 @@ const WhatWeDo = ({ title, subTitle, cat1Title, cat1SubTitle, cat2Title, cat2Sub
                                 <div className="grid gap-10 row-gap-5">
                                     <div className="">
                                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 lg:gap-12 gap-10">
-                                            <Fade left>
+                                            {category1 && <Fade left>
                                                 <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
                                                     <div className="mr-6">
                                                         <img src={Health} width={80} height={80} alt="health icon" className="min-w-[40px] min-h-[40px]" />
-
                                                     </div>
-                                                    <div className="">
-                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">{cat1Title}</p>
-                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">{cat1SubTitle}</p>
-                                                    </div>
+                                                    {parse(category1?.description)}
                                                 </div>
-
-                                            </Fade>
-                                            <Fade bottom>
-                                                <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
-                                                    <div className="mr-6">
-                                                        <img src={Education} width={65} height={65} alt="health icon" className="min-w-[40px] min-h-[40px]" />
+                                            </Fade>}
+                                            {category2
+                                                && <Fade bottom>
+                                                    <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
+                                                        <div className="mr-6">
+                                                            <img src={Education} width={65} height={65} alt="health icon" className="min-w-[40px] min-h-[40px]" />
+                                                        </div>
+                                                        {parse(category2?.description)}
                                                     </div>
-                                                    <div className="">
-                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">{cat2Title}</p>
-                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">{cat2SubTitle}</p>
-                                                    </div>
-                                                </div>
+                                                </Fade>}
 
-                                            </Fade>
-
-                                            <Fade top>
+                                            {category3 && <Fade top>
                                                 <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
                                                     <div className="mr-6">
                                                         <img src={Employment} width={65} height={65} alt="health icon" className="min-w-[40px] min-h-[40px]" />
-
                                                     </div>
-                                                    <div className="">
-                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">{cat3Title}</p>
-                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">{cat3SubTitle}</p>
-                                                    </div>
+                                                    {parse(category3?.description)}
                                                 </div>
+                                            </Fade>}
 
-                                            </Fade>
 
-
-                                            <Fade bottom>
-                                                <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
-                                                    <div className="mr-6">
-                                                        <EmpowerIcon />
-
+                                            {category4 &&
+                                                <Fade bottom>
+                                                    <div className="flex p-4 shadow-md border border-gray-200 rounded-md">
+                                                        <div className="mr-6">
+                                                            <EmpowerIcon />
+                                                        </div>
+                                                        {parse(category4?.description)}
                                                     </div>
-                                                    <div className="">
-                                                        <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800">{cat4Title}</p>
-                                                        <p className="mt-2 font-normal text-base leading-6 text-gray-600">{cat4SubTitle}</p>
-                                                    </div>
-                                                </div>
-                                            </Fade>
+                                                </Fade>
+                                            }
                                         </div>
 
 

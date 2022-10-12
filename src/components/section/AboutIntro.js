@@ -5,8 +5,8 @@ import ShowLove from "../../assets/about/love-shapes.svg"
 import Button from '../form/Button';
 import aboutShape from '../../assets/about/about-shape-3.png';
 import Fade from 'react-reveal/Fade';
-import SectionTitle from './SectionTitle';
-import SectionSubTitle from './SectionSubTitle';
+// import SectionTitle from './SectionTitle';
+// import SectionSubTitle from './SectionSubTitle';
 import classNames from 'classnames';
 import { CheckIcon } from '../../assets/svgsIcons';
 import useSWR from 'swr';

@@ -17,6 +17,8 @@ import AboutImg1 from '../assets/about/about-landing-image.jpg'
 import AboutImg2 from '../assets/about/about-landing-image2.jpg'
 import PagesIntro from './../components/global/PagesIntro';
 import Helmets from './Helmet';
+// import useSWR from 'swr';
+// import { kebabCase } from '../utils/utils';
 
 
 
@@ -39,6 +41,9 @@ const About = () => {
             // toast.error('Something went wrong')
         }
     }
+
+    // const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+    // console.log('data', data?.find((item) => kebabCase(item.slug) === "testdata"))
     return (
         <>
             <Helmets title="About Us" />

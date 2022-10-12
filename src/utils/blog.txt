@@ -1,3 +1,24 @@
+  {/* <div dangerouslySetInnerHtml={{ __html: render.description }} ></div> */}
+
+            {/* {parse(render.description)} */}
+
+
+    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+
+    if (error) return console.log(error)
+
+    if (!data) {
+        return <h1>Loading...</h1>
+    }
+    const render = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-intro-test"
+    })
+
+    console.log("render", render)
+
+
+
+
 import useSWR from 'swr';
 import parse from "html-react-parser";
 
@@ -35,3 +56,121 @@ import parse from "html-react-parser";
                                     )
                                 })
                             } */}
+//////////////////////////////////////////////////////
+
+ABOUT INTRO
+
+//////////////////////////////////////////////////////
+
+
+                                        {/* <div>
+                                            <Fade top>
+                                                <div className="flex items-center space-x-20 mb-5">
+                                                    <span className="border border-gray-300 w-14 absolute" ></span>
+                                                    <p className="text-gray-400 tracking-wide uppercase font-black text-base">About Us</p>
+                                                </div>
+                                            </Fade>
+                                            <Fade left>
+                                                <h1 className="text-gray-800 mb-6 text-3xl lg:text-4xl ">
+                                                    We Can Save More Lifes With Your Helping Hand.
+                                                </h1>
+                                            </Fade>
+                                            <Fade bottom>
+                                                <p className="mb-10 text-gray-600">
+                                                    The Tope Dare Foundation is a charity initiative of Babatope Dare with the primary goal of giving back to the society and helping the less privileged and vulnerable in our communities to alleviate human suffering and create opportunities for a better life
+                                                </p>
+
+                                            </Fade>
+                                        </div> */}
+
+
+                                         <Fade top>
+                                    {/* <SectionTitle title="About Us" /> */}
+                                    <SectionTitle title={title} />
+                                </Fade>
+                                <Fade left>
+                                    <SectionSubTitle subTitle={subTitle} />
+                                    {/* <SectionSubTitle subTitle="We Can Save More Lifes With Your Helping Hand." /> */}
+                                </Fade>
+                                <Fade bottom>
+                                    <p className="mb-10 text-gray-600">
+                                        {content}
+                                    </p>
+
+                                </Fade>
+
+
+<Fade top>
+                                    {/* <SectionTitle title="About Us" /> */}
+                                    <SectionTitle title={title} />
+                                </Fade>
+                                <Fade left>
+                                    <SectionSubTitle subTitle={subTitle} />
+                                    {/* <SectionSubTitle subTitle="We Can Save More Lifes With Your Helping Hand." /> */}
+                                </Fade>
+                                <Fade bottom>
+                                    <p className="mb-10 text-gray-600">
+                                        {content}
+                                    </p>
+
+                                </Fade>   
+
+//////////////////////////////////////////////////////
+
+ABOUT INTRO STATS 1
+
+<div>
+    <span className="font-black text-gray-600 block text-xl dark:text-white">82+</span>
+    <span className="text-gray-500">Completed Project</span>
+</div>      
+
+//////////////////////////////////////////////////////
+
+
+ //////////////////////////////////////////////////////
+
+ABOUT INTRO STATS 2
+
+
+
+ <div>
+    <span className="font-black text-gray-600 block text-xl dark:text-white">90.7%</span>
+    <span className="text-gray-500">Satisfaction Rate</span>
+</div>
+
+
+//////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////
+
+ABOUT INTRO STATS 3
+<div>
+    <span className="font-black text-gray-600 block text-xl dark:text-white">425+</span>
+    <span className="text-gray-500">Successful Campaigns</span>
+</div>
+
+ //////////////////////////////////////////////////////
+
+ABOUT INTRO STATS 4
+
+<div>
+    <span className="font-black text-gray-600 block text-xl dark:text-white">162+</span>
+    <span className="text-gray-500">Happy Families</span>
+</div>
+
+ //////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////
+
+FLOAT STATS 
+
+     <p className="text-xs font-black mr-8 text-gray-900 w-[155px]">We help more than 320+ children every year </p>
+//////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////
+
+WHO WE ARE
+<h1 className="text-gray-800 mb-6 text-3xl lg:text-4xl ">
+    Spread Love with Donations
+</h1>
+<p className=" mb-10 text-gray-600">
+    Here are some of the Categories and Sector we Work regularly, We believe they have a future bright with hope if we assist them </p>

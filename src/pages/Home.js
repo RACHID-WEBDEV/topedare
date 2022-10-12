@@ -10,6 +10,7 @@ import BlogIntro from '../components/section/BlogIntro'
 
 import Helmets from './Helmet'
 import useSWR from 'swr'
+// import parse from 'html-react-parser';
 
 
 
@@ -29,30 +30,24 @@ const Home = () => {
   if (!result) {
     return <h1>Loading...</h1>
   }
+  // const render = data?.data?.components?.find(({ slug }) => {
+  //   // return slug === "about-intro-test"
+  //   return slug === "cta-component"
+
+  // })
+  // console.log('render', render)
+  // console.log('render.description', render?.description)
+
   return (
     <div className="">
       <Helmets title="Home Page" />
 
       <HeroIntro />
 
-      <AboutIntro title="About Us" subTitle={result?.slice(0, 1)} content={result?.slice(1, 2)} statsTitle1={result?.slice(2, 3)} statsSubTitle1={result?.slice(3, 4)} statsTitle2={result?.slice(4, 5)} statsSubTitle2={result?.slice(5, 6)} floatStats={result?.slice(6, 7)} />
+      <AboutIntro intro />
 
 
-      <WhatWeDo
-        title={result?.slice(7, 8)}
-        subTitle={result?.slice(8, 9)}
-
-        cat1Title={result?.slice(9, 10)}
-        cat1SubTitle={result?.slice(10, 11)}
-
-        cat2Title={result?.slice(11, 12)}
-        cat2SubTitle={result?.slice(12, 13)}
-
-        cat3Title={result?.slice(13, 14)}
-        cat3SubTitle={result?.slice(14, 15)}
-
-        cat4Title={result?.slice(15, 16)}
-        cat4SubTitle={result?.slice(16, 17)} />
+      <WhatWeDo />
 
       <CTA
         ctaSectionHeading="Become a Volunteer"
@@ -83,7 +78,7 @@ const Home = () => {
 export default Home
 
   //  <HeroIntro />
-  //     <AboutIntro title="About Us" subTitle={data.slice(0, 1)} content={data.slice(1, 2)} statsTitle1={data.slice(2, 3)} statsSubTitle1={data.slice(3, 4)} statsTitle2={data.slice(4, 5)} statsSubTitle2={data.slice(5, 6)} floatStats={data.slice(6, 7)} />
+      // <AboutIntro title="About Us" subTitle={data.slice(0, 1)} content={data.slice(1, 2)} statsTitle1={data.slice(2, 3)} statsSubTitle1={data.slice(3, 4)} statsTitle2={data.slice(4, 5)} statsSubTitle2={data.slice(5, 6)} floatStats={data.slice(6, 7)} />
 
   //     <WhatWeDo title={data.slice(7, 8)} subTitle={data.slice(8, 9)} cat1Title={data.slice(9, 10)} cat1SubTitle={data.slice(10, 11)} cat2Title={data.slice(11, 12)} cat2SubTitle={data.slice(12, 13)} cat3Title={data.slice(13, 14)} cat3SubTitle={data.slice(14, 15)} cat4Title={data.slice(15, 16)} cat4SubTitle={data.slice(16, 17)} />
 
@@ -91,17 +86,17 @@ export default Home
   //  <AboutIntro title="About Us" subTitle="We Can Save More Lifes With Your Helping Hand." content="The Tope Dare Foundation is a charity initiative of Babatope Dare with the primary goal of giving back to the society and helping the less privileged and vulnerable in our communities to alleviate human suffering and create opportunities for a better life" statsTitle1="82+" statsSubTitle1="Completed Project" statsTitle2="90.7%" statsSubTitle2="Satisfaction Rate" floatStats="We help more than 320+ children every year" />
 
 
-//   <WhatWeDo title="Spread Love with Donations" subTitle="Here are some of the Categories and Sector we Work regularly, We believe they have a future bright with hope if we assist them"
+  // <WhatWeDo title="Spread Love with Donations" subTitle="Here are some of the Categories and Sector we Work regularly, We believe they have a future bright with hope if we assist them"
 
-//   cat1Title="Health"
-//   cat1SubTitle="Helping those in need of basic medical health care get and stay healthy for life by teaching good habits, payment of hospital bills, and provision of drugs and equipment."
+  // cat1Title="Health"
+  // cat1SubTitle="Helping those in need of basic medical health care get and stay healthy for life by teaching good habits, payment of hospital bills, and provision of drugs and equipment."
 
-//   cat2Title="Education"
-//   cat2SubTitle="Keeping kids in school through tutoring, computer courses, and financial aid as education serves as a panacea for socio-economics."
+  // cat2Title="Education"
+  // cat2SubTitle="Keeping kids in school through tutoring, computer courses, and financial aid as education serves as a panacea for socio-economics."
 
-//   cat3Title="Employment"
-//   cat3SubTitle="Providing an avenue to train unemployed youths with the necessary skills to get jobs and start a career or profession for financial freedom."
+  // cat3Title="Employment"
+  // cat3SubTitle="Providing an avenue to train unemployed youths with the necessary skills to get jobs and start a career or profession for financial freedom."
 
-//   cat4Title="Empowerment"
-//   cat4SubTitle="Promoting empowerment of the unemployed in achieving poverty eradication, social integration, and full employment integration for our youth and women." />
+  // cat4Title="Empowerment"
+  // cat4SubTitle="Promoting empowerment of the unemployed in achieving poverty eradication, social integration, and full employment integration for our youth and women." />
 // <CTA />
