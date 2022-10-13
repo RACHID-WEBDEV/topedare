@@ -100,10 +100,11 @@ function AboutIntro({ content, intro, switchColumn, aboutpage, subTitle, floatSt
                                             <Fade top>
                                                 {parse(aboutPageIntro?.description)}
                                             </Fade>}
-                                        <Fade bottom>
-                                            {parse(aboutPageContent?.description)}
 
-                                        </Fade>
+                                        {aboutPageContent &&
+                                            <Fade bottom>
+                                                {parse(aboutPageContent?.description)}
+                                            </Fade>}
                                     </div>
                                 }
                                 <Fade right>

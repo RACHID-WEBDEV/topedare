@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 // import AboutUs from './../components/section/AboutUs';
 import SectionTitle from './../components/section/SectionTitle';
 import { Fade, Bounce } from 'react-reveal';
 import SectionSubTitle from './../components/section/SectionSubTitle';
 import AboutIntro from './../components/section/AboutIntro';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 
 import Health from '../assets/section/health-care.svg'
 import Education from '../assets/section/charity-education.svg'
@@ -44,6 +44,37 @@ const About = () => {
     const aboutContent1 = data?.data?.components?.find(({ slug }) => {
         return slug === "about-us-page-content1"
     })
+    const aboutinitiative = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-us-page-our-initiative"
+    })
+
+    const category1 = data?.data?.components?.find(({ slug }) => {
+        return slug === "what-we-do-category-1"
+    })
+    const category2 = data?.data?.components?.find(({ slug }) => {
+        return slug === "what-we-do-category-2"
+    })
+    const category3 = data?.data?.components?.find(({ slug }) => {
+        return slug === "what-we-do-category-3"
+    })
+    const category4 = data?.data?.components?.find(({ slug }) => {
+        return slug === "what-we-do-category-4"
+    })
+    const statsIntro = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-us-page-stats-intro"
+    })
+    const stats1 = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-us-page-stats1"
+    })
+    const stats2 = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-us-page-stats2"
+    })
+    const stats3 = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-us-page-stats3"
+    })
+    const stats4 = data?.data?.components?.find(({ slug }) => {
+        return slug === "about-us-page-stats4"
+    })
 
 
     return (
@@ -66,17 +97,7 @@ const About = () => {
                         {aboutContent1 &&
                             <Fade bottom>
                                 {parse(aboutContent1?.description)}
-
-                                {/* <div>
-                                <p className=" text-gray-600 pb-1">
-                                    The Tope Dare Foundation is a charity initiative of Babatope Dare with the primary goal of giving back to society and helping the less privileged and vulnerable in our communities to alleviate human sufferings and create opportunities for a better life.
-                                </p>
-
-                                <p className=" text-gray-600">The Tope Dare Foundation reaches out basically to children who are vulnerable and may have otherwise been left to roam the streets with no hopes, children who were perhaps destined to live in poverty or become miscreants in our society.</p>
-                            </div> */}
                             </Fade>}
-
-
                     </div>
                     <Fade right>
                         <div className="grid grid-cols-2 gap-4 mt-8">
@@ -90,7 +111,7 @@ const About = () => {
             </section>
 
 
-            <AboutIntro aboutpage title="Helping Them Today" subTitle=" See what we do for the poor people and the children" content="Help is Our Goal. We Can Save More Lifes With Your Helping Hand. We believe they have a future bright with hope if we assist with the basic education, health care employment opportunity and empowerment." switchColumn />
+            <AboutIntro aboutpage switchColumn />
 
             <div className=" lg:pt-28 lg:pb-4 object-cover object-[83%]  bg-cover bg-right bg-section-bg overflow-hidden">
                 <div className="container m-auto px-6 space-y-8 text-gray-500 md:px-12">
@@ -100,115 +121,113 @@ const About = () => {
                         </Fade>
                         <Fade left>
                             <div className="max-w-2xl">
-                                <SectionSubTitle subTitle=" Changing the lives of these children and everyone around them." />
-                                <p className=" text-gray-600 ">
-                                    We organize outreaches and initiatives to help relieve human suffering in our country by providing access to necessities. Health, education, and economic empowerment are three of our focus areas.
-                                </p>
-
+                                {parse(aboutinitiative?.description)}
                             </div>
                         </Fade>
                     </div>
                     <div className="mt-16 grid border divide-x divide-y rounded-xl overflow-hidden sm:grid-cols-2 lg:divide-y-0 lg:grid-cols-3 xl:grid-cols-4">
-                        <Fade top>
-                            <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
-                                <div className="relative p-8 space-y-8">
-                                    <img src={Health} className="w-10" alt="Health illustration" />
-
-                                    <div className="space-y-2">
-                                        <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-gray-600">Health</h5>
-                                        <p className="text-base text-gray-600">Helping those in need of basic medical health care get and stay healthy for life by teaching good habits, payment of hospital bills, and provision of drugs and equipment.</p>
+                        {category1 &&
+                            <Fade top>
+                                <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
+                                    <div className="relative p-8 space-y-8">
+                                        <img src={Health} className="w-10" alt="Health illustration" />
+                                        <div className="space-y-2">
+                                            {parse(category1?.description)}
+                                        </div>
+                                        <Link to="" className="lg:flex justify-between hidden items-center group-hover:text-gray-600">
+                                            <span className="text-base">Read more</span>
+                                            <span className="-translate-x-4 opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">→</span>
+                                        </Link>
                                     </div>
-                                    <Link to="" className="lg:flex justify-between hidden items-center group-hover:text-gray-600">
-                                        <span className="text-base">Read more</span>
-                                        <span className="-translate-x-4 opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">→</span>
-                                    </Link>
                                 </div>
-                            </div>
-                        </Fade>
-                        <Fade bottom>
-                            <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
-                                <div className="relative p-8 space-y-8">
-                                    <EmpowerIcon className="w-10 h-10" />
-
-                                    <div className="space-y-2">
-                                        <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-gray-600">Empowerment</h5>
-                                        <p className="text-base text-gray-600">Promoting empowerment of the unemployed in achieving poverty eradication, social integration, and full employment integration for our youth and women</p>
+                            </Fade>}
+                        {category4 &&
+                            <Fade bottom>
+                                <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
+                                    <div className="relative p-8 space-y-8">
+                                        <EmpowerIcon className="w-10 h-10" />
+                                        <div className="space-y-2">
+                                            {parse(category4?.description)}
+                                        </div>
+                                        <Link to="" className="lg:flex hidden justify-between items-center group-hover:text-gray-600">
+                                            <span className="text-base">Read more</span>
+                                            <span className="-translate-x-4 opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">→</span>
+                                        </Link>
                                     </div>
-                                    <Link to="" className="lg:flex hidden justify-between items-center group-hover:text-gray-600">
-                                        <span className="text-base">Read more</span>
-                                        <span className="-translate-x-4 opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">→</span>
-                                    </Link>
                                 </div>
-                            </div>
-                        </Fade>
-                        <Fade top>
-                            <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
-                                <div className="relative p-8 space-y-8">
-                                    <img src={Education} className="w-10" alt="education illustration" />
+                            </Fade>}
+                        {category2 &&
+                            <Fade top>
+                                <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
+                                    <div className="relative p-8 space-y-8">
+                                        <img src={Education} className="w-10" alt="education illustration" />
 
-                                    <div className="space-y-2">
-                                        <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-gray-600">Education</h5>
-                                        <p className="text-base text-gray-600">Keeping kids in school through tutoring, computer courses, and financial aid as education serves as a panacea for socio-economic</p>
+                                        <div className="space-y-2">
+                                            {parse(category2?.description)}
+
+                                        </div>
+
+                                        <Link to="/about" className="hidden lg:flex justify-between items-center group-hover:text-gray-600">
+                                            <span className="text-base">Read more</span>
+                                            <span className="-translate-x-4 opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">→
+                                            </span>
+                                        </Link>
                                     </div>
-
-                                    <Link to="/about" className="hidden lg:flex justify-between items-center group-hover:text-gray-600">
-                                        <span className="text-base">Read more</span>
-                                        <span className="-translate-x-4 opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">→
-                                        </span>
-                                    </Link>
                                 </div>
-                            </div>
-                        </Fade>
-                        <Fade bottom>
-                            <div className="relative group bg-gray-100 transition hover:z-[1] hover:shadow-2xl lg:hidden xl:block">
-                                <div className="relative p-8 space-y-8 border-dashed rounded-lg transition duration-300 group-hover:bg-white group-hover:border group-hover:scale-90">
-                                    <img src={Employment} className="w-10" alt="Employment illustration" />
-
-                                    <div className="space-y-2">
-                                        <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-gray-600">Employment</h5>
-                                        <p className="text-base text-gray-600">Providing an avenue to train unemployed youths with the necessary skills to get jobs and start a career or profession for financial freedom</p>
+                            </Fade>}
+                        {category3 &&
+                            <Fade bottom>
+                                <div className="relative group bg-gray-100 transition hover:z-[1] hover:shadow-2xl lg:hidden xl:block">
+                                    <div className="relative p-8 space-y-8 border-dashed rounded-lg transition duration-300 group-hover:bg-white group-hover:border group-hover:scale-90">
+                                        <img src={Employment} className="w-10" alt="Employment illustration" />
+                                        <div className="space-y-2">
+                                            {parse(category3?.description)}
+                                        </div>
+                                        <Link to="" className="flex justify-between items-center group-hover:text-gray-600">
+                                            <span className="text-base">Read more</span>
+                                            <span className="-translate-x-4 opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">→</span>
+                                        </Link>
                                     </div>
-                                    <Link to="" className="flex justify-between items-center group-hover:text-gray-600">
-                                        <span className="text-base">Read more</span>
-                                        <span className="-translate-x-4 opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">→</span>
-                                    </Link>
                                 </div>
-                            </div>
-                        </Fade>
+                            </Fade>}
                     </div>
                 </div>
             </div>
             <div className="pt-16 pb-8 bg-tdf-bg ">
                 <Fade top>
-                    <SectionSubTitle className="text-center   " subTitle=" Help is Our Goal" />
-                </Fade>
-                <Fade left>
-                    <p className=" text-gray-600 text-center mb-16">  We help people with our power to fight poverty and Malnutritions.</p>
-
+                    {parse(statsIntro?.description)}
                 </Fade>
 
+
+                {/*<div>
+                            <div className="mb-10 text-gray-600 text-center">
+                                <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">870
+                                    +</span>
+                                <p>Total Donations</p>
+                            </div>
+                        </div>
+                        */}
+                {/* <div className="mb-10 text-gray-600 text-center">
+                            <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">480+</span>
+                            <p>Campaigns Closed</p>
+                        </div> */}
+                {/* <div className="mb-10 text-gray-600 text-center">
+                            <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">365+</span>
+                            <p>Happy People</p>
+                        </div> */}
 
                 <div className="grid grid-cols-2 md:grid-cols-4">
                     <Fade top>
-                        <div className="mb-10 text-gray-600 text-center">
-                            <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">870
-                                +</span>
-                            <p>Total Donations</p>
-                        </div>
-                        <div className="mb-10 text-gray-600 text-center">
-                            <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">480+</span>
-                            <p>Campaigns Closed</p>
-                        </div>
+                        {parse(stats1?.description)}
+                    </Fade>
+                    {stats2 && <>
+                        {parse(stats2?.description)}
+                    </>}
+                    <Fade top>
+                        {parse(stats3?.description)}
                     </Fade>
                     <Fade bottom>
-                        <div className="mb-10 text-gray-600 text-center">
-                            <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">365+</span>
-                            <p>Happy People</p>
-                        </div>
-                        <div className="mb-10 text-gray-600 text-center">
-                            <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">23+</span>
-                            <p>Total Volunteers</p>
-                        </div>
+                        {parse(stats4?.description)}
                     </Fade>
                 </div>
             </div>
@@ -220,11 +239,11 @@ const About = () => {
                 <div className="container m-auto px-6 space-y-8 text-gray-500 md:px-12 lg:px-20">
                     <Fade top>
                         <div className="flex items-center justify-center -space-x-2">
-                            <img loading="lazy" width="220" height="220" src="https://tailus.io/sources/blocks/app/preview/images/avatars/second_user.webp" alt="member " className="w-8 h-8 object-cover rounded-full" />
-                            <img loading="lazy" width="220" height="220" src="https://tailus.io/sources/blocks/app/preview/images/avatars/first_user.webp" alt="member " className="w-12 h-12 object-cover rounded-full" />
-                            <img loading="lazy" width="220" height="220" src="https://tailus.io/sources/blocks/app/preview/images/avatars/third_user.webp" alt="member " className="z-10 w-16 h-16 object-cover rounded-full" />
-                            <img loading="lazy" width="220" height="220" src="https://tailus.io/sources/blocks/app/preview/images/avatars/first_user.webp" alt="member " className="relative w-12 h-12 object-cover rounded-full" />
-                            <img loading="lazy" width="220" height="220" src="https://tailus.io/sources/blocks/app/preview/images/avatars/second_user.webp" alt="member " className="w-8 h-8 object-cover rounded-full" />
+                            <img loading="lazy" width="220" height="220" src="https://xsgames.co/randomusers/assets/avatars/male/46.jpg" alt="member " className="w-8 h-8 object-cover rounded-full" />
+                            <img loading="lazy" width="220" height="220" src="https://xsgames.co/randomusers/assets/avatars/female/51.jpg" alt="member " className="w-12 h-12 object-cover rounded-full" />
+                            <img loading="lazy" width="220" height="220" src="https://xsgames.co/randomusers/assets/avatars/male/11.jpg" alt="member " className="z-10 w-16 h-16 object-cover rounded-full" />
+                            <img loading="lazy" width="220" height="220" src="https://xsgames.co/randomusers/assets/avatars/male/52.jpg" alt="member " className="relative w-12 h-12 object-cover rounded-full" />
+                            <img loading="lazy" width="220" height="220" src="https://xsgames.co/randomusers/assets/avatars/female/42.jpg" alt="member " className="w-8 h-8 object-cover rounded-full" />
                         </div>
 
                     </Fade>
@@ -234,7 +253,7 @@ const About = () => {
 
                         </Fade>
                         <Fade left>
-                            <p className="text-center">Become a Volunteer Today. Help Hundreds of Childrens across the Country </p>
+                            <p className="text-center capitalize">Become a Volunteer Today. Help Hundreds of Childrens across the Country </p>
                         </Fade>
 
                         <div className="flex items-center justify-center">

@@ -44,3 +44,57 @@
 
         </Fade>
     </div>
+
+
+
+     <AboutIntro aboutpage title="Helping Them Today" subTitle=" See what we do for the poor people and the children" content="Help is Our Goal. We Can Save More Lifes With Your Helping Hand. We believe they have a future bright with hope if we assist with the basic education, health care employment opportunity and empowerment." switchColumn />
+
+
+===> INITIATIVES
+
+       <SectionSubTitle subTitle=" Changing the lives of these children and everyone around them." />
+
+        {/* <div>
+                                    <h1 className="text-gray-800 mb-6 text-3xl lg:text-4xl ">
+                                        Changing the lives of these children and everyone around them.
+                                    </h1>
+                                    <p className=" text-gray-600 ">
+                                        We organize outreaches and initiatives to help relieve human suffering in our country by providing access to necessities. Health, education, and economic empowerment are three of our focus areas.
+                                    </p>
+                                </div> */}
+
+=====> Category
+
+
+{/* <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-gray-600">Empowerment</h5>
+<p className="text-base text-gray-600">Promoting empowerment of the unemployed in achieving poverty eradication, social integration, and full employment integration for our youth and women</p> */}
+
+ {/* <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-gray-600">Education</h5>
+<p className="text-base text-gray-600">Keeping kids in school through tutoring, computer courses, and financial aid as education serves as a panacea for socio-economic</p> */}
+
+{/* <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-gray-600">Employment</h5>
+<p className="text-base text-gray-600">Providing an avenue to train unemployed youths with the necessary skills to get jobs and start a career or profession for financial freedom</p> */}
+
+====> STATS
+
+<Fade top>
+<h1 className="text-gray-800 mb-6 text-3xl lg:text-4xl  text-center">
+    Help is Our Goal
+</h1>
+
+</Fade>
+<Fade left>
+<p className=" text-gray-600 text-center capitalize mb-16">  We help people with our power to fight poverty and Malnutritions.</p>
+
+</Fade>
+
+
+{/* <div className="mb-10 text-gray-600 text-center">
+    <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">870
+        +</span>
+    <p>Total Donations</p>
+</div>
+<div className="mb-10 text-gray-600 text-center">
+    <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">480+</span>
+    <p>Campaigns Closed</p>
+</div> */}

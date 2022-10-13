@@ -7,10 +7,7 @@ import Stats from '../components/section/Stats'
 import CTA from '../components/section/CTA'
 import Subcribe from '../components/section/Subcribe';
 import BlogIntro from '../components/section/BlogIntro'
-
 import Helmets from './Helmet'
-import useSWR from 'swr'
-// import parse from 'html-react-parser';
 
 
 
