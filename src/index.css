@@ -359,6 +359,8 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   display: flex;
   align-items: flex-end;
+  min-width: 300px;
+  min-height: 300px;
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
@@ -406,6 +408,16 @@ body::-webkit-scrollbar-thumb {
   transition: 0.5s;
 }
 
+/* @media (min-width: 524px) { */
+@media (max-width: 768px) {
+  .img-info {
+    min-width: 100px;
+    min-height: 150px;
+  }
+  .img-info .hide-info {
+    display: none;
+  }
+}
 /*** 
 =============================================
     Gallery  style end

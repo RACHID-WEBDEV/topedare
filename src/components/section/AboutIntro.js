@@ -69,16 +69,18 @@ function AboutIntro({ content, intro, switchColumn, aboutpage, subTitle, floatSt
 
 
                                 </div>
-                                <div className="w-[291px] h-[93px] absolute bottom-16 md:bottom-[-20px] lg:bottom-[-40px] z-30  bg-no-repeat bg-contain bg-about-shape1 about-shape-1-animate">
-                                    <div className="flex items-center justify-center gap-3 pt-3.5 p-2">
-                                        <span className="rounded-full p-4 bg-tdf-blue-50/20" >
-                                            <img src={ShowLove} width={30} height={30} alt="" className="" />
-                                        </span>
+                                {floatStatss &&
+                                    <div className="w-[291px] h-[93px] absolute bottom-16 md:bottom-[-20px] lg:bottom-[-40px] z-30  bg-no-repeat bg-contain bg-about-shape1 about-shape-1-animate">
+                                        <div className="flex items-center justify-center gap-3 pt-3.5 p-2">
+                                            <span className="rounded-full p-4 bg-tdf-blue-50/20" >
+                                                <img src={ShowLove} width={30} height={30} alt="" className="" />
+                                            </span>
+                                            <div className="max-w-[155px]">
+                                                {parse(floatStatss?.description)}
+                                            </div>
 
-                                        {parse(floatStatss?.description)}
-
-                                    </div>
-                                </div>
+                                        </div>
+                                    </div>}
 
                                 <img src={aboutShape} width="732" height="528" alt="" className="lg:min-w-[732px] absolute left-[-50px] top-[-80px]" />
                             </div>

@@ -219,6 +219,14 @@ CTA
                                     </Fade>
                                 </div>
 
+====> QOUTE NEW
+<div>
+    <h2 className="text-white max-w-[19.5625rem] lg:max-w-[21.25rem] w-[19.5625rem] lg:w-[21.25rem] text-[1.625rem] lg:text-4xl font-medium mb-6 leading-[2.75rem]">Service to others is the rent you pay for your room here on earth.</h2>
+    <div className="flex items-center space-x-16 mb-5">
+        <span className="border border-white w-12 absolute" ></span>
+        <p className="text-white tracking-wide font-black text-lg lg:text-xl leading-4">Muhammad Ali</p>
+    </div>
+</div>
 
 ==>  QOUTE BECOME Volunteer
 

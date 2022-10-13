@@ -53,7 +53,7 @@ const Gallery = () => {
                     </div>
                     <div className="img-info overflow-hidden w-full h-full group rounded-xl">
                         <img className="w-full h-full shadow-sm min-h-48 dark:bg-gray-500 aspect-square rounded-xl group-hover:scale-110 transition-transform duration-700" src="https://i.ibb.co/FKTCpgj/tope-dare-foundation-project-2.jpg" alt="tope-dare-foundation-project-2" />
-                        <div className="info p-4 hidden lg:block">
+                        <div className="info p-4 hide-info">
                             <h1 className=" text-xl lg:text-2xl">Projects </h1>
                             <p className="text-base" >Tope Dare Foundation</p>
                         </div>
@@ -61,21 +61,21 @@ const Gallery = () => {
                     </div>
                     <div className="img-info overflow-hidden w-full h-full group rounded-xl">
                         <img className="w-full h-full shadow-sm min-h-48 dark:bg-gray-500 aspect-square rounded-xl group-hover:scale-105 transition-transform duration-700" src="https://i.ibb.co/Bcp8Lhs/tope-dare-foundation-project-4.jpg" alt="tope-dare-foundation-project-4" />
-                        <div className="info p-4 hidden lg:block">
+                        <div className="info p-4 hide-info">
                             <h1 className=" text-xl lg:text-2xl">Projects </h1>
                             <p className="text-base" >Tope Dare Foundation</p>
                         </div>
                     </div>
                     <div className="img-info overflow-hidden w-full h-full group rounded-xl">
                         <img className="w-full h-full shadow-sm min-h-48 dark:bg-gray-500 aspect-square rounded-xl group-hover:scale-105 transition-transform duration-700" src="https://i.ibb.co/H4FHkF0/tope-dare-foundation-project-3.jpg" alt="tope-dare-foundation-project-3" />
-                        <div className="info p-4 hidden lg:block">
+                        <div className="info p-4 hide-info">
                             <h1 className=" text-xl lg:text-2xl">Projects 3</h1>
                             <p className="text-base" >Tope Dare Foundation</p>
                         </div>
                     </div>
                     <div className="img-info overflow-hidden w-full h-full group rounded-xl">
                         <img className="w-full h-full shadow-sm min-h-48 dark:bg-gray-500 aspect-square rounded-xl group-hover:scale-105 transition-transform duration-700" src="https://i.ibb.co/9G12DCt/tope-dare-foundation-project-5.jpg" alt="tope-dare-foundation-project-5" />
-                        <div className="info p-4 hidden lg:block">
+                        <div className="info p-4 hide-info">
                             <h1 className=" text-xl lg:text-2xl">Projects </h1>
                             <p className="text-base" >Tope Dare Foundation</p>
                         </div>
@@ -84,28 +84,28 @@ const Gallery = () => {
                 <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4"> */}
                     <div className="img-info overflow-hidden w-full h-full group rounded-xl min-h-96">
                         <img className="w-full h-full shadow-sm min-h-48 dark:bg-gray-500 aspect-square rounded-xl group-hover:scale-105 transition-transform duration-700" src="https://i.ibb.co/VDP0f1R/tope-dare-foundation-project-6.jpg" alt="tope-dare-foundation-project-6" />
-                        <div className="info p-4 hidden lg:block">
+                        <div className="info p-4 hide-info">
                             <h1 className=" text-xl lg:text-2xl">Projects </h1>
                             <p className="text-base" >Tope Dare Foundation</p>
                         </div>
                     </div>
                     <div className="img-info overflow-hidden w-full h-full group rounded-xl">
                         <img className="w-full h-full shadow-sm min-h-48 dark:bg-gray-500 aspect-square rounded-xl group-hover:scale-105 transition-transform duration-700" src="https://i.ibb.co/FK22Nqy/tope-dare-foundation-project-7.jpg" alt="tope-dare-foundation-project-7" />
-                        <div className="info p-4 hidden lg:block">
+                        <div className="info p-4 hide-info">
                             <h1 className=" text-xl lg:text-2xl">Projects </h1>
                             <p className="text-base" >Tope Dare Foundation</p>
                         </div>
                     </div>
                     <div className="img-info overflow-hidden w-full h-full group rounded-xl">
                         <img className="w-full h-full shadow-sm min-h-48 dark:bg-gray-500 aspect-square rounded-xl group-hover:scale-105 transition-transform duration-700" src="https://i.ibb.co/920rH4q/tope-dare-foundation-project-8.jpg" alt="tope-dare-foundation-project-8" />
-                        <div className="info p-4 hidden lg:block">
+                        <div className="info p-4 hide-info">
                             <h1 className=" text-xl lg:text-2xl">Projects</h1>
                             <p className="text-base" >Tope Dare Foundation</p>
                         </div>
                     </div>
                     <div className="img-info overflow-hidden w-full h-full group rounded-xl">
                         <img className="w-full h-full shadow-sm min-h-48 dark:bg-gray-500 aspect-square rounded-xl group-hover:scale-105 transition-transform duration-700" src="https://i.ibb.co/cNDxrZp/tope-dare-foundation-project-9.jpg" alt="tope-dare-foundation-project-9" />
-                        <div className="info p-4 hidden lg:block">
+                        <div className="info p-4 hide-info">
                             <h1 className=" text-xl lg:text-2xl">Projects</h1>
                             <p className="text-base" >Tope Dare Foundation</p>
                         </div>

@@ -45,6 +45,7 @@ const CTA = ({ ctaSectionHeading, title, subTitle, qoute, qouteAuthor, volunteer
                         <div className="">
                             <div className="px-3 lg:px-20 relative block  pb-20">
                                 {renderQoute && <div className="cta-content_top pl-4 lg:px-[100px] pt-[4.5rem] pb-[4.8125rem] bg-cta-bg relative block bg-scroll bg-no-repeat bg-cover " >
+
                                     <Fade bottom>
                                         {parse(renderQoute?.description)}
                                     </Fade>

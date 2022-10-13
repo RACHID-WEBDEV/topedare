@@ -199,22 +199,6 @@ const About = () => {
                 </Fade>
 
 
-                {/*<div>
-                            <div className="mb-10 text-gray-600 text-center">
-                                <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">870
-                                    +</span>
-                                <p>Total Donations</p>
-                            </div>
-                        </div>
-                        */}
-                {/* <div className="mb-10 text-gray-600 text-center">
-                            <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">480+</span>
-                            <p>Campaigns Closed</p>
-                        </div> */}
-                {/* <div className="mb-10 text-gray-600 text-center">
-                            <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">365+</span>
-                            <p>Happy People</p>
-                        </div> */}
 
                 <div className="grid grid-cols-2 md:grid-cols-4">
                     <Fade top>

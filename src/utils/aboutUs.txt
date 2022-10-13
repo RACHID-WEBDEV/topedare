@@ -1,3 +1,31 @@
+ProJects images
+
+<>< a href = "https://ibb.co/KbfyJWM" ><img src="https://i.ibb.co/LYcp31L/tope-dare-foundation-project-1.jpg" alt="tope-dare-foundation-project-1" border="0" />
+<a href="https://ibb.co/jTXstg1"><img src="https://i.ibb.co/FKTCpgj/tope-dare-foundation-project-2.jpg" alt="tope-dare-foundation-project-2" border="0" /></a>
+<a href="https://ibb.co/2hnkfnw"><img src="https://i.ibb.co/H4FHkF0/tope-dare-foundation-project-3.jpg" alt="tope-dare-foundation-project-3" border="0" /></a>
+<a href="https://ibb.co/tQGyB0C"><img src="https://i.ibb.co/Bcp8Lhs/tope-dare-foundation-project-4.jpg" alt="tope-dare-foundation-project-4" border="0" /></a>
+<a href="https://ibb.co/SJM0j9r"><img src="https://i.ibb.co/9G12DCt/tope-dare-foundation-project-5.jpg" alt="tope-dare-foundation-project-5" border="0" /></a>
+<a href="https://ibb.co/q9PLTSK"><img src="https://i.ibb.co/VDP0f1R/tope-dare-foundation-project-6.jpg" alt="tope-dare-foundation-project-6" border="0" /></a>
+<a href="https://ibb.co/7XPP8NZ"><img src="https://i.ibb.co/FK22Nqy/tope-dare-foundation-project-7.jpg" alt="tope-dare-foundation-project-7" border="0" /></a>
+<a href="https://ibb.co/wCqzhQK"><img src="https://i.ibb.co/920rH4q/tope-dare-foundation-project-8.jpg" alt="tope-dare-foundation-project-8" border="0" /></a>
+<a href="https://ibb.co/K9FmrfQ"><img src="https://i.ibb.co/cNDxrZp/tope-dare-foundation-project-9.jpg" alt="tope-dare-foundation-project-9" border="0" /></a>
+<a href="https://ibb.co/1TYx0vt"><img src="https://i.ibb.co/VT08Ljc/tope-dare-foundation-project-10.jpg" alt="tope-dare-foundation-project-10" border="0" /></a></>
+
+
+        <img src="https://i.ibb.co/LYcp31L/tope-dare-foundation-project-1.jpg" alt="tope-dare-foundation-project-1" border="0" />    
+          <img src="https://i.ibb.co/FKTCpgj/tope-dare-foundation-project-2.jpg" alt="tope-dare-foundation-project-2" border="0" />   
+          <img src="https://i.ibb.co/H4FHkF0/tope-dare-foundation-project-3.jpg" alt="tope-dare-foundation-project-3" border="0" />          
+          <img src="https://i.ibb.co/Bcp8Lhs/tope-dare-foundation-project-4.jpg" alt="tope-dare-foundation-project-4" border="0" />
+          <img src="https://i.ibb.co/9G12DCt/tope-dare-foundation-project-5.jpg" alt="tope-dare-foundation-project-5" border="0" />          
+          <img src="https://i.ibb.co/VDP0f1R/tope-dare-foundation-project-6.jpg" alt="tope-dare-foundation-project-6" border="0" />          
+          <img src="https://i.ibb.co/FK22Nqy/tope-dare-foundation-project-7.jpg" alt="tope-dare-foundation-project-7" border="0" />          
+          <img src="https://i.ibb.co/920rH4q/tope-dare-foundation-project-8.jpg" alt="tope-dare-foundation-project-8" border="0" />          
+          <img src="https://i.ibb.co/cNDxrZp/tope-dare-foundation-project-9.jpg" alt="tope-dare-foundation-project-9" border="0" />
+          
+          <img src="https://i.ibb.co/VT08Ljc/tope-dare-foundation-project-10.jpg" alt="tope-dare-foundation-project-10" border="0" />
+  
+  
+  
    <Fade top>
         <SectionTitle title="Who We Are" />
     </Fade>
@@ -89,12 +117,29 @@
 </Fade>
 
 
-{/* <div className="mb-10 text-gray-600 text-center">
-    <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">870
-        +</span>
-    <p>Total Donations</p>
-</div>
-<div className="mb-10 text-gray-600 text-center">
-    <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">480+</span>
-    <p>Campaigns Closed</p>
-</div> */}
+
+
+
+                {/*<div>
+                            <div className="mb-10 text-gray-600 text-center">
+                                <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">870
+                                    +</span>
+                                <p>Total Donations</p>
+                            </div>
+                        </div>
+                        */}
+                {/* <div className="mb-10 text-gray-600 text-center">
+                            <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">480+</span>
+                            <p>Campaigns Closed</p>
+                        </div> */}
+                {/* <div className="mb-10 text-gray-600 text-center">
+                            <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">365+</span>
+                            <p>Happy People</p>
+                        </div> 
+
+                        <div className="mb-10 text-gray-600 text-center">
+    <span className="font-Fredoka text-gray-800 block text-3xl lg:text-5xl">23+</span>
+    <p>Total Volunteers</p>
+
+</div> 
+                        */}
