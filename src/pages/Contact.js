@@ -161,10 +161,7 @@ const Contact = () => {
                                         </div> */}
                                         <p className="text-red-500 mt-1">{formErrors.agreeToTerms}</p>
                                         <Button
-                                            className=" capitalize"
-
-                                        >
-
+                                            className=" capitalize" >
                                             Submit
                                         </Button>
 
@@ -229,6 +226,7 @@ const Contact = () => {
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </Fade>
                         </div>

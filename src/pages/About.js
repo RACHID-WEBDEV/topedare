@@ -242,9 +242,11 @@ const About = () => {
 
                         <div className="flex items-center justify-center">
                             <Fade bottom>
-                                <Bounce delay={1000}>
-                                    <Button className="">Join Today</Button>
-                                </Bounce>
+                                <Link to="/contact">
+                                    <Bounce delay={1000}>
+                                        <Button className="">Join Today</Button>
+                                    </Bounce>
+                                </Link>
 
                             </Fade>
                         </div>
