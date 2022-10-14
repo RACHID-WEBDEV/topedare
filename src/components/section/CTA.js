@@ -62,6 +62,10 @@ const CTA = ({ ctaSectionHeading, title, subTitle, qoute, qouteAuthor, volunteer
                                             </Fade>
                                             <Fade bottom>
                                                 {parse(renderVolunteer?.description)}
+                                                {/* <div className="relative block pl-5">
+                                                    <p className="text-gray-600 text-lg lg:text-2xl leading-6 font-medium mb-2">Make a Difference Today!</p>
+                                                    <h2 className="text-2xl lg:text-5xl font-extrabold text-tdf-blue-50/80 ">Become a Volunteer</h2>
+                                                </div> */}
                                             </Fade>
                                         </div>
                                         <div className="relative mx-auto lg:mx-0 block">
