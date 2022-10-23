@@ -34,6 +34,13 @@ export const NotFound = () => (
 
 function App() {
   // const fetcher = (...args) => fetch(...args).then(res => res.json())
+  // const fetcher = async (...args) => {
+  //   await new Promise((resolve) => setTimeout(resolve, 10_000));
+  //   console.log('Message', ...args)
+  //   return axios.get(...args).then(res => res.data)
+
+  // }
+
   const fetcher = (...args) => axios.get(...args).then(res => res.data)
 
   return (

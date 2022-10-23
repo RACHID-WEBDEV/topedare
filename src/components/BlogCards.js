@@ -12,7 +12,7 @@ export const LargeBlogcard = ({ blogPhoto, category, id, short_desc, title, slug
             </div>
         </Link>
         <Link to={`/blog/${kebabCase(title)}`}>
-            <h1 className="text-gray-900 font-bold my-3 lg:mt-4 font-DmSans text-xl lg:text-2xl two-row-paragraph">{title}</h1>
+            <h1 className="text-gray-900 font-bold my-3 lg:mt-4 capitalize font-DmSans text-xl lg:text-2xl two-row-paragraph">{title}</h1>
 
         </Link>
         <div className="text-gray-600 text-base lg:text-xl mb-3  two-row-paragraph">{short_desc}</div>

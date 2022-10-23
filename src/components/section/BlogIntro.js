@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SectionSubTitle from './SectionSubTitle';
 import Button from '../form/Button';
 import { Fade } from 'react-reveal';
-import blogdata from '../../data/blog';
+// import blogdata from '../../data/blog';
 import { kebabCase } from '../../utils/utils'
 import useSWR from 'swr';
 import parse from "html-react-parser";
@@ -17,7 +17,7 @@ export const LargeBlogcard = ({ blogPhoto, category, short_desc, title, }) => (
             </div>
         </Link>
         <Link to={`/blog/${kebabCase(title)}`}>
-            <h1 className="text-gray-900 font-bold my-3 lg:mt-4 font-DmSans text-xl lg:text-2xl two-row-paragraph">{title}</h1>
+            <h1 className="text-gray-900 font-bold my-3 capitalize lg:mt-4 font-DmSans text-xl lg:text-2xl two-row-paragraph">{title}</h1>
 
         </Link>
         <p className="text-gray-600 text-base lg:text-xl mb-3  two-row-paragraph">{short_desc}</p>
@@ -53,6 +53,11 @@ const BlogIntro = () => {
     const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/posts?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
 
     if (error) console.log(error)
+
+    const introablogData = data?.data?.posts?.sort()?.reverse()
+
+    // console.log('introablogData', introablogData)
+
     return (
         <div className="my-14 bg-tdf-bg py-8 lg:px-10 lg:py-16">
             <Fade top>
@@ -63,9 +68,10 @@ const BlogIntro = () => {
                 <p className="text-center text-gray-600">Latest news and articles directly
                     coming from the blog</p>
             </Fade>
+            {/* data?.data?.posts?.sort().reverse().slice(0, 4) */}
             <div className="p-4 lg:p-12 flex flex-col lg:flex-row lg:space-x-20 ">
                 {
-                    data?.data?.posts?.slice(0, 1).map(({ title, image, category, content, id }) => (
+                    introablogData?.slice(0, 1).map(({ title, image, category, content, id }) => (
                         <LargeBlogcard key={id} title={title} blogPhoto={image} category={category.label} short_desc={parse(content.substring(0, 299))
                         } />
                     ))
@@ -73,7 +79,7 @@ const BlogIntro = () => {
 
                 <div className="lg:w-7/12 flex flex-col justify-between mt-12 space-y-5 lg:space-y-0 lg:mt-0">
                     {
-                        data?.data?.posts?.sort().reverse().slice(1, 4).map(({ title, image, category, content, id }) => (
+                        introablogData?.slice(1, 4).map(({ title, image, category, content, id }) => (
                             <SmallBlogcard key={id} title={title} blogPhoto={image} category={category.label} short_desc={parse(content.substring(0, 299))} />
                         ))
                     }
