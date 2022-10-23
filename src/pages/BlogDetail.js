@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 import { Link, useParams } from "react-router-dom";
 import { Facebook, WhatsApp } from '../assets/svgsIcons';
 import PagesIntro from '../components/global/PagesIntro';
 import { Instagram, Twitter2 } from '../assets/svgsIcons';
 import BlogBtn from '../components/form/BlogBtn';
-import blogdata from '../data/blog';
+// import blogdata from '../data/blog';
 import { kebabCase } from '../utils/utils'
 import useSWR from 'swr';
 import parse from "html-react-parser";

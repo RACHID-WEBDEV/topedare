@@ -68,7 +68,6 @@ const BlogIntro = () => {
                 <p className="text-center text-gray-600">Latest news and articles directly
                     coming from the blog</p>
             </Fade>
-            {/* data?.data?.posts?.sort().reverse().slice(0, 4) */}
             <div className="p-4 lg:p-12 flex flex-col lg:flex-row lg:space-x-20 ">
                 {
                     introablogData?.slice(0, 1).map(({ title, image, category, content, id }) => (
