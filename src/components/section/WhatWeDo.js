@@ -10,11 +10,12 @@ import { EmpowerIcon } from "../../assets/svgsIcons";
 import SectionImg from '../../assets/section/section-img.jpg'
 import useSWR from 'swr';
 import parse from 'html-react-parser';
+const _config = require("../../config.json")
 
 
 
 const WhatWeDo = ({ title, subTitle, cat1Title, cat1SubTitle, cat2Title, cat2SubTitle, cat3Title, cat3SubTitle, cat4Title, cat4SubTitle }) => {
-    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+    const { data, error } = useSWR(`${_config.REACT_APP_BASE_URL}public/content/components?user=${_config.REACT_APP_USER_lOGIN_ID}`)
 
     if (error) return console.log(error)
 

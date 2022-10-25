@@ -11,11 +11,12 @@ import classNames from 'classnames';
 import { CheckIcon } from '../../assets/svgsIcons';
 import useSWR from 'swr';
 import parse from "html-react-parser";
+const _config = require("../../config.json")
 
 
 
 function AboutIntro({ content, intro, switchColumn, aboutpage, subTitle, floatStats, title, statsTitle1, statsSubTitle1, statsTitle2, statsSubTitle2 }) {
-    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+    const { data, error } = useSWR(`${_config.REACT_APP_BASE_URL}public/content/components?user=${_config.REACT_APP_USER_lOGIN_ID}`)
 
     if (error) return console.log(error)
 

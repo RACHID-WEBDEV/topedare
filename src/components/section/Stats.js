@@ -6,10 +6,11 @@ import mapbg from '../../assets/cta/map-bg.png'
 import map from '../../assets/cta/serving-map2.png'
 import useSWR from "swr";
 import parse from 'html-react-parser';
+const _config = require("../../config.json")
 
 
 export default function Stats() {
-    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+    const { data, error } = useSWR(`${_config.REACT_APP_BASE_URL}public/content/components?user=${_config.REACT_APP_USER_lOGIN_ID}`)
 
     if (error) return console.log(error)
 

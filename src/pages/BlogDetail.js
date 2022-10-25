@@ -9,6 +9,8 @@ import { kebabCase } from '../utils/utils'
 import useSWR from 'swr';
 import parse from "html-react-parser";
 import moment from "moment";
+const _config = require("../config.json")
+
 
 // const SearchBar = ({ formSubmit, value, handleSearchKey, clearSearch }) => (
 //     <div className='searchBar-wrap'>
@@ -45,7 +47,7 @@ const BlogDetails = () => {
     // const { id } = useParams();
     const { slug } = useParams();
 
-    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/posts?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+    const { data, error } = useSWR(`${_config.REACT_APP_BASE_URL}public/content/posts?user=${_config.REACT_APP_USER_lOGIN_ID}`)
     if (error) console.log(error)
 
     let postDetails = data?.data?.posts?.find((blog) => kebabCase(blog.title) === slug);

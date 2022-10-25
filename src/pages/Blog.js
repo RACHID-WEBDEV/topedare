@@ -6,9 +6,11 @@ import Helmets from './Helmet';
 import { LargeBlogcard } from '../components/BlogCards';
 import useSWR from 'swr';
 import parse from "html-react-parser";
+const _config = require("../config.json")
+
 
 const Blog = () => {
-    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/posts?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+    const { data, error } = useSWR(`${_config.REACT_APP_BASE_URL}public/content/posts?user=${_config.REACT_APP_USER_lOGIN_ID}`)
 
     if (error) console.log(error)
     const [pageNumber, setPageNumber] = useState(0);

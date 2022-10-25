@@ -9,6 +9,7 @@ import BlogBtn from '../components/form/BlogBtn';
 import useSWR from 'swr';
 import parse from "html-react-parser";
 import ReactPaginate from 'react-paginate';
+const _config = require("../config.json")
 
 
 const Blog = () => {
@@ -16,7 +17,7 @@ const Blog = () => {
     const { pathname } = useLocation()
     const categoryPath = pathname.replace('/blog/category/', '')
 
-    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/posts?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+    const { data, error } = useSWR(`${_config.REACT_APP_BASE_URL}public/content/posts?user=${_config.REACT_APP_USER_lOGIN_ID}`)
     if (error) console.log(error)
 
 

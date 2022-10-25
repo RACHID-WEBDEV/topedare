@@ -21,11 +21,12 @@ import Helmets from './Helmet';
 // import { kebabCase } from '../utils/utils';
 import useSWR from 'swr';
 import parse from 'html-react-parser';
+const _config = require("../config.json")
 
 
 
 const About = () => {
-    const { data, error } = useSWR(`${process.env.REACT_APP_BASE_URL}public/content/components?user=${process.env.REACT_APP_USER_lOGIN_ID}`)
+    const { data, error } = useSWR(`${_config.REACT_APP_BASE_URL}public/content/components?user=${_config.REACT_APP_USER_lOGIN_ID}`)
 
     const result = data?.data?.components?.map(({ description }) => {
         return description

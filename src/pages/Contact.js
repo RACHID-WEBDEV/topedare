@@ -1,85 +1,57 @@
-import React, { useState, useEffect, useRef } from 'react'
-import emailjs from '@emailjs/browser';
+import React from 'react'
+import { contactUsSchema } from '../components/form/schema/contactUsSchema';
+import HookForm from '../components/form/Form'
+// import emailjs from '@emailjs/browser';
 import Button from '../components/form/Button'
 import Fade from 'react-reveal/Fade';
 import PagesIntro from '../components/global/PagesIntro';
 import SectionSubTitle from './../components/section/SectionSubTitle';
 import { toast } from 'react-toastify';
 import Helmets from './Helmet';
+import Input from '../components/form/Input';
+import Textarea from '../components/form/Textarea';
+import { v4 as uuid } from 'uuid';
+import useSWR from 'swr';
+import axios from 'axios';
+const _config = require("../config.json")
 
 
 const Contact = () => {
 
-    const initialValues = { fname: "", email: "", phone: "", message: "" };
-    const [formValues, setFormValues] = useState(initialValues);
-    const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
+    const { data, error } = useSWR(`${_config.REACT_APP_BASE_URL}public/contact/unit/pull?user=${_config.REACT_APP_USER_lOGIN_ID}`)
+    if (error) console.log(error)
 
-    const form = useRef();
+    let messageUnit = data?.data?.units?.find((item) => item.email?.toLowerCase() === "enquiry@topedare.com")
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value });
+    // console.log('messageUnit', messageUnit);
 
-    };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormErrors(validate(formValues));
+    const unique_id = uuid();
 
-        if ((Object.keys(formErrors).length === 0 && isSubmit)) {
+    const onSubmit = (data) => {
+        const formDataOutput = { id: unique_id, ...data, unit: { value: messageUnit.email, label: messageUnit.name } }
+        alert(JSON.stringify(formDataOutput));
 
-            emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, form.current,
-                process.env.REACT_APP_PUBLIC_KEY)
-                .then((result) => {
-                    console.log(result.text);
-                    setFormValues(initialValues)
-                    toast.success('Message sent Successfully!');
-                    console.log('Message Sent Successfully')
-                }, (error) => {
-                    console.log(error.text);
-                });
-        } else {
-            setIsSubmit(true);
-        }
+        const result = JSON.stringify(formDataOutput)
 
+        axios.post(`https://hubit-core.herokuapp.com/client/api/1.0/public/contact/new?user=633c095dd4d70251093c3c61`, result).then((res) => {
+            if (res.status === 200) {
+                toast.success('Message sent Successfully!');
+                // setTimeout(() => {
+                //   navigation.navigate('Login')
+                // }, 500);
+            }
+        }).catch((error) => {
+            console.log('contactError', error)
+            toast.error('Message Not Sent!');
+        });
+
+        // toast.success('Message sent Successfully!');
     };
 
 
-    useEffect(() => {
-        // console.log(formErrors);
-        if ((Object.keys(formErrors).length === 0 && isSubmit)) {
-            console.log(formValues);
-        }
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [formErrors]);
-
-    const validate = (values) => {
-        const errors = {};
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
-        if (!values.fname) {
-            errors.fname = "Fullname is required!";
-        }
-        if (!values.email) {
-            errors.email = "Email is required!";
-        } else if (!regex.test(values.email)) {
-            errors.email = "This is not a valid email format!";
-        }
-        if (!values.phone) {
-            errors.phone = "phone is required";
-        } else if (values.phone.length < 11) {
-            errors.phone = "phone must be more than 11 characters";
-        } else if (values.phone.length > 14) {
-            errors.phone = "phone cannot exceed more than 14 characters";
-        }
-        if (!values.message) {
-            errors.message = "Message is required!";
-        }
-
-        return errors;
-    };
+    // console.log('Message1', unique_id);
+    // // console.log('Message2', unique_id);
 
     return (
         <>
@@ -111,63 +83,29 @@ const Contact = () => {
                                     ) : (
                                         <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
                                     )} */}
-                                    <form ref={form} id="contact-form" onSubmit={handleSubmit}>
+                                    <HookForm onSubmit={onSubmit} schema={contactUsSchema}>
                                         <div className="flex space-x-7">
                                             <div className="mb-6 w-1/2">
-                                                <label htmlFor="name" className="font-display text-gray-700 mb-1 block text-lg">Name<span className="text-red-500">*</span></label>
-                                                <input
-                                                    name="fname"
-                                                    value={formValues.fname}
-                                                    onChange={handleChange}
-                                                    className="contact-form-input border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 px-2 hover:ring-2"
-                                                    id="name" type="text" />
-                                                <p className="text-red-500 mt-1">{formErrors.fname}</p>
+                                                <Input placeholder="Enter Your Fullname" label="Name" name="name" />
                                             </div>
                                             <div className="mb-6 w-1/2">
-                                                <label htmlFor="email" className="font-display text-gray-700 mb-1 block text-lg">Email<span className="text-red-500">*</span></label>
-                                                <input name="email" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 px-2 hover:ring-2" id="email" type="email"
-                                                    value={formValues.email}
-                                                    onChange={handleChange}
-                                                />
-                                                <p className="text-red-500 mt-1">{formErrors.email}</p>
+                                                {/* <Input placeholder="Enter Your Email Address" label="Email" name="email" /> */}
                                             </div>
                                         </div>
                                         <div className="mb-6 w-full">
-                                            <label htmlFor="phone" className="font-display text-gray-700 mb-1 block text-lg">Phone Number<span className="text-red-500">*</span></label>
-                                            <input name="phone"
-                                                value={formValues.phone}
-                                                onChange={handleChange}
-                                                className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 px-2 hover:ring-2" id="phone" type="number" />
-                                            <p className="text-red-500 mt-1">{formErrors.phone}</p>
+                                            <Input placeholder="Enter A Subject" label="Subject" name="title" />
+                                            {/* <Input placeholder="Enter Your Phone Number" label="Phone Number" name="phone" /> */}
                                         </div>
                                         <div className="mb-4">
-                                            <label htmlFor="message" className="font-display text-gray-700 mb-1 block text-lg">Message<span className="text-red-500">*</span></label>
-                                            <textarea id="message" className="contact-form-input  border-2 border-gray-200 hover:ring-gray-200 focus:ring-gray-200 outline-none w-full rounded-lg py-3 px-2 hover:ring-2" name="message"
-                                                value={formValues.message}
-                                                onChange={handleChange}
-                                                rows={5} defaultValue={""} />
-                                            <p className="text-red-500 mt-1">{formErrors.message}</p>
+                                            <Textarea rows="5" placeholder="Drop A Message " label="Message" name="message" />
                                         </div>
-                                        {/* <div className="mb-6 flex items-center space-x-2">
-                                            <input type="checkbox"
-                                                value={formValues.agreeToTerms}
-                                              
-                                                id="checked"
-                                                // checked={isChecked}
-                                                // onChange={e => setIsChecked(e.target.checked)}
-
-                                                name="agreeToTerms" className="checked:bg-tdf-blue-50 dark:bg-gray-600 text-accent border-gray-200 focus:ring-accent/20 dark:border-gray-500 h-5 w-5 self-start rounded focus:ring-offset-0" />
-                                            <label htmlFor="checked" className="dark:text-gray-200 text-sm">I agree to the Terms of Service</label>
-                                        </div> */}
-                                        <p className="text-red-500 mt-1">{formErrors.agreeToTerms}</p>
                                         <Button
                                             className=" capitalize" >
-                                            Submit
+                                            Send message
+
                                         </Button>
+                                    </HookForm>
 
-
-                                        <div id="contact-form-notice" className="relative mt-4 hidden rounded-lg border border-transparent p-4" />
-                                    </form>
                                 </div>
                             </Fade>
                             <Fade right>
