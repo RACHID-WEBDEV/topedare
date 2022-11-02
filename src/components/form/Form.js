@@ -9,6 +9,12 @@ const HookForm = ({ onSubmit, children, schema, defaultValues }) => {
     resolver: yupResolver(schema)
   });
 
+  React.useEffect(() => {
+    if (methods.formState.isSubmitSuccessful) {
+      methods.reset();
+    }
+  }, [methods, methods.formState.isSubmitSuccessful]);
+
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>

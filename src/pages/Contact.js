@@ -12,7 +12,7 @@ import Input from '../components/form/Input';
 import Textarea from '../components/form/Textarea';
 import { v4 as uuid } from 'uuid';
 import useSWR from 'swr';
-import axios from 'axios';
+// import axios from 'axios';
 const _config = require("../config.json")
 
 
@@ -31,22 +31,23 @@ const Contact = () => {
     const onSubmit = (data) => {
         const formDataOutput = { id: unique_id, ...data, unit: { value: messageUnit.email, label: messageUnit.name } }
         alert(JSON.stringify(formDataOutput));
+        toast.success('Message sent Successfully!');
 
-        const result = JSON.stringify(formDataOutput)
+        // const result = JSON.stringify(formDataOutput)
 
-        axios.post(`https://hubit-core.herokuapp.com/client/api/1.0/public/contact/new?user=633c095dd4d70251093c3c61`, result).then((res) => {
-            if (res.status === 200) {
-                toast.success('Message sent Successfully!');
-                // setTimeout(() => {
-                //   navigation.navigate('Login')
-                // }, 500);
-            }
-        }).catch((error) => {
-            console.log('contactError', error)
-            toast.error('Message Not Sent!');
-        });
+        // axios.post(`https://hubit-core.herokuapp.com/client/api/1.0/public/contact/new?user=633c095dd4d70251093c3c61`, result).then((res) => {
+        //     if (res.status === 200) {
+        //         toast.success('Message sent Successfully!');
+        //         // setTimeout(() => {
+        //         //   navigation.navigate('Login')
+        //         // }, 500);
+        //     }
+        // }).catch((error) => {
+        //     console.log('contactError', error)
+        //     toast.error('Message Not Sent!');
+        // });
 
-        // toast.success('Message sent Successfully!');
+
     };
 
 
@@ -89,12 +90,12 @@ const Contact = () => {
                                                 <Input placeholder="Enter Your Fullname" label="Name" name="name" />
                                             </div>
                                             <div className="mb-6 w-1/2">
-                                                {/* <Input placeholder="Enter Your Email Address" label="Email" name="email" /> */}
+                                                <Input placeholder="Enter Your Email Address" label="Email" name="email" />
                                             </div>
                                         </div>
                                         <div className="mb-6 w-full">
                                             <Input placeholder="Enter A Subject" label="Subject" name="title" />
-                                            {/* <Input placeholder="Enter Your Phone Number" label="Phone Number" name="phone" /> */}
+                                            <Input placeholder="Enter Your Phone Number" label="Phone Number" name="phone" />
                                         </div>
                                         <div className="mb-4">
                                             <Textarea rows="5" placeholder="Drop A Message " label="Message" name="message" />
