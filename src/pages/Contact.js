@@ -1,6 +1,7 @@
 import React from 'react'
 import { contactUsSchema } from '../components/form/schema/contactUsSchema';
 import HookForm from '../components/form/Form'
+import { useNavigate } from 'react-router-dom';
 // import emailjs from '@emailjs/browser';
 import Button from '../components/form/Button'
 import Fade from 'react-reveal/Fade';
@@ -12,7 +13,7 @@ import Input from '../components/form/Input';
 import Textarea from '../components/form/Textarea';
 import { v4 as uuid } from 'uuid';
 import useSWR from 'swr';
-// import axios from 'axios';
+import axios from 'axios';
 const _config = require("../config.json")
 
 
@@ -24,52 +25,31 @@ const Contact = () => {
     let messageUnit = data?.data?.units?.find((item) => item.email?.toLowerCase() === "enquiry@topedare.com")
 
     // console.log('messageUnit', messageUnit);
-
+    const navigate = useNavigate()
 
     const unique_id = uuid();
 
     const onSubmit = (data) => {
-<<<<<<< HEAD
-        const formDataOutput = { id: unique_id, ...data, unit: { value: messageUnit.email, label: messageUnit.name } }
-        alert(JSON.stringify(formDataOutput));
-        toast.success('Message sent Successfully!');
-
-        // const result = JSON.stringify(formDataOutput)
-
-        // axios.post(`https://hubit-core.herokuapp.com/client/api/1.0/public/contact/new?user=633c095dd4d70251093c3c61`, result).then((res) => {
-        //     if (res.status === 200) {
-        //         toast.success('Message sent Successfully!');
-        //         // setTimeout(() => {
-        //         //   navigation.navigate('Login')
-        //         // }, 500);
-        //     }
-        // }).catch((error) => {
-        //     console.log('contactError', error)
-        //     toast.error('Message Not Sent!');
-        // });
-
-
-=======
-        const {name, title, message} = data
-        let formDataOutput = { id: unique_id, name:name, title:title, message:message, unit: { value: messageUnit.email, label: messageUnit.name } }
-        //console.log(data);
-
-        //const result = JSON.stringify(formDataOutput)
+        const { name, title, message } = data
+        let formDataOutput = { id: unique_id, name: name, title: title, message: message, unit: { value: messageUnit.email, label: messageUnit.name } }
+        // console.log('data', data);
+        // console.log('formDataOutput', formDataOutput);
+        // setTimeout(() => {
+        //     navigate('/')
+        // }, 6000);
 
         axios.post("https://hubit-core.herokuapp.com/client/api/1.0/public/contact/new?user=633c095dd4d70251093c3c61", formDataOutput).then((res) => {
             if (res.status === 201) {
                 toast.success('Message sent Successfully!');
-                // setTimeout(() => {
-                //   navigation.navigate('Login')
-                // }, 500);
+                setTimeout(() => {
+                    navigate('/')
+                }, 6000);
             }
         }).catch((error) => {
             console.log('contactError', error)
             toast.error('Message Not Sent!');
         });
 
-        // toast.success('Message sent Successfully!');
->>>>>>> 91a83ceb4b798982d18ab0849661533570f62de9
     };
 
 
@@ -116,8 +96,8 @@ const Contact = () => {
                                             </div>
                                         </div>
                                         <div className="mb-6 w-full">
-                                            <Input placeholder="Enter A Subject" label="Subject" name="title" />
                                             <Input placeholder="Enter Your Phone Number" label="Phone Number" name="phone" />
+                                            <Input placeholder="Enter A Subject" label="Subject" name="title" />
                                         </div>
                                         <div className="mb-4">
                                             <Textarea rows="5" placeholder="Drop A Message " label="Message" name="message" />

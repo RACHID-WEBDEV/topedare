@@ -11,19 +11,12 @@ import Label from './Label';
 const Input = ({ className, name, label, placeholder, rows }) => {
     const {
         register,
-        reset,
-        formState,
-        formState: { dirtyFields, errors, isSubmitSuccessful }
+        formState: { dirtyFields, errors }
     } = useFormContext();
 
     const hasErrors = !!errors?.[name];
     const isValid = !!dirtyFields?.[name] && !hasErrors;
 
-    React.useEffect(() => {
-        if (formState.isSubmitSuccessful) {
-            reset({ name: '' });
-        }
-    }, [formState, isSubmitSuccessful, reset]);
 
     return (
         <>

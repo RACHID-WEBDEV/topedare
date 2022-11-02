@@ -11,6 +11,7 @@ const HookForm = ({ onSubmit, children, schema, defaultValues }) => {
 
   React.useEffect(() => {
     if (methods.formState.isSubmitSuccessful) {
+      console.log('summited?', methods.formState.isSubmitSuccessful)
       methods.reset();
     }
   }, [methods, methods.formState.isSubmitSuccessful]);
