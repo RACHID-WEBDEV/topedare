@@ -29,13 +29,14 @@ const Contact = () => {
     const unique_id = uuid();
 
     const onSubmit = (data) => {
-        const formDataOutput = { id: unique_id, ...data, unit: { value: messageUnit.email, label: messageUnit.name } }
-        alert(JSON.stringify(formDataOutput));
+        const {name, title, message} = data
+        let formDataOutput = { id: unique_id, name:name, title:title, message:message, unit: { value: messageUnit.email, label: messageUnit.name } }
+        //console.log(data);
 
-        const result = JSON.stringify(formDataOutput)
+        //const result = JSON.stringify(formDataOutput)
 
-        axios.post(`https://hubit-core.herokuapp.com/client/api/1.0/public/contact/new?user=633c095dd4d70251093c3c61`, result).then((res) => {
-            if (res.status === 200) {
+        axios.post("https://hubit-core.herokuapp.com/client/api/1.0/public/contact/new?user=633c095dd4d70251093c3c61", formDataOutput).then((res) => {
+            if (res.status === 201) {
                 toast.success('Message sent Successfully!');
                 // setTimeout(() => {
                 //   navigation.navigate('Login')
