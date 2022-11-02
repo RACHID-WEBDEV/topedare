@@ -29,6 +29,7 @@ const Contact = () => {
     const unique_id = uuid();
 
     const onSubmit = (data) => {
+<<<<<<< HEAD
         const formDataOutput = { id: unique_id, ...data, unit: { value: messageUnit.email, label: messageUnit.name } }
         alert(JSON.stringify(formDataOutput));
         toast.success('Message sent Successfully!');
@@ -48,6 +49,27 @@ const Contact = () => {
         // });
 
 
+=======
+        const {name, title, message} = data
+        let formDataOutput = { id: unique_id, name:name, title:title, message:message, unit: { value: messageUnit.email, label: messageUnit.name } }
+        //console.log(data);
+
+        //const result = JSON.stringify(formDataOutput)
+
+        axios.post("https://hubit-core.herokuapp.com/client/api/1.0/public/contact/new?user=633c095dd4d70251093c3c61", formDataOutput).then((res) => {
+            if (res.status === 201) {
+                toast.success('Message sent Successfully!');
+                // setTimeout(() => {
+                //   navigation.navigate('Login')
+                // }, 500);
+            }
+        }).catch((error) => {
+            console.log('contactError', error)
+            toast.error('Message Not Sent!');
+        });
+
+        // toast.success('Message sent Successfully!');
+>>>>>>> 91a83ceb4b798982d18ab0849661533570f62de9
     };
 
 
