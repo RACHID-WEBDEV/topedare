@@ -128,7 +128,7 @@ const Gallery = () => {
 
                     {displayPosts}
                 </div>
-                <div className="mb-5">
+                <div className="mb-10">
                     {setShowPost &&
                         <ReactPaginate
                             previousLabel={<span >&#x2039; </span>}
