@@ -70,9 +70,14 @@ const Gallery = () => {
     const displayPosts = showPost
         .slice(pagesVisited, pagesVisited + postPerPage)
         .map((item, index) => (
-            <span key={index} onClick={() => handleClick(item, index)} className="overflow-hidden group rounded-lg">
-                <img onClick={() => handleClick(item, index)} className="pic  w-full mb-6 rounded-lg" src={item.imgLink} alt={item.subTitle} loading="lazy" />
-            </span>
+            <div key={index} className="break-inside border rounded-lg p-3 mb-5">
+                <span onClick={() => handleClick(item, index)} className="overflow-hidden group rounded-lg">
+                    <img onClick={() => handleClick(item, index)} className="pic w-full  rounded-lg" src={item.imgLink} alt={item.subTitle} loading="lazy" />
+                </span>
+            </div>
+            // <span key={index} onClick={() => handleClick(item, index)} className="overflow-hidden group  rounded-lg">
+            //     <img onClick={() => handleClick(item, index)} className="pic  w-full mb-6 rounded-lg" src={item.imgLink} alt={item.subTitle} loading="lazy" />
+            // </span>
         ))
 
     const pageCount = Math.ceil(showPost.length / postPerPage);
@@ -112,7 +117,7 @@ const Gallery = () => {
                     </div>
                 </div>
                 {/* gap-8 columns-1 lg:columns-sm  */} {/* aspect-square  -> to image tag below*/}
-                <div className="gallery ">
+                <div className="masonry-3-col ">
                     {/* {
                         data.data.map((item, index) => (
                             <span key={index} onClick={() => handleClick(item, index)} className="overflow-hidden group rounded-lg">
@@ -123,19 +128,40 @@ const Gallery = () => {
 
                     {displayPosts}
                 </div>
-                {setShowPost &&
-                    <ReactPaginate
-                        previousLabel={<span >&#x2039; </span>}
-                        nextLabel={<span >   &#8250;</span>}
-                        pageCount={pageCount}
-                        onPageChange={changePage}
-                        containerClassName={"paginationBttns"}
-                        previousLinkClassName={"previousBttn"}
-                        nextLinkClassName={"nextBttn"}
-                        disabledClassName={"paginationDisabled"}
-                        activeClassName={"paginationActive"}
-                    />
-                }
+                <div className="mt-10">
+                    {setShowPost &&
+                        <ReactPaginate
+                            previousLabel={<span >&#x2039; </span>}
+                            nextLabel={<span >   &#8250;</span>}
+                            pageCount={pageCount}
+                            onPageChange={changePage}
+                            containerClassName={"paginationBttns"}
+                            previousLinkClassName={"previousBttn"}
+                            nextLinkClassName={"nextBttn"}
+                            disabledClassName={"paginationDisabled"}
+                            activeClassName={"paginationActive"}
+                        />
+                    }
+
+                </div>
+
+                {/* <>
+                    <h3 className="mb-2 text-3xl">Masonry Design with TailwindCss</h3>
+
+                    <div className="masonry-3-col">
+                        {
+                            data.data.map((item, index) => (
+                                <div key={index} className="break-inside border p-3 mb-3">
+                                    <span onClick={() => handleClick(item, index)} className="overflow-hidden group rounded-lg">
+                                        <img onClick={() => handleClick(item, index)} className="pic  w-full mb-6 rounded-lg" src={item.imgLink} alt={item.subTitle} loading="lazy" />
+                                    </span>
+                                </div>
+
+                            ))
+                        }
+                        
+                    </div>
+                </> */}
 
                 {/* <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 p-2 lg:p-8">
                     {
