@@ -127,8 +127,8 @@ function ProjectsCard() {
                             <div className="flex flex-wrap items-center pb-12">
                                 <div className="md:w-1/2 lg:w-2/3 w-full xl:pr-20 md:pr-6">
                                     <div className="py-2 text-color">
-                                        <h1 className="text-2xl lg:text-3xl text-gray-800 ">FINANCIAL EMPOWERMENT</h1>
-                                        <p className="text-gray-600 text-lg lg:text-2xl py-4 ">Our key financial empowerment initiative is geared towards the empowerment of women and younger people in our communities by supporting individuals to start small and medium-sized enterprises. The Tope Dare Foundation has already started identifying eligible beneficiaries in preparation for the program’s implementation in Lagos, Ogun, Ekiti, and Ondo State and will be actively targeting and empowering hundreds of women to help them become successful entrepreneurs.</p>
+                                        <h1 className="text-2xl lg:text-3xl text-gray-800 ">EMPOWERMENT</h1>
+                                        <p className="text-gray-600 text-lg lg:text-2xl py-4 ">Our key empowerment initiative is geared towards the empowerment of women and younger people in our communities by supporting individuals to start small and medium-sized enterprises. The Tope Dare Foundation has already started identifying eligible beneficiaries in preparation for the program’s implementation in Lagos, Ogun, Ekiti, and Ondo State and will be actively targeting and empowering hundreds of women to help them become successful entrepreneurs.</p>
                                         <div className="cursor-pointer pb-4 md:pb-0">
                                             <SupportBtn title="Support Our Work" />
                                         </div>

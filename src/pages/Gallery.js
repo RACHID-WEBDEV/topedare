@@ -64,7 +64,7 @@ const Gallery = () => {
         window.scrollTo({ behavior: 'smooth', top: '0px' });
     }, [pageNumber]);
 
-    const postPerPage = 12;
+    const postPerPage = 15;
     const pagesVisited = pageNumber * postPerPage;
 
     const displayPosts = showPost

@@ -87,16 +87,16 @@ const Contact = () => {
                                         <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
                                     )} */}
                                     <HookForm onSubmit={onSubmit} schema={contactUsSchema}>
-                                        <div className="flex space-x-7">
-                                            <div className="mb-6 w-1/2">
+                                        <div className="flex lg:flex-row flex-col lg:space-x-7">
+                                            <div className="mb-6  w-full lg:w-1/2">
                                                 <Input placeholder="Enter Your Fullname" label="Name" name="name" />
                                             </div>
-                                            <div className="mb-6 w-1/2">
+                                            <div className="mb-6  w-full lg:w-1/2">
                                                 <Input placeholder="Enter Your Email Address" label="Email" name="email" />
                                             </div>
                                         </div>
                                         <div className="mb-6 w-full">
-                                            <Input placeholder="Enter Your Phone Number" label="Phone Number" name="phone" />
+                                            {/* <Input placeholder="Enter Your Phone Number" label="Phone Number" name="phone" /> */}
                                             <Input placeholder="Enter A Subject" label="Subject" name="title" />
                                         </div>
                                         <div className="mb-4">
