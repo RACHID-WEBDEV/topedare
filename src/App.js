@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Header from "./components/global/Header";
 
@@ -43,40 +44,53 @@ function App() {
 
   const fetcher = (...args) => axios.get(...args).then(res => res.data)
 
+  const [loading, setLoading] = useState(true);
+  const spinner = document.getElementById("spinner");
+  if (spinner) {
+    setTimeout(() => {
+      spinner.style.display = "none";
+      setLoading(false);
+    }, 2000);
+  }
+
   return (
     <>
-      <SWRConfig value={{ fetcher }}>
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-        <Header />
+      {
+        !loading && (
+          <SWRConfig value={{ fetcher }}>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+            <Header />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="projects" element={<Projects />} />
-          <Route path="gallery" element={<Gallery />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="blog" element={<Blog />} />
-          <Route path="blog/category/:catgory" element={<Category />} />
-          <Route path="blog/:slug" element={<BlogDetail />} />
-          <Route path="blog-details" element={<BlogDetails />} />
-          <Route path="project-listing" element={<ProjectListing />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-        {/* Same as */}
-        <ToastContainer />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="projects" element={<Projects />} />
+              <Route path="gallery" element={<Gallery />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="blog" element={<Blog />} />
+              <Route path="blog/category/:catgory" element={<Category />} />
+              <Route path="blog/:slug" element={<BlogDetail />} />
+              <Route path="blog-details" element={<BlogDetails />} />
+              <Route path="project-listing" element={<ProjectListing />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <Footer />
+            {/* Same as */}
+            <ToastContainer />
 
-      </SWRConfig>
+          </SWRConfig>
+        )
+      }
 
     </>
   );

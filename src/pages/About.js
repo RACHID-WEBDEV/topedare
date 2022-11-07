@@ -142,6 +142,7 @@ const About = () => {
                                     </div>
                                 </div>
                             </Fade>}
+
                         {category4 &&
                             <Fade bottom>
                                 <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
@@ -176,13 +177,14 @@ const About = () => {
                                     </div>
                                 </div>
                             </Fade>}
-                        {category3 &&
+                        {/* category3 expected below */}
+                        {category4 &&
                             <Fade bottom>
                                 <div className="relative group bg-gray-100 transition hover:z-[1] hover:shadow-2xl lg:hidden xl:block">
                                     <div className="relative p-8 space-y-8 border-dashed rounded-lg transition duration-300 group-hover:bg-white group-hover:border group-hover:scale-90">
                                         <img src={Employment} className="w-10" alt="Employment illustration" />
                                         <div className="space-y-2">
-                                            {parse(category3?.description)}
+                                            {parse(category4?.description)}
                                         </div>
                                         <Link to="" className="flex justify-between items-center group-hover:text-gray-600">
                                             <span className="text-base">Read more</span>

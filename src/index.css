@@ -1,39 +1,40 @@
-@layer utilities {
-  @variants responsive {
-    .masonry-3-col {
-      column-count: 3;
-      column-gap: 1em;
-      @apply mx-10;
-    }
+/*@layer utilities {
+  @variants responsive { */
+.masonry-3-col {
+  column-count: 3;
+  column-gap: 1em;
+  @apply mx-10;
+}
 
-    @media (max-width: 991px) {
-      .masonry-3-col {
-        column-count: 2;
-        column-gap: 1em;
-        @apply mx-5;
-      }
-    }
-    @media (max-width: 480px) {
-      .masonry-3-col {
-        column-count: 1;
-        column-gap: 1em;
-        @apply mx-1;
-      }
-    }
-
-    .break-inside {
-      break-inside: avoid;
-    }
-    .pic {
-      -webkit-transition: all 350ms ease;
-      transition: all 350ms ease;
-      @apply cursor-pointer;
-    }
-    .pic:hover {
-      filter: opacity(0.8);
-    }
+@media (max-width: 991px) {
+  .masonry-3-col {
+    column-count: 2;
+    column-gap: 1em;
+    @apply mx-5;
   }
 }
+@media (max-width: 480px) {
+  .masonry-3-col {
+    column-count: 1;
+    column-gap: 1em;
+    @apply mx-1;
+  }
+}
+
+.break-inside {
+  break-inside: avoid;
+}
+.pic {
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+  @apply cursor-pointer;
+}
+.pic:hover {
+  filter: opacity(0.8);
+}
+/* } 
+}
+*/
 @font-face {
   font-family: "Fredoka";
   src: url("../public/font/FredokaFonts/FredokaOne-Regular.otf")
