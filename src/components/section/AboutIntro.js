@@ -20,9 +20,9 @@ function AboutIntro({ content, intro, switchColumn, aboutpage, subTitle, floatSt
 
     if (error) return console.log(error)
 
-    if (!data) {
-        return <h1>Loading...</h1>
-    }
+    // if (!data) {
+    //     return <h1>Loading...</h1>
+    // }
     const render = data?.data?.components?.find(({ slug }) => {
         return slug === "about-intro-test"
     })
