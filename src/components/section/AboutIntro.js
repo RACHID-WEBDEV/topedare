@@ -17,12 +17,22 @@ const _config = require("../../config.json")
 
 function AboutIntro({ content, intro, switchColumn, aboutpage, subTitle, floatStats, title, statsTitle1, statsSubTitle1, statsTitle2, statsSubTitle2 }) {
     const { data, error } = useSWR(`${_config.REACT_APP_BASE_URL}public/content/components?user=${_config.REACT_APP_USER_lOGIN_ID}`)
-
+    // const spinner = document.getElementById("spinner");
     if (error) return console.log(error)
 
     // if (!data) {
     //     return <h1>Loading...</h1>
     // }
+
+    if (!data) {
+        return (
+            <div className="containerspiner">
+                <div className="loading" />
+            </div>
+        )
+    }
+
+
     const render = data?.data?.components?.find(({ slug }) => {
         return slug === "about-intro-test"
     })
